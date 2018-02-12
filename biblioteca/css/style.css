@@ -1,0 +1,113 @@
+.IconEndereco, .IconPessoais2, .IconPessoa, .IconContato, .IconDependente, .IconPlano, .IconCard {
+  background: url(../img/icon-endereco.png) no-repeat;
+  padding-left: 30px;
+  font-size: 16px;
+  color: #3c3c3c;
+  clear: both;
+  display: block;
+  height: 35px;
+  padding-top: 9px;
+  border-bottom: 1px solid #3c3c3c; }
+
+.IconPessoa{
+	background:url(../img/icon-user.png) no-repeat;
+	margin-top:0;	
+}
+
+.IconContato {
+  background: url(../img/icon-contato.png) no-repeat 0 18px;
+  padding-top: 28px;
+  height: 47px; 
+}
+
+.IconPlano {
+  background: url(../img/iconPlano.png) no-repeat;
+  margin-top: 0;
+}
+
+.IconEndereco {
+  
+  margin-top: 0; 
+}
+
+.IconDependente{
+	background:url(../img/iconDependentes.png) no-repeat;
+	margin-top:0;	
+}
+
+.logoAmil{
+	background:url(../img/logo.png) no-repeat;
+	margin-top: 39px;
+}
+
+.azul{
+	background-color: #0CBFDD;
+	width: 100%;
+	height: 5px;	
+}
+.zinza{
+	background-color: #9FA1A1;
+	width: 100%;
+	height: 5px;
+}
+
+.menutopo{
+
+	background-color: white;
+	margin-top: 46px;
+	font-size: 19px;
+	margin-left: 20px;
+}
+
+.navbar-toggleable-md .navbar-nav .nav-link {
+    padding-right: 2.0rem;
+    padding-left: .10rem;
+}
+
+.titulo h1{
+	font-size: 27px;
+    font-weight: normal;
+    color: #4c4c4c;
+    margin-top: 30px;
+}
+
+.rodape{
+	margin-top: -10px;
+}
+
+.menuformulario{
+	background-color: #00BFDF;
+	margin-top: 20px;
+	font-size: 25px;
+	margin-bottom: 30px;
+	height: 40px;
+	color:white;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.checked{
+	background-color: #2894B3;	
+	border-radius: 4px 4px 4px 4px;
+}
+
+.borda{
+	border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 0 0;
+}
+
+.botao{
+	margin-top: 20px;
+}
+
+.cor{
+	background-color: #00BFDF;
+	color: white;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #00BFDF;
+    border-color: #0275d8;
+}
+

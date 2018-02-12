@@ -1,0 +1,25 @@
+.tabela{
+	 border: 1px solid black;
+	 font-size: 13px;
+}
+
+.tabela tr{
+	 border: 1px solid black;
+}
+
+.tabela td{
+	 border: 1px solid black;
+	 padding-left: 4px;
+}
+
+.tabela1{
+	border:none;
+}
+
+.tabela1 tr{
+	border:none;
+}
+
+.tabela1 td{
+	border:none;
+}

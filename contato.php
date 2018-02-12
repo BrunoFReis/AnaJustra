@@ -1,8 +1,6 @@
 <?php 
     session_start();
-    
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/cabecalho.php");
-    //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");
 
     //$produtoDAO = new ProdutoDAO($conexao); 
 ?>
@@ -11,7 +9,7 @@
             <hr>
         </div>
         <div class="container">
-	        <form>
+	        <form method="POST" action="">
 	            <div id="titular" style="display:block">
 	                <div class="row justify-content-center">
 

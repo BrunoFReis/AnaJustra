@@ -11,12 +11,19 @@ $("#txtDataNascimentoDependente").mask("99/99/9999");
 function SalvarPaginaTitular(){
 
 	if(validarTitular()){
+<<<<<<< HEAD
 
 	document.getElementById('titular').style.display = 'none';
 	document.getElementById('titularidade').style.display = 'none';
 	document.getElementById('dependencia').style.display = 'block';
 	document.getElementById('dependente').style.display = 'block';	
 
+=======
+		document.getElementById('titular').style.display = 'none';
+		document.getElementById('titularidade').style.display = 'none';
+		document.getElementById('dependencia').style.display = 'block';
+		document.getElementById('dependente').style.display = 'block';
+>>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5
 	}
 }
 
@@ -28,7 +35,6 @@ function SalvarDependente(){
 }
 
 function validarTitular(){
-
 	var nome = document.getElementById('txtNomeTitular').value;
 	var data = document.getElementById('txtDataNascimento').value;
 	var cpf = document.getElementById('txtcpf').value;
@@ -175,3 +181,33 @@ function validarTitular(){
 	return true;
 
 }
+<<<<<<< HEAD
+=======
+
+var listaDependentes = [];
+
+function AdicionarDependente(){
+
+	var dependente = {};
+	dependente.nome = $("#txtNomeDependente").val();
+	dependente.sexo = $("#slcsexo").val();
+	dependente.parentesco = $("#dp_graudeparentesco").val();
+	dependente.estadocivil = $("#estadocivil").val();
+	dependente.cpf = $("#txtCPFDependente").val();
+	dependente.nasc = $("#txtDataNascimentoDependente").val();
+	dependente.nomemae = $("#depnomemae").val();
+	//dependente.sosdental = $("#txtNomeDependente").val();
+
+	listaDependentes.push(dependente);
+	atualizaListaDep();
+	$("#txtNomeDependente, #slcsexo, #dp_graudeparentesco, #estadocivil, #txtCPFDependente, #txtDataNascimentoDependente, #depnomemae").val("");
+}
+
+function atualizaListaDep(){
+	$("#tblListDependentes tbody tr").remove();
+	$.each(listaDependentes, function(i, elem){
+		$("#tblListDependentes tbody").append("<tr><td>"+(i+1)+" - "+elem.nome+" - "+elem.cpf+" </td></tr>");
+	});
+}
+
+>>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5

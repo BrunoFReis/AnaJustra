@@ -265,10 +265,17 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
+<<<<<<< HEAD
                                         <select name="sosDental" id="sosDental" class="form-control sosdental" required>
                                             <option value="" selected="selected" disabled>SOS Dental</option>
                                                 <option value="1">Sim</option>
                                                 <option value="2">Não</option>                                                
+=======
+                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
+                                            <option value="" selected="selected" disabled>Sexo</option>
+                                            <option value="CASADO">Masculino</option>
+                                            <option value="SOLTEIRO">Feminino</option>                                        
+>>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5
                                         </select>
                                     </div>                                   
                                 </div>
@@ -276,7 +283,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" placeholder="Nome completo mãe" required>
+                                        <input type="text" name="depnomemae" id="depnomemae" class="form-control" placeholder="Nome completo mãe" required>
                                     </div>                                        
                                 </div>
                             </div>
@@ -298,7 +305,7 @@
                                </tbody>
                            </table>                               
                            <h4 class="IconDependente">Dependente</h4>                       
-                            <table width="100%" style="margin-bottom: 15px;">
+                            <table id="tblListDependentes" width="100%" style="margin-bottom: 15px;">
                                <tbody>
                                    <tr style="background-color:#f9f9f9; padding: 4px;" >
                                        <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;">Dependente</th>

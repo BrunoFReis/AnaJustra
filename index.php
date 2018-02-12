@@ -14,8 +14,10 @@
         <link rel="stylesheet" type="text/css" href="biblioteca/css/style.css">
         
         <!--Javascript-->
-        <script type="text/javascript" scr="biblioteca/js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" scr="biblioteca/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="biblioteca/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="biblioteca/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="biblioteca/js/formulario.js"></script>
+        <script type="text/javascript" src="biblioteca/js/jquery.mask.js"></script>
        
         <style>
             .btn-primary {
@@ -37,7 +39,8 @@
                 border-color: #2894B3;
                 cursor:pointer;
             }
-        </style>    
+        </style>         
+       
     </head>
     <body>
         <?php
@@ -96,7 +99,7 @@
                             </div>
                     </div>
                 </div>
-                <div id="Dependente" style="Display:none;">
+                    <div id="dependencia" style="Display:none;">
                     <div class="row menuformulario">
                          <div class="col-md-4 " align="center">
                                 Titular                            
@@ -126,38 +129,21 @@
                         <div id="titular" style="Display:block">
                             <div class="row"> 
                                 <div class="col-md-6">
-                                    <h4 class="IconPessoa">Dados Pessoais</h4>                        
-                                    <div  class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <input type="text" class="form-control" placeholder="CPF">
-                                            </div>
-                                        </div>
-                                    </div>                        
+                                    <h4 class="IconPessoa">Dados Pessoais</h4>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" placeholder="Nome do Titular">
+                                                <input type="text" name="txtNomeTitular" id="txtNomeTitular" class="form-control" placeholder="Nome do Titular" required="required">
                                             </div>
                                         </div>
-                                    </div>                            
+                                    </div>     
                                     <div class="form-group">
-                                        <div class="row">
+                                        <div class="row">                                           
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="RG">
+                                                <input type="text" name="txtDataNascimento" id="txtDataNascimento" class="form-control" placeholder="Data de Nascimento" required="required">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Data Expedição RG">
-                                            </div>
-                                        </div>
-                                    </div>    
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Orgão Expeditor/UF">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Data de Nascimento">
+                                                <input type="text" name="txtcpf" id="txtcpf" class="form-control" placeholder="CPF" required="required">
                                             </div>
                                         </div>
                                     </div>   
@@ -175,53 +161,46 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
-                                                <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required="required">
+                                                <select name="sexo" id="sexo" class="form-control" required="required">
                                                     <option value="" selected="selected" disabled>Sexo</option>
-                                                    <option value="CASADO">Masculino</option>
-                                                    <option value="SOLTEIRO">Feminino</option>                                        
+                                                    <option value="1">Masculino</option>
+                                                    <option value="2">Feminino</option>                                        
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>                                      
+                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="text" txt="txtNomeMae" id="txtNomeMae" class="form-control" placeholder="Nome completo mãe" required="required">
+                                            </div>                                            
+                                        </div>
+                                    </div>  
+                                    <h4 class="IconContato">Contato</h4>                       
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Título de Eleitor">
+                                                <input type="text" name="txtCelular" id="txtCelular" class="form-control" placeholder="Celular" required="required">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Cartão do SUS">
+                                                <input type="text" name="txtTelefoneResidencial" id="txtTelefoneResidencial" class="form-control" placeholder="Telefone Residencial" required="required">
                                             </div>
                                         </div>
-                                    </div>  
-                                     <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Nome completo mãe">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select name="escolaridade_adesoes" id="escolaridade" class="form-control">
-                                                    <option value="" selected="selected" disabled>Escolaridade</option>
-                                                    <option value="DOUTORADO">Doutorado</option>
-                                                    <option value="ENSINO FUNDAMENTAL COMPLETO">Ensino Fundamental Completo</option>
-                                                    <option value="ENSINO FUNDAMENTAL INCOMPLETO">Ensino Fundamental Incompleto</option>
-                                                    <option value="ENSINO MÉDIO COMPLETO">Ensino Médio Completo</option>
-                                                    <option value="ENSINO MÉDIO INCOMPLETO">Ensino Médio Incompleto</option>
-                                                    <option value="ENSINO SUPERIOR COMPLETO">Ensino Superior Completo</option>
-                                                    <option value="ENSINO SUPERIOR INCOMPLETO">Ensino Superior Incompleto</option>
-                                                    <option value="MESTRADO">Mestrado</option>
-                                                    <option value="PÓS-GRADUADO">Pós-Graduado</option>
-                                                    <option value="SEM ESCOLARIDADE">Sem Escolaridade</option>
-                                                </select>
+                                    </div> 
+                                    <div class="form-group">
+                                        <div class="row">                                            
+                                            <div class="col-md-12">
+                                                <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" required="required">
                                             </div>
                                         </div>
-                                    </div>                          
+                                    </div> 
                                 </div>
                                 <div class="col-md-6">
                                    <h4 class="IconEndereco">Endereço</h4>          
                                    <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="CEP">
+                                                <input type="text" name="txtCEP" id="txtCEP"  class="form-control" placeholder="CEP" required="required">
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="uf_adesoes" class="form-control" id="uf" required="required">
@@ -260,51 +239,30 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Cidade">
+                                                <input type="text" name="txtCidade" id="txtCidade" class="form-control" placeholder="Cidade" required="required">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Bairro">
+                                                <input type="text" name="txtBairro" id="txtBairro" class="form-control" placeholder="Bairro" required="required">
                                             </div>
                                         </div>
                                     </div>  
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" placeholder="Logradouro">
+                                                <input type="text" name="txtLogradouro" id="txtLogradouro" class="form-control" placeholder="Logradouro" required="required">
                                             </div>                                
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Número">
+                                                <input type="text" name="txtNumero" id="txtNumero" class="form-control" placeholder="Número" required="required">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Complemento">
+                                                <input type="text" name="txtComplemento" id="txtComplemento" class="form-control" placeholder="Complemento" required="required">
                                             </div>
                                         </div>
-                                    </div> 
-                                    <h4 class="IconContato">Contato</h4>                       
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Celular">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Telefone Residencial">
-                                            </div>
-                                        </div>
-                                    </div> 
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Telefone Residencial">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Email">
-                                            </div>
-                                        </div>
-                                    </div>                            
+                                    </div>                     
                                 </div>
                             </div>                        
                         <div class="form-group">

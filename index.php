@@ -58,24 +58,24 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="txtNomeTitular" id="txtNomeTitular" class="form-control" placeholder="Nome do Titular" required="required">
+                                            <input type="text" name="txtNomeTitular" id="txtNomeTitular" class="form-control" placeholder="Nome do Titular" required>
                                         </div>
                                     </div>
                                 </div>     
                                 <div class="form-group">
                                     <div class="row">                                           
                                         <div class="col-md-6">
-                                            <input type="text" name="txtDataNascimento" id="txtDataNascimento" class="form-control" placeholder="Data de Nascimento" required="required">
+                                            <input type="text" name="txtDataNascimento" id="txtDataNascimento" class="form-control" placeholder="Data de Nascimento" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="txtcpf" id="txtcpf" class="form-control" placeholder="CPF" required="required">
+                                            <input type="text" name="txtcpf" id="txtcpf" class="form-control" placeholder="CPF" required>
                                         </div>
                                     </div>
                                 </div>   
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required="required">
+                                            <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
                                                 <option value="" selected="selected" disabled>Estado civil</option>
                                                 <option value="1">Solteiro</option>
                                                 <option value="2">Casado</option>
@@ -86,7 +86,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-6">
-                                            <select name="sexo" id="sexo" class="form-control" required="required">
+                                            <select name="sexo" id="sexo" class="form-control" required>
                                                 <option value="" selected="selected" disabled>Sexo</option>
                                                 <option value="1">Masculino</option>
                                                 <option value="2">Feminino</option>                                        
@@ -97,7 +97,7 @@
                                  <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" txt="txtNomeMae" id="txtNomeMae" class="form-control" placeholder="Nome completo mãe" required="required">
+                                            <input type="text" txt="txtNomeMae" id="txtNomeMae" class="form-control" placeholder="Nome completo mãe" required>
                                         </div>                                            
                                     </div>
                                 </div>  
@@ -105,17 +105,17 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="txtCelular" id="txtCelular" class="form-control" placeholder="Celular" required="required">
+                                            <input type="text" name="txtCelular" id="txtCelular" class="form-control" placeholder="Celular" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="txtTelefoneResidencial" id="txtTelefoneResidencial" class="form-control" placeholder="Telefone Residencial" required="required">
+                                            <input type="text" name="txtTelefoneResidencial" id="txtTelefoneResidencial" class="form-control" placeholder="Telefone Residencial" required>
                                         </div>
                                     </div>
                                 </div> 
                                 <div class="form-group">
                                     <div class="row">                                            
                                         <div class="col-md-12">
-                                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" required="required">
+                                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Email" required>
                                         </div>
                                     </div>
                                 </div> 
@@ -125,10 +125,10 @@
                                <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="txtCEP" id="txtCEP"  class="form-control" placeholder="CEP" required="required">
+                                            <input type="text" name="txtCEP" id="txtCEP"  class="form-control" placeholder="CEP" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <select name="uf_adesoes" class="form-control" id="uf" required="required">
+                                            <select name="uf_adesoes" class="form-control" id="uf" required>
                                                 <option value="" selected="selected" disabled>UF</option>
                                                 <option value="AC">AC</option>
                                                 <option value="AL">AL</option>
@@ -164,27 +164,27 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="txtCidade" id="txtCidade" class="form-control" placeholder="Cidade" required="required">
+                                            <input type="text" name="txtCidade" id="txtCidade" class="form-control" placeholder="Cidade" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="txtBairro" id="txtBairro" class="form-control" placeholder="Bairro" required="required">
+                                            <input type="text" name="txtBairro" id="txtBairro" class="form-control" placeholder="Bairro" required>
                                         </div>
                                     </div>
                                 </div>  
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="txtLogradouro" id="txtLogradouro" class="form-control" placeholder="Logradouro" required="required">
+                                            <input type="text" name="txtLogradouro" id="txtLogradouro" class="form-control" placeholder="Logradouro" required>
                                         </div>                                
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="txtNumero" id="txtNumero" class="form-control" placeholder="Número" required="required">
+                                            <input type="text" name="txtNumero" id="txtNumero" class="form-control" placeholder="Número" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="txtComplemento" id="txtComplemento" class="form-control" placeholder="Complemento" required="required">
+                                            <input type="text" name="txtComplemento" id="txtComplemento" class="form-control" placeholder="Complemento" required>
                                         </div>
                                     </div>
                                 </div>                     
@@ -204,24 +204,21 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" placeholder="Nome Completo do Dependente">
+                                        <input type="text" name="txtNomeDependente" id="txtNomeDependente" class="form-control" placeholder="Nome Completo do Dependente" required>
                                     </div>
                                 </div>
                             </div>                        
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="CPF">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="RG">
-                                    </div>
+                                        <input type="text" name="txtCPFDependente" id="txtCPFDependente" class="form-control" placeholder="CPF" required>
+                                    </div>                                    
                                 </div>
                             </div>    
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="dp_graudeparentesco" id="dp_graudeparentesco" class="form-control" required="required">
+                                        <select name="dp_graudeparentesco" id="dp_graudeparentesco" class="form-control" required>
                                             <option value="" selected="selected" disabled="disabled">Parentesco</option>
                                             <option value="1">Pai / Mãe</option>
                                             <option value="2">Conjuge</option>
@@ -242,40 +239,26 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Data Nascimento">
+                                        <input type="text" name="txtDataNascimentoDependente" id="txtDataNascimentoDependente" class="form-control" placeholder="Data Nascimento" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Orgão Expeditor/UF">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Data Expedição RG">
-                                    </div>
-                                </div>
-                            </div>  
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required="required">
+                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
                                             <option value="" selected="selected" disabled>Estado civil</option>
-                                            <option value="CASADO">Casado</option>
-                                            <option value="SOLTEIRO">Solteiro</option>
-                                            <option value="DIVORCIADO">Divorciado</option>
-                                            <option value="VIUVO">Viuvo</option>
-                                            <option value="DESQUITADO">Desquitado</option>                                       
-                                            <option value="SEPARADO">Separado</option>
-                                            <option value="UNIÃO ESTÁVEL">União EstávelL</option>
-                                            <option value="AMAZIADO">Amaziado</option>
-                                            <option value="CONVIVENTE">Convivente</option>
-                                            <option value="MARITAL">Marital</option>
-                                            <option value="OUTROS">Outros</option>
+                                            <option value="" selected="selected" disabled>Estado civil</option>
+                                                <option value="1">Solteiro</option>
+                                                <option value="2">Casado</option>
+                                                <option value="3">Viuvo</option>
+                                                <option value="4">Separado</option>
+                                                <option value="5">Divorciado</option>                                                    
+                                                <option value="6">Outros</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required="required">
+                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
                                             <option value="" selected="selected" disabled>Sexo</option>
                                             <option value="CASADO">Masculino</option>
                                             <option value="SOLTEIRO">Feminino</option>                                        
@@ -285,18 +268,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Título de Eleitor">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="Cartão do SUS">
-                                    </div>
-                                </div>
-                            </div>  
-                            <div class="form-group">
-                                <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" placeholder="Nome completo mãe">
+                                        <input type="text" class="form-control" placeholder="Nome completo mãe" required>
                                     </div>                                        
                                 </div>
                             </div>
@@ -330,7 +303,7 @@
                     <div class="form-group">
                         <div class="row botao">
                             <div class="col-md-12" align="center">
-                                <button type="button" class="btn btn-primary" onclick="SalvarPaginaTitular()">Salvar e Continuar</button>                                                                       
+                                <button type="button" class="btn btn-primary" onclick="SalvarDependente()">Salvar e Continuar</button>                                                                       
                             </div>                            
                         </div>
                     </div>                        
@@ -342,28 +315,28 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="optradio" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
+                                         <input type="radio" name="planoescolhido" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="optradio" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
+                                         <input type="radio" name="planoescolhido" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="optradio" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
+                                         <input type="radio" name="planoescolhido" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="optradio" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
+                                         <input type="radio" name="planoescolhido" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
                                          <hr>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@ function SalvarPaginaTitular(){
 	document.getElementById('titular').style.display = 'none';
 	document.getElementById('titularidade').style.display = 'none';
 	document.getElementById('dependencia').style.display = 'block';
-	document.getElementById('dependente').style.display = 'block';
+	document.getElementById('dependente').style.display = 'block';	
 
 	}
 }
@@ -175,5 +175,3 @@ function validarTitular(){
 	return true;
 
 }
-
-

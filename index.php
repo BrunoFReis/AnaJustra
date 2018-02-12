@@ -212,7 +212,10 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" name="txtCPFDependente" id="txtCPFDependente" class="form-control" placeholder="CPF" required>
-                                    </div>                                    
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <input type="text" name="txtDataNascimentoDependente" id="txtDataNascimentoDependente" class="form-control" placeholder="Data Nascimento" required>
+                                    </div>
                                 </div>
                             </div>    
                             <div class="form-group">
@@ -239,8 +242,12 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="txtDataNascimentoDependente" id="txtDataNascimentoDependente" class="form-control" placeholder="Data Nascimento" required>
-                                    </div>
+                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
+                                            <option value="" selected="selected" disabled>Sexo</option>
+                                            <option value="CASADO">Masculino</option>
+                                            <option value="SOLTEIRO">Feminino</option>                                        
+                                        </select>
+                                    </div>                                    
                                 </div>
                             </div>
                             <div class="form-group">
@@ -258,12 +265,12 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
-                                            <option value="" selected="selected" disabled>Sexo</option>
-                                            <option value="CASADO">Masculino</option>
-                                            <option value="SOLTEIRO">Feminino</option>                                        
+                                        <select name="sosDental" id="sosDental" class="form-control sosdental" required>
+                                            <option value="" selected="selected" disabled>SOS Dental</option>
+                                                <option value="1">Sim</option>
+                                                <option value="2">Não</option>                                                
                                         </select>
-                                    </div>
+                                    </div>                                   
                                 </div>
                             </div>
                             <div class="form-group">
@@ -286,7 +293,7 @@
                            <table width="100%" style="margin-bottom: 15px;">
                                <tbody>
                                    <tr style="background-color:#f9f9f9; padding: 4px;" >
-                                       <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;">Titular</th>
+                                       <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;"><label id="lblTitular">Titular</label></th>
                                    </tr>
                                </tbody>
                            </table>                               

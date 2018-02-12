@@ -258,7 +258,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
+                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
                                             <option value="" selected="selected" disabled>Sexo</option>
                                             <option value="CASADO">Masculino</option>
                                             <option value="SOLTEIRO">Feminino</option>                                        
@@ -269,7 +269,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control" placeholder="Nome completo mãe" required>
+                                        <input type="text" name="depnomemae" id="depnomemae" class="form-control" placeholder="Nome completo mãe" required>
                                     </div>                                        
                                 </div>
                             </div>
@@ -291,7 +291,7 @@
                                </tbody>
                            </table>                               
                            <h4 class="IconDependente">Dependente</h4>                       
-                            <table width="100%" style="margin-bottom: 15px;">
+                            <table id="tblListDependentes" width="100%" style="margin-bottom: 15px;">
                                <tbody>
                                    <tr style="background-color:#f9f9f9; padding: 4px;" >
                                        <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;">Dependente</th>

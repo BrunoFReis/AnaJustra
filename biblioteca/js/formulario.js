@@ -4,30 +4,25 @@ $("#txtcpf").mask("999.999.999-99");
 $("#txtCelular").mask("(99)99999-9999");
 $("#txtTelefoneResidencial").mask("(99)9999-9999");
 $("#txtCEP").mask("99999-999");
-$("#txtCPFDependente").mask("999.999.999-99");
-$("#txtDataNascimentoDependente").mask("99/99/9999");
+$("#txtCpfDp").mask("999.999.999-99");
+$("#txtdpnasc").mask("99/99/9999");
 });
 
 function SalvarPaginaTitular(){
 
 	if(validarTitular()){
-<<<<<<< HEAD
 
 	document.getElementById('titular').style.display = 'none';
 	document.getElementById('titularidade').style.display = 'none';
 	document.getElementById('dependencia').style.display = 'block';
-	document.getElementById('dependente').style.display = 'block';	
-
-=======
-		document.getElementById('titular').style.display = 'none';
-		document.getElementById('titularidade').style.display = 'none';
-		document.getElementById('dependencia').style.display = 'block';
-		document.getElementById('dependente').style.display = 'block';
->>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5
+	document.getElementById('dependente').style.display = 'block';
+	var nome = document.getElementById('txtNomeTitular').value;
+	document.getElementById('lblTitular').innerHTML = nome;
 	}
 }
 
 function SalvarDependente(){
+
 	document.getElementById('dependencia').style.display = 'none';
 	document.getElementById('dependente').style.display = 'none';
 	document.getElementById('finalizar').style.display = 'block';
@@ -181,33 +176,127 @@ function validarTitular(){
 	return true;
 
 }
-<<<<<<< HEAD
-=======
+
+function ValidarDependente(){
+
+	var dpnome = document.getElementById('txtdpNome').value;
+	var dpcpf = document.getElementById('txtCpfDp').value;
+	var dpnascimento = document.getElementById('txtdpnasc').value;
+	var dpparentesco = document.getElementById('dp_graudeparentesco').value;
+	var dpsexo = document.getElementById('slcsexo').value;
+	var dpcivil = document.getElementById('dp_estadocivil').value;
+	var dpsos = document.getElementById('sosDental').value;
+	var dpnomemae = document.getElementById('depnomemae').value;
+	
+	if (dpnome == "") {
+		alert('Preencha o campo com nome do dependente');
+		document.getElementById("txtdpNome").focus();
+		return false;
+	}
+
+	if (dpcpf == "") {
+		alert('Preencha o campo com o CPF do dependente');
+		document.getElementById("txtCpfDp").focus();
+		return false;
+	}	
+
+	if (dpcpf.length < 11) {
+		alert('CPF Inválido');
+		document.getElementById("txtCpfDp").focus();
+		return false;
+	}
+
+	if (dpnascimento == "") {
+		alert('Preencha o campo com a sua data de Nascimento do dependente');
+		document.getElementById("txtdpnasc").focus();
+		return false;
+	}	
+
+	if (dpnascimento.length < 8) {
+		alert('Data Inválida');
+		document.getElementById("txtdpnasc").focus();
+		return false;
+	}
+
+	if (dpparentesco == "") {
+		alert('Preencha o seu grau de parentesco com o dependente');
+		document.getElementById("dp_graudeparentesco").focus();
+		return false;
+	}
+
+	if (dpsexo == "") {
+		alert('Preencha o campo com o sexo do dependente');
+		document.getElementById("slcsexo").focus();
+		return false;
+	}
+
+	if (dpcivil == "") {
+		alert('Preencha o Estado Civil do dependente');
+		document.getElementById("dp_estadocivil").focus();
+		return false;
+	}	
+
+	if (dpsos == "") {
+		alert('Campo Inválido');
+		document.getElementById("sosDental").focus();
+		return false;
+	}
+	
+	if (dpnomemae == "") {
+		alert('Preencha o campo com o nome da mãe do dependente');
+		document.getElementById("depnomemae").focus();
+		return false;
+	}	
+
+	return true;
+
+}
+
+function LimparDependente(){
+
+	document.getElementById('txtdpNome').value = "";
+	document.getElementById('txtCpfDp').value = "";
+	document.getElementById('txtdpnasc').value = "";
+	document.getElementById('dp_graudeparentesco').value="";
+	document.getElementById('slcsexo').value="";
+	document.getElementById('dp_estadocivil').value="";
+	document.getElementById('sosDental').value="";
+	document.getElementById('depnomemae').value="";
+}
 
 var listaDependentes = [];
 
-function AdicionarDependente(){
+function IncluirDependente(){
 
 	var dependente = {};
-	dependente.nome = $("#txtNomeDependente").val();
+	dependente.nome = $("#txtdpNome").val();
 	dependente.sexo = $("#slcsexo").val();
 	dependente.parentesco = $("#dp_graudeparentesco").val();
-	dependente.estadocivil = $("#estadocivil").val();
-	dependente.cpf = $("#txtCPFDependente").val();
-	dependente.nasc = $("#txtDataNascimentoDependente").val();
+	dependente.estadocivil = $("#dp_estadocivil").val();
+	dependente.cpf = $("#txtCpfDp").val();
+	dependente.nasc = $("#txtdpnasc").val();
 	dependente.nomemae = $("#depnomemae").val();
-	//dependente.sosdental = $("#txtNomeDependente").val();
+	dependente.sosdental = $("#sosDental").val();
 
 	listaDependentes.push(dependente);
 	atualizaListaDep();
-	$("#txtNomeDependente, #slcsexo, #dp_graudeparentesco, #estadocivil, #txtCPFDependente, #txtDataNascimentoDependente, #depnomemae").val("");
+	$("#txtdpNome, #slcsexo, #dp_graudeparentesco, #dp_estadocivil, #txtCpfDp, #txtdpnasc, #depnomemae,#sosDental").val("");
 }
 
 function atualizaListaDep(){
 	$("#tblListDependentes tbody tr").remove();
 	$.each(listaDependentes, function(i, elem){
-		$("#tblListDependentes tbody").append("<tr><td>"+(i+1)+" - "+elem.nome+" - "+elem.cpf+" </td></tr>");
+		$("#tblListDependentes tbody").append("<tr><th>"+(i+1)+" - "+elem.nome+" - "+elem.cpf+" </th></tr>");
 	});
 }
 
->>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5
+function AdicionarDependente(){
+
+	if(ValidarDependente()){
+
+		IncluirDependente();
+
+	}
+}
+
+

@@ -204,17 +204,17 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="txtNomeDependente" id="txtNomeDependente" class="form-control" placeholder="Nome Completo do Dependente" required>
+                                        <input type="text" name="txtdpNome" id="txtdpNome" class="form-control" placeholder="Nome Completo do Dependente" required>
                                     </div>
                                 </div>
                             </div>                        
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" name="txtCPFDependente" id="txtCPFDependente" class="form-control" placeholder="CPF" required>
+                                        <input type="text" name="txtCpfDp" id="txtCpfDp" class="form-control" placeholder="CPF" required>
                                     </div> 
                                     <div class="col-md-6">
-                                        <input type="text" name="txtDataNascimentoDependente" id="txtDataNascimentoDependente" class="form-control" placeholder="Data Nascimento" required>
+                                        <input type="text" name="txtdpnasc" id="txtdpnasc" class="form-control" placeholder="Data Nascimento" required>
                                     </div>
                                 </div>
                             </div>    
@@ -242,10 +242,10 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
+                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
                                             <option value="" selected="selected" disabled>Sexo</option>
-                                            <option value="CASADO">Masculino</option>
-                                            <option value="SOLTEIRO">Feminino</option>                                        
+                                            <option value="1">Masculino</option>
+                                            <option value="2">Feminino</option>                                        
                                         </select>
                                     </div>                                    
                                 </div>
@@ -253,9 +253,8 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="estado_civil_adesoes" id="estadocivil" class="form-control" required>
-                                            <option value="" selected="selected" disabled>Estado civil</option>
-                                            <option value="" selected="selected" disabled>Estado civil</option>
+                                        <select name="dp_estadocivil" id="dp_estadocivil" class="form-control" required>
+                                            <option value="" selected="selected" disabled>Estado civil</option>                                            
                                                 <option value="1">Solteiro</option>
                                                 <option value="2">Casado</option>
                                                 <option value="3">Viuvo</option>
@@ -265,17 +264,10 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-<<<<<<< HEAD
                                         <select name="sosDental" id="sosDental" class="form-control sosdental" required>
                                             <option value="" selected="selected" disabled>SOS Dental</option>
                                                 <option value="1">Sim</option>
-                                                <option value="2">Não</option>                                                
-=======
-                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
-                                            <option value="" selected="selected" disabled>Sexo</option>
-                                            <option value="CASADO">Masculino</option>
-                                            <option value="SOLTEIRO">Feminino</option>                                        
->>>>>>> defff3b68eb67ae6872710b99ca03ed051a16de5
+                                                <option value="2">Não</option>
                                         </select>
                                     </div>                                   
                                 </div>

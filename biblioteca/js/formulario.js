@@ -31,11 +31,14 @@ function SalvarPaginaTitular(){
 	document.getElementById('titularidade').style.display = 'none';
 	document.getElementById('dependencia').style.display = 'block';
 	document.getElementById('dependente').style.display = 'block';
+	var nome = document.getElementById('txtNomeTitular').value;
+	document.getElementById('lblTitular').innerHTML = nome;
 	}
 >>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
 }
 
 function SalvarDependente(){
+
 	document.getElementById('dependencia').style.display = 'none';
 	document.getElementById('dependente').style.display = 'none';
 	document.getElementById('finalizar').style.display = 'block';
@@ -190,6 +193,92 @@ function validarTitular(){
 
 }
 
+function ValidarDependente(){
+
+	var dpnome = document.getElementById('txtdpNome').value;
+	var dpcpf = document.getElementById('txtCpfDp').value;
+	var dpnascimento = document.getElementById('txtdpnasc').value;
+	var dpparentesco = document.getElementById('dp_graudeparentesco').value;
+	var dpsexo = document.getElementById('slcsexo').value;
+	var dpcivil = document.getElementById('dp_estadocivil').value;
+	var dpsos = document.getElementById('sosDental').value;
+	var dpnomemae = document.getElementById('depnomemae').value;
+	
+	if (dpnome == "") {
+		alert('Preencha o campo com nome do dependente');
+		document.getElementById("txtdpNome").focus();
+		return false;
+	}
+
+	if (dpcpf == "") {
+		alert('Preencha o campo com o CPF do dependente');
+		document.getElementById("txtCpfDp").focus();
+		return false;
+	}	
+
+	if (dpcpf.length < 11) {
+		alert('CPF Inválido');
+		document.getElementById("txtCpfDp").focus();
+		return false;
+	}
+
+	if (dpnascimento == "") {
+		alert('Preencha o campo com a sua data de Nascimento do dependente');
+		document.getElementById("txtdpnasc").focus();
+		return false;
+	}	
+
+	if (dpnascimento.length < 8) {
+		alert('Data Inválida');
+		document.getElementById("txtdpnasc").focus();
+		return false;
+	}
+
+	if (dpparentesco == "") {
+		alert('Preencha o seu grau de parentesco com o dependente');
+		document.getElementById("dp_graudeparentesco").focus();
+		return false;
+	}
+
+	if (dpsexo == "") {
+		alert('Preencha o campo com o sexo do dependente');
+		document.getElementById("slcsexo").focus();
+		return false;
+	}
+
+	if (dpcivil == "") {
+		alert('Preencha o Estado Civil do dependente');
+		document.getElementById("dp_estadocivil").focus();
+		return false;
+	}	
+
+	if (dpsos == "") {
+		alert('Campo Inválido');
+		document.getElementById("sosDental").focus();
+		return false;
+	}
+	
+	if (dpnomemae == "") {
+		alert('Preencha o campo com o nome da mãe do dependente');
+		document.getElementById("depnomemae").focus();
+		return false;
+	}	
+
+	return true;
+
+}
+
+function LimparDependente(){
+
+	document.getElementById('txtdpNome').value = "";
+	document.getElementById('txtCpfDp').value = "";
+	document.getElementById('txtdpnasc').value = "";
+	document.getElementById('dp_graudeparentesco').value="";
+	document.getElementById('slcsexo').value="";
+	document.getElementById('dp_estadocivil').value="";
+	document.getElementById('sosDental').value="";
+	document.getElementById('depnomemae').value="";
+}
 
 var listaDependentes = [];
 var contador = 0;
@@ -260,3 +349,12 @@ function enviaForm(){
 	});	
 
 	$('#frmCadastro').submit();
+}
+=======
+		$("#tblListDependentes tbody").append("<tr><th>"+(i+1)+" - "+elem.nome+" - "+elem.cpf+" </th></tr>");
+	});
+}
+
+
+
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189

@@ -205,6 +205,9 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="text" name="depnome" id="depnome" class="form-control" placeholder="Nome Completo do Dependente" required>
+=======
+                                        <input type="text" name="txtdpNome" id="txtdpNome" class="form-control" placeholder="Nome Completo do Dependente" required>
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                     </div>
                                 </div>
                             </div>                        
@@ -248,6 +251,14 @@
                                     <div class="col-md-6">
                                         <input type="text" name="depnasc" id="depnasc" class="form-control data" placeholder="Data Nascimento" required>
                                     </div>
+=======
+                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
+                                            <option value="" selected="selected" disabled>Sexo</option>
+                                            <option value="1">Masculino</option>
+                                            <option value="2">Feminino</option>                                        
+                                        </select>
+                                    </div>                                    
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                 </div>
                             </div>
                             <div class="form-group">
@@ -273,8 +284,13 @@
                                             <option value="1">Masculino</option>
                                             <option value="2">Feminino</option>                                        
 =======
+                                        <select name="sosDental" id="sosDental" class="form-control sosdental" required>
+                                            <option value="" selected="selected" disabled>SOS Dental</option>
+                                                <option value="1">Sim</option>
+                                                <option value="2">Não</option>
 >>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                         </select>
+                                    </div>                                   
                                 </div>
                             </div>
                             <div class="form-group">

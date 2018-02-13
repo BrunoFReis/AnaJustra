@@ -66,34 +66,11 @@
                 </div>           
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-12" align="center">
                         <a href="/amildental/">
                             <img src="/amildental/biblioteca/img/logo.png" class="logoAmil">
                         </a>
-                    </div>
-                    <div class="col-md-9">
-                        <nav class="navbar navbar-toggleable-md navbar-light menutopo">
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                              <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#">Diferencias e Vantagens</a>
-                                </li>   
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#">Conheça o Plano</a>
-                                </li> 
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#">Dúvidas</a>
-                                </li> 
-                                <li class="nav-item">
-                                  <a class="nav-link" href="#">Buscar Dentista</a>
-                                </li> 
-                                <li class="nav-item">
-                                  <a class="nav-link" href="/amildental/contato.php">Contato</a>
-                                </li>
-                              </ul>                              
-                            </div>
-                        </nav>
-                    </div>
+                    </div>                    
                 </div>                  
             </div>        
         </header>     

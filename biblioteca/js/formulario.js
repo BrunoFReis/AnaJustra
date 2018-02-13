@@ -264,6 +264,7 @@ function AdicionarDependente(){
 		
 		atualizaListaDep();
 		$("#depnome, #depclisexo, #depparesntesco, #depcliestadocivil, #depcpf, #depnasc, #depnomemae").val("");
+		resetar();
 	}
 }
 
@@ -301,4 +302,11 @@ function enviaForm(){
 	});	
 
 	$('#frmCadastro').submit();
+}
+
+function resetar(){
+	$('[name=depparentesco]').val( '' );
+	$('[name=depsexo]').val( '' );
+	$('[name=depestadocivil]').val( '' );
+	$('[name=sosdental]').val( '' );
 }

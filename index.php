@@ -51,7 +51,7 @@
                 </div>
             </div>
                 <form id="frmCadastro" method="POST" action="/amildental/views/cliente-banco.php?acao=cadastrar">
-                    <div id="titular" style="display:block">
+                    <div id="titular" style="display:none">
                         <div class="row"> 
                             <div class="col-md-6">
                                 <h4 class="IconPessoa">Dados Pessoais</h4>
@@ -198,7 +198,7 @@
                         </div>
                     </div>        
                     </div>
-                    <div id="dependente" style="display:none"> 
+                    <div id="dependente" style="display:block"> 
                     <div class="row">
                         <div class="col-md-6">
                             <div  class="form-group">
@@ -370,6 +370,6 @@
     </main>
 
 <?php
-    require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/cabecalho.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/rodape.php");
 ?>
 

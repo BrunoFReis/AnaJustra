@@ -21,6 +21,7 @@
 <link href="css/font-awesome.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/pages/dashboard.css" rel="stylesheet">
+<link href="css/jquery.dataTables.min.css" rel="stylesheet">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -44,8 +45,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="icon-user"></i> Usuário <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
-              <li><a href="javascript:;">Perfil</a></li>
+            <ul class="dropdown-menu">              
               <li><a href="/amildental/admin">Sair</a></li>
             </ul>
           </li>

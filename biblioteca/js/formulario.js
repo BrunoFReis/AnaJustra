@@ -4,16 +4,35 @@ $(document).ready(function(){
 	$(".celular").mask("(99)99999-9999");
 	$(".telefone").mask("(99)9999-9999");
 	$(".cep").mask("99999-999");
+=======
+$("#txtDataNascimento").mask("99/99/9999");
+$("#txtcpf").mask("999.999.999-99");
+$("#txtCelular").mask("(99)99999-9999");
+$("#txtTelefoneResidencial").mask("(99)9999-9999");
+$("#txtCEP").mask("99999-999");
+$("#txtCpfDp").mask("999.999.999-99");
+$("#txtdpnasc").mask("99/99/9999");
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
 });
 
 function SalvarPaginaTitular(){
 
+<<<<<<< HEAD
 	//if(validarTitular()){
 		document.getElementById('titular').style.display = 'none';
 		document.getElementById('titularidade').style.display = 'none';
 		document.getElementById('dependencia').style.display = 'block';
 		document.getElementById('dependente').style.display = 'block';
 	//}
+=======
+	if(validarTitular()){
+
+	document.getElementById('titular').style.display = 'none';
+	document.getElementById('titularidade').style.display = 'none';
+	document.getElementById('dependencia').style.display = 'block';
+	document.getElementById('dependente').style.display = 'block';
+	}
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
 }
 
 function SalvarDependente(){
@@ -171,10 +190,10 @@ function validarTitular(){
 
 }
 
+
 var listaDependentes = [];
 var contador = 0;
 
-function AdicionarDependente(){
 
 	contador++;
 	var dependente = {};
@@ -187,11 +206,24 @@ function AdicionarDependente(){
 	dependente.nasc = $("#depnasc").val();
 	dependente.nomemae = $("#depnomemae").val();
 	dependente.sosdental = $('[name="sosdental"]').val();
+=======
+	dependente.nome = $("#txtdpNome").val();
+	dependente.sexo = $("#slcsexo").val();
+	dependente.parentesco = $("#dp_graudeparentesco").val();
+	dependente.estadocivil = $("#dp_estadocivil").val();
+	dependente.cpf = $("#txtCpfDp").val();
+	dependente.nasc = $("#txtdpnasc").val();
+	dependente.nomemae = $("#depnomemae").val();
+	dependente.sosdental = $("#sosDental").val();
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
 
 	listaDependentes.push(dependente);
 	
 	atualizaListaDep();
 	$("#depnome, #depsexo, #depparesntesco, #depestadocivil, #depcpf, #depnasc, #depnomemae").val("");
+=======
+	$("#txtdpNome, #slcsexo, #dp_graudeparentesco, #dp_estadocivil, #txtCpfDp, #txtdpnasc, #depnomemae,#sosDental").val("");
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
 }
 
 function atualizaListaDep(){
@@ -228,4 +260,3 @@ function enviaForm(){
 	});	
 
 	$('#frmCadastro').submit();
-}

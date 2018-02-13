@@ -47,6 +47,14 @@
                 border-color: #2894B3;
                 cursor:pointer;
             }
+            
+            .sosdental:selected{
+                color:red;
+            }
+            
+            .sosdental{
+                border: 2px solid red;
+            }
         </style>         
        
     </head>

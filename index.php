@@ -213,6 +213,13 @@
                                     <div class="col-md-6">
                                         <input type="text" name="depcpf" id="depcpf" class="form-control cpf" placeholder="CPF" required>
                                     </div>                                    
+=======
+                                        <input type="text" name="txtCpfDp" id="txtCpfDp" class="form-control" placeholder="CPF" required>
+                                    </div> 
+                                    <div class="col-md-6">
+                                        <input type="text" name="txtdpnasc" id="txtdpnasc" class="form-control" placeholder="Data Nascimento" required>
+                                    </div>
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                 </div>
                             </div>    
                             <div class="form-group">
@@ -248,6 +255,10 @@
                                     <div class="col-md-6">
                                         <select name="depestadocivil" id="depestadocivil" class="form-control" required>
                                             <option value="" selected="selected" disabled>Estado civil</option>
+=======
+                                        <select name="dp_estadocivil" id="dp_estadocivil" class="form-control" required>
+                                            <option value="" selected="selected" disabled>Estado civil</option>                                            
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                                 <option value="1">Solteiro</option>
                                                 <option value="2">Casado</option>
                                                 <option value="3">Viuvo</option>
@@ -261,8 +272,9 @@
                                             <option value="" selected="selected" disabled>Sexo</option>
                                             <option value="1">Masculino</option>
                                             <option value="2">Feminino</option>                                        
+=======
+>>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                         </select>
-                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -285,7 +297,6 @@
                            <table width="100%" style="margin-bottom: 15px;">
                                <tbody>
                                    <tr style="background-color:#f9f9f9; padding: 4px;" >
-                                       <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;">Titular</th>
                                    </tr>
                                </tbody>
                            </table>                               

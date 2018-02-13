@@ -204,27 +204,18 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-<<<<<<< HEAD
                                         <input type="text" name="depnome" id="depnome" class="form-control" placeholder="Nome Completo do Dependente" required>
-=======
-                                        <input type="text" name="txtdpNome" id="txtdpNome" class="form-control" placeholder="Nome Completo do Dependente" required>
->>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                     </div>
                                 </div>
                             </div>                        
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-<<<<<<< HEAD
                                         <input type="text" name="depcpf" id="depcpf" class="form-control cpf" placeholder="CPF" required>
-                                    </div>                                    
-=======
-                                        <input type="text" name="txtCpfDp" id="txtCpfDp" class="form-control" placeholder="CPF" required>
-                                    </div> 
-                                    <div class="col-md-6">
-                                        <input type="text" name="txtdpnasc" id="txtdpnasc" class="form-control" placeholder="Data Nascimento" required>
                                     </div>
->>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
+                                    <div class="col-md-6">
+                                        <input type="text" name="depnasc" id="depnasc" class="form-control data" placeholder="Data Nascimento" required>
+                                    </div>
                                 </div>
                             </div>    
                             <div class="form-group">
@@ -251,49 +242,32 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6">
-<<<<<<< HEAD
-                                        <input type="text" name="depnasc" id="depnasc" class="form-control data" placeholder="Data Nascimento" required>
-                                    </div>
-=======
-                                        <select name="slcsexo" id="slcsexo" class="form-control" required>
+                                        <select name="depsexo" id="depsexo" class="form-control" required>
                                             <option value="" selected="selected" disabled>Sexo</option>
                                             <option value="1">Masculino</option>
                                             <option value="2">Feminino</option>                                        
                                         </select>
-                                    </div>                                    
->>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
-<<<<<<< HEAD
                                         <select name="depestadocivil" id="depestadocivil" class="form-control" required>
                                             <option value="" selected="selected" disabled>Estado civil</option>
-=======
-                                        <select name="dp_estadocivil" id="dp_estadocivil" class="form-control" required>
-                                            <option value="" selected="selected" disabled>Estado civil</option>                                            
->>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                                 <option value="1">Solteiro</option>
                                                 <option value="2">Casado</option>
                                                 <option value="3">Viuvo</option>
                                                 <option value="4">Separado</option>
-                                                <option value="5">Divorciado</option>                                                    
+                                                <option value="5">Divorciado</option>
                                                 <option value="6">Outros</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-<<<<<<< HEAD
-                                        <select name="depsexo" id="depsexo" class="form-control" required>
-                                            <option value="" selected="selected" disabled>Sexo</option>
-                                            <option value="1">Masculino</option>
-                                            <option value="2">Feminino</option>                                        
-=======
-                                        <select name="sosDental" id="sosDental" class="form-control sosdental" required>
+                                        <select name="sosdental" id="sosdental" class="form-control sosdental" required>
                                             <option value="" selected="selected" disabled>SOS Dental</option>
                                                 <option value="1">Sim</option>
                                                 <option value="2">Não</option>
->>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189
                                         </select>
                                     </div>                                   
                                 </div>
@@ -347,28 +321,28 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="sosdental" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
+                                         <input type="radio" name="plano" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="sosdental" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
+                                         <input type="radio" name="plano" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="sosdental" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
+                                         <input type="radio" name="plano" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="sosdental" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
+                                         <input type="radio" name="plano" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
                                          <hr>
                                     </div>
                                 </div>

@@ -74,24 +74,26 @@ class ClientesDAO {
 
 		$ListClientes = array();
 		$query = " 
-					SELECT 
-					    id_clientes,
-					    cod_cliente,
-					    clinome,
-					    clicpf,
-					    cliemail,
-					    clitelefone,
-					    clicelular,
-					    clisenha,
-					    DATE_FORMAT(clinascimento,'%d/%m/%Y') as clinascimento,
-					    clicep,
-					    cliddd,
-					    DATE_FORMAT(data_registro,'%d/%m') as data_registro_simples,
-					    DATE_FORMAT(data_registro,'%h:%m:%s - %d/%m/%Y') as data_registro,
-					    ativado
-					FROM
-					    Clientes
-					WHERE ativado = 1;
+			SELECT
+				id,
+				clinome, 
+			    clinasc, 
+			    clicpf, 
+			    cliestadocivil, 
+			    clisexo, 
+			    clinomemae, 
+			    cliendereco, 
+			    clibairro, 
+			    clicidade, 
+			    cliuf, 
+			    clicep, 
+			    cliendnumero, 
+			    clitelefone,
+			    clicelular,
+			    cliemail,
+			    data
+			FROM clientes
+			WHERE ativado = 1;
 		";
 
 		$resultado = mysqli_query($this->conexao, $query);
@@ -99,18 +101,23 @@ class ClientesDAO {
 		while($clientes_array = mysqli_fetch_assoc($resultado)) {
 
 			$cliente = new Clientes();
-			$cliente->id_clientes = $clientes_array['id_clientes'];
-			$cliente->cod_cliente = $clientes_array['cod_cliente'];
-			$cliente->cliNome = $clientes_array['clinome'];
-			$cliente->cliCpf = $clientes_array['clicpf'];
-			$cliente->cliEmail = $clientes_array['cliemail'];
-			$cliente->cliTelefone = $clientes_array['clitelefone'];
-			$cliente->cliCelular = $clientes_array['clicelular'];
-			$cliente->cliSenha = $clientes_array['clisenha'];
-			$cliente->cliNascimento = $clientes_array['clinascimento'];
-			$cliente->data_registro_simples = $clientes_array['data_registro_simples'];
-			$cliente->data_registro = $clientes_array['data_registro'];
-			$cliente->ativado =  $clientes_array['ativado'];
+			$cliente->id = $clientes_array['id'];
+			$cliente->clinome = $clientes_array['clinome'];
+			$cliente->clinasc = $clientes_array['clinasc'];
+			$cliente->clicpf = $clientes_array['clicpf'];
+			$cliente->cliestadocivil = $clientes_array['cliestadocivil'];
+			$cliente->clisexo = $clientes_array['clisexo'];
+			$cliente->clinomemae = $clientes_array['clinomemae'];
+			$cliente->cliendereco = $clientes_array['cliendereco'];
+			$cliente->clibairro = $clientes_array['clibairro'];
+			$cliente->clicidade = $clientes_array['clicidade'];
+			$cliente->cliuf = $clientes_array['cliuf'];
+			$cliente->clicep = $clientes_array['clicep'];
+			$cliente->cliemail = $clientes_array['cliemail'];
+			$cliente->cliendnumero = $clientes_array['cliendnumero'];
+			$cliente->clitelefone = $clientes_array['clitelefone'];
+			$cliente->clicelular = $clientes_array['clicelular'];
+			$cliente->data = $clientes_array['data'];
 			
 			array_push($ListClientes, $cliente);
 		}

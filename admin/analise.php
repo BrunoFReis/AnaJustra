@@ -1,12 +1,9 @@
 <?php 
-    session_start();
-    
+    session_start();    
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
-    //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");
-
-    //$produtoDAO = new ProdutoDAO($conexao); 
-
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
+
+    $clientesDAO = new ClientesDAO($conexao);
 ?>
 
 <div class="main">
@@ -24,37 +21,45 @@
               <div class="widget big-stats-container">
                 <div class="widget-content" style="padding: 10px;">
                   <table id="example" class="display" cellspacing="0" width="100%" >
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Plano</th>
-                <th>Data</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Plano</th>
-                <th>Data</th>  
-                <th></th>
-                <th></th>
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <td>Bruno Nunes de Freitas</td>
-                <td align="center">03710117100</td>
-                <td align="center">Dental 200</td>                
-                <td align="center">12/02/2018</td>  
-                <td align="center"><button class="btn btn-success">Confirmar</button></td> 
-                <td align="center"><button class="btn btn-danger">Excluir</button></td>
-            </tr>           
-        </tbody>
-    </table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Plano</th>
+                            <th>Data</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Plano</th>
+                            <th>Data</th>  
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    <?php
+                      $list = $clientesDAO->listaClientes();
+
+                      foreach ($list as $cliente) {
+                    ?>
+                        <tr>
+                            <td><?=$cliente->clinome?></td>
+                            <td align="center"><?=$cliente->clicpf?></td>
+                            <td align="center">Dental 200</td>                
+                            <td align="center"><?=$cliente->data?></td>  
+                            <td align="center"><button class="btn btn-success">Confirmar</button></td> 
+                            <td align="center"><button class="btn btn-danger">Excluir</button></td>
+                        </tr>
+                    <?php
+                      }
+                    ?>
+                    </tbody>
+                  </table>
                 </div>
                 <!-- /widget-content --> 
               </div>
@@ -100,7 +105,6 @@ $(document).ready(function() {
          "paginate": {
           "previous": "Anterior",
           "next": "Próximo"
-      
     }
   }
 } );    

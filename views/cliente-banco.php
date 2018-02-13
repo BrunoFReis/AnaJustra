@@ -26,7 +26,7 @@
 
 			$clientesDAO->insereCliente($cliente, convertArrayDependentes($_POST["dependentes"]));
 
-			//header("Location: /amildental/admin/views/produtos.php");
+			header("Location: /amildental/concluido.php");
 			break;
 		}
 		case 'removedesejo':{
@@ -67,7 +67,8 @@
 			$dep->depnomemae = $array["depnomemae"];
 			$dep->sosdental = $array["sosdental"];
 
-			$dependentes[] = $dep;
+			array_push($dependentes, $dep);
+			//$dependentes[] = $dep;
 			$cont = $cont + 1;
 	    }
 

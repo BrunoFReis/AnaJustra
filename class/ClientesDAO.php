@@ -8,44 +8,39 @@ class ClientesDAO {
 		$this->conexao = $conexao;
 	}	
 
-	function insereCliente(Clientes $cliente){
-		$query = "	INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, clinumerocasa, clitelefone, cliemail)
-					VALUES ('{$cliente->clinome}', 
-							'{$cliente->clinasc}', 
-							'{$cliente->clicpf}', 
-							'{$cliente->cliestadocivil}', 
-							'{$cliente->clisexo}', 
-							'{$cliente->clinomemae}', 
-							'{$cliente->cliendereco}', 
-							'{$cliente->clibairro}', 
-							'{$cliente->clicidade}', 
-							'{$cliente->cliuf}', 
-							'{$cliente->clicep}', 
-							'{$cliente->clinumerocasa}', 
-							'{$cliente->clitelefone}', 
-							'{$cliente->cliemail})
-					)
-		";
+	function insereCliente(Clientes $cliente, $dependentes){
+		$query = "
+			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail)
+			VALUES (
+				'{$cliente->clinome}', 
+				 STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'), 
+				'{$cliente->clicpf}', 
+				{$cliente->cliestadocivil}, 
+				'{$cliente->clisexo}', 
+				'{$cliente->clinomemae}', 
+				'{$cliente->cliendereco}', 
+				'{$cliente->clibairro}', 
+				'{$cliente->clicidade}', 
+				'{$cliente->cliuf}', 
+				'{$cliente->clicep}', 
+				'{$cliente->cliendnumero}', 
+				'{$cliente->clitelefone}', 
+				'{$cliente->cliemail}'
+				)";
 
 		$resultado = mysqli_query($this->conexao, $query);
+		//echo mysqli_error($this->conexao);
 
-		// $id_clientes_new = mysqli_insert_id($this->conexao);
+		$id_new = mysqli_insert_id($this->conexao);
 
-		// if($id_clientes_new != 0 && $cliente->cod_cliente != null){
-		// 	$clienteIndicante = $this->retornaClientePorChave($cliente->cod_cliente);
-
-		// 	$query = "
-		// 			INSERT INTO Clientes_Indicacao_refer
-		// 				(id_clientes_pai, cod_cliente, id_clientes_filho)
-		// 			VALUES
-		// 				({$clienteIndicante->id_clientes},'{$cliente->cod_cliente}',{$id_clientes_new});
-		// 	";
-
-		// 	$lancamentoDAO = new LancamentoDAO($this->conexao);
-		// 	$lancamentoDAO->insereLancamentoClienteIndicacao($clienteIndicante);
-
-		// 	mysqli_query($this->conexao, $query);
-		// }
+		if($id_new != 0 && count($dependentes) > 0){
+			$dependenteDAO = new DependentesDAO($this->conexao);
+			
+			foreach ($dependentes as $dep) {
+				$dep->cliente = $id_new;
+				$dependenteDAO->insereDependente($dep);
+			}
+		}
 
 		return $resultado;
 	}

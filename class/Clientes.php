@@ -14,7 +14,8 @@ Class Clientes {
 	public $clicidade;
 	public $cliuf;
 	public $clicep;
-	public $clinumerocasa;
+	public $cliendnumero;
+	public $clitelefone;
 	public $cliemail;
 
 	public $data;

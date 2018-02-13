@@ -1,21 +1,19 @@
 $(document).ready(function(){
-$("#txtDataNascimento").mask("99/99/9999");
-$("#txtcpf").mask("999.999.999-99");
-$("#txtCelular").mask("(99)99999-9999");
-$("#txtTelefoneResidencial").mask("(99)9999-9999");
-$("#txtCEP").mask("99999-999");
-$("#txtCPFDependente").mask("999.999.999-99");
-$("#txtDataNascimentoDependente").mask("99/99/9999");
+	$(".data").mask("99/99/9999");
+	$(".cpf").mask("999.999.999-99");
+	$(".celular").mask("(99)99999-9999");
+	$(".telefone").mask("(99)9999-9999");
+	$(".cep").mask("99999-999");
 });
 
 function SalvarPaginaTitular(){
 
-	if(validarTitular()){
+	//if(validarTitular()){
 		document.getElementById('titular').style.display = 'none';
 		document.getElementById('titularidade').style.display = 'none';
 		document.getElementById('dependencia').style.display = 'block';
 		document.getElementById('dependente').style.display = 'block';
-	}
+	//}
 }
 
 function SalvarDependente(){
@@ -174,28 +172,60 @@ function validarTitular(){
 }
 
 var listaDependentes = [];
+var contador = 0;
 
 function AdicionarDependente(){
 
+	contador++;
 	var dependente = {};
-	dependente.nome = $("#txtNomeDependente").val();
-	dependente.sexo = $("#slcsexo").val();
-	dependente.parentesco = $("#dp_graudeparentesco").val();
-	dependente.estadocivil = $("#estadocivil").val();
-	dependente.cpf = $("#txtCPFDependente").val();
-	dependente.nasc = $("#txtDataNascimentoDependente").val();
+	dependente.id = contador;
+	dependente.nome = $("#depnome").val();
+	dependente.sexo = $("#depsexo").val();
+	dependente.parentesco = $("#depparentesco").val();
+	dependente.estadocivil = $("#depestadocivil").val();
+	dependente.cpf = $("#depcpf").val();
+	dependente.nasc = $("#depnasc").val();
 	dependente.nomemae = $("#depnomemae").val();
-	//dependente.sosdental = $("#txtNomeDependente").val();
+	dependente.sosdental = $('[name="sosdental"]').val();
 
 	listaDependentes.push(dependente);
+	
 	atualizaListaDep();
-	$("#txtNomeDependente, #slcsexo, #dp_graudeparentesco, #estadocivil, #txtCPFDependente, #txtDataNascimentoDependente, #depnomemae").val("");
+	$("#depnome, #depsexo, #depparesntesco, #depestadocivil, #depcpf, #depnasc, #depnomemae").val("");
 }
 
 function atualizaListaDep(){
 	$("#tblListDependentes tbody tr").remove();
+	var table = $("#tblListDependentes tbody");
+	table.append("<tr><th>#</th><th>Nome</th><th></th></tr>");
+
 	$.each(listaDependentes, function(i, elem){
-		$("#tblListDependentes tbody").append("<tr><td>"+(i+1)+" - "+elem.nome+" - "+elem.cpf+" </td></tr>");
+		table.append('<tr index="'+elem.id+'"><td>'+elem.id+'</td><td>'+elem.nome+' - '+elem.cpf+'</td><td><button type="button" onclick="removeDependente('+elem.id+')">X</button></td></tr>');
 	});
 }
 
+function removeDependente(id){
+	var index = listaDependentes.findIndex(e => e.id == id);
+	if(index != -1){
+		listaDependentes.splice(index,1);
+	}
+	$('#tblListDependentes tbody tr[index="'+id+'"]').remove();
+}
+
+function enviaForm(){
+	$.each(listaDependentes, function(i, dep){
+		var dependente = "";
+		dependente += "depnome:"+dep.nome;
+		dependente += ",depsexo:"+dep.sexo;
+		dependente += ",parentesco:"+dep.parentesco;
+		dependente += ",depestadocivil:"+dep.estadocivil;
+		dependente += ",depcpf:"+dep.cpf;
+		dependente += ",depnasc:"+dep.nasc;
+		dependente += ",depnomemae:"+dep.nomemae;
+		dependente += ",sosdental :"+dep.sosdental;
+
+		$('#frmCadastro').append('<input type="hidden" name="dependentes[]" value="'+dependente+'">');
+	});	
+
+	$('#frmCadastro').submit();
+}

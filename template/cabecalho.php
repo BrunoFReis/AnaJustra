@@ -3,9 +3,9 @@
 
 	//require_once("mostra-alerta.php");
 
-	if($title_page == null || $title_page == ""){
-		$title_page = "Amil Dental";
-	}
+	// if($title_page == null || $title_page == ""){
+	// 	$title_page = "Amil Dental";
+	// }
 ?>
 <!DOCTYPE html>
 <html>

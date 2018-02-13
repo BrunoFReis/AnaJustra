@@ -54,7 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="span12"> 
-        	&copy; 2018 <a href="http://anajustra.ml/amildental">Ana Justra Amil Dental</a>
+        	&copy; 2018 <a href="http://anajustra.ml/amildental">Anajustra Amil Dental</a>
         	&nbsp;&nbsp; - &nbsp;&nbsp; Todos os direitos reservados. 
     	</div>
         <!-- /span12 --> 
@@ -69,7 +69,7 @@
 <!-- Le javascript
 ================================================== --> 
 <!-- Placed at the end of the document so the pages load faster --> 
-<script src="js/jquery-1.7.2.min.js"></script> 
+<script src="js/jquery-1.7.2.min.js"></script> s
 <script src="js/bootstrap.js"></script>
  
 <script src="js/base.js"></script> 

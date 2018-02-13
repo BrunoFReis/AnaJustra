@@ -1,4 +1,5 @@
 $(document).ready(function(){
+<<<<<<< HEAD
 	$(".data").mask("99/99/9999");
 	$(".cpf").mask("999.999.999-99");
 	$(".celular").mask("(99)99999-9999");
@@ -283,9 +284,11 @@ function LimparDependente(){
 var listaDependentes = [];
 var contador = 0;
 
+function IncluirDependente(){
 
 	contador++;
 	var dependente = {};
+<<<<<<< HEAD
 	dependente.id = contador;
 	dependente.nome = $("#depnome").val();
 	dependente.sexo = $("#depsexo").val();
@@ -309,6 +312,7 @@ var contador = 0;
 	listaDependentes.push(dependente);
 	
 	atualizaListaDep();
+<<<<<<< HEAD
 	$("#depnome, #depsexo, #depparesntesco, #depestadocivil, #depcpf, #depnasc, #depnomemae").val("");
 =======
 	$("#txtdpNome, #slcsexo, #dp_graudeparentesco, #dp_estadocivil, #txtCpfDp, #txtdpnasc, #depnomemae,#sosDental").val("");
@@ -321,6 +325,7 @@ function atualizaListaDep(){
 	table.append("<tr><th>#</th><th>Nome</th><th></th></tr>");
 
 	$.each(listaDependentes, function(i, elem){
+<<<<<<< HEAD
 		table.append('<tr index="'+elem.id+'"><td>'+elem.id+'</td><td>'+elem.nome+' - '+elem.cpf+'</td><td><button type="button" onclick="removeDependente('+elem.id+')">X</button></td></tr>');
 	});
 }
@@ -355,6 +360,14 @@ function enviaForm(){
 	});
 }
 
+function AdicionarDependente(){
+
+	if(ValidarDependente()){
+
+		IncluirDependente();
+
+	}
+}
 
 
 >>>>>>> 2ef5cf84a3fe009a42a2fdd301d53516ee83b189

@@ -204,6 +204,7 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
+<<<<<<< HEAD
                                         <input type="text" name="depnome" id="depnome" class="form-control" placeholder="Nome Completo do Dependente" required>
 =======
                                         <input type="text" name="txtdpNome" id="txtdpNome" class="form-control" placeholder="Nome Completo do Dependente" required>
@@ -214,6 +215,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
+<<<<<<< HEAD
                                         <input type="text" name="depcpf" id="depcpf" class="form-control cpf" placeholder="CPF" required>
                                     </div>                                    
 =======
@@ -249,6 +251,7 @@
                                             </select>
                                     </div>
                                     <div class="col-md-6">
+<<<<<<< HEAD
                                         <input type="text" name="depnasc" id="depnasc" class="form-control data" placeholder="Data Nascimento" required>
                                     </div>
 =======
@@ -264,6 +267,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
+<<<<<<< HEAD
                                         <select name="depestadocivil" id="depestadocivil" class="form-control" required>
                                             <option value="" selected="selected" disabled>Estado civil</option>
 =======
@@ -279,6 +283,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6">
+<<<<<<< HEAD
                                         <select name="depsexo" id="depsexo" class="form-control" required>
                                             <option value="" selected="selected" disabled>Sexo</option>
                                             <option value="1">Masculino</option>
@@ -313,6 +318,7 @@
                            <table width="100%" style="margin-bottom: 15px;">
                                <tbody>
                                    <tr style="background-color:#f9f9f9; padding: 4px;" >
+                                       <th style="padding: 8px; border-top: 1px solid #ddd; vertical-align: top;"><label id="lblTitular">Titular</label></th>
                                    </tr>
                                </tbody>
                            </table>                               

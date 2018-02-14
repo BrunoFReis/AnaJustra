@@ -50,7 +50,7 @@
                         </div>
                 </div>
             </div>
-                <form id="frmCadastro" method="POST" action="/amildental/views/cliente-banco.php?acao=cadastrar">
+            <form id="frmCadastro" method="POST" action="/amildental/views/cliente-banco.php?acao=cadastrar">
                     <div id="titular" style="display:block">
                         <div class="row"> 
                             <div class="col-md-6">
@@ -350,7 +350,7 @@
                             <div class="form-group">
                                 <div class="row">                                        
                                     <div class="col-md-12">                                            
-                                        <input type="checkbox" value="1"> Autorizo a Dental Uni a cobrar o valor referente ao plano odontológico DENTAL UNI, meu e de meus dependentes.</label>
+                                        <input type="checkbox" id="autorizar" name="autorizar" value="1"> Declaro assumir o valor da taxa mensal correspondente a cada um dos inscritos. Autorizo assim, o desconto na mensalidade através da folha de pagamento.</label>
                                     </div>                                        
                                 </div>
                             </div>
@@ -359,7 +359,7 @@
                     <div class="form-group">
                         <div class="row botao">
                             <div class="col-md-12" align="center">
-                                <button type="submit" class="btn btn-primary" onclick="enviaForm()">Finalizar</button>
+                                <button type="button" class="btn btn-primary" onclick="enviaForm()">Finalizar</button>
                             </div>                            
                         </div>
                     </div>                        

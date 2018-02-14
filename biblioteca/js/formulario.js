@@ -99,12 +99,6 @@ function validarTitular(){
 		return false;
 	}
 
-	if (telefoneResidencial == "") {
-		alert('Preencha o campo com o seu Telefone Residencial');
-		document.getElementById("clitelefone").focus();
-		return false;
-	}	
-
 	if (cpf.length < 10) {
 		alert('Telefone Residencial Inválido');
 		document.getElementById("clitelefone").focus();
@@ -287,26 +281,66 @@ function removeDependente(id){
 }
 
 function enviaForm(){
-	$.each(listaDependentes, function(i, dep){
-		var dependente = "";
-		dependente += "depnome:"+dep.nome;
-		dependente += ",depclisexo:"+dep.clisexo;
-		dependente += ",parentesco:"+dep.parentesco;
-		dependente += ",depcliestadocivil:"+dep.cliestadocivil;
-		dependente += ",depcpf:"+dep.cpf;
-		dependente += ",depnasc:"+dep.nasc;
-		dependente += ",depnomemae:"+dep.nomemae;
-		dependente += ",sosdental :"+dep.sosdental;
 
-		$('#frmCadastro').append('<input type="hidden" name="dependentes[]" value="'+dependente+'">');
-	});	
+	if(validarFinal()){
+		$.each(listaDependentes, function(i, dep){
+			var dependente = "";
+			dependente += "depnome:"+dep.nome;
+			dependente += ",depclisexo:"+dep.clisexo;
+			dependente += ",parentesco:"+dep.parentesco;
+			dependente += ",depcliestadocivil:"+dep.cliestadocivil;
+			dependente += ",depcpf:"+dep.cpf;
+			dependente += ",depnasc:"+dep.nasc;
+			dependente += ",depnomemae:"+dep.nomemae;
+			dependente += ",sosdental :"+dep.sosdental;
 
-	$('#frmCadastro').submit();
+			$('#frmCadastro').append('<input type="hidden" name="dependentes[]" value="'+dependente+'">');
+		});	
+
+		$('#frmCadastro').submit();
+	}
 }
 
 function resetar(){
 	$('[name=depparentesco]').val( '' );
 	$('[name=depsexo]').val( '' );
 	$('[name=depestadocivil]').val( '' );
-	$('[name=sosdental]').val( '' );
+	$('[name=sosdental	]').val( '' );
+}
+
+function validarFinal(){
+
+	var plano =  document.getElementsByName('plano');
+	var valor_autorizar = null
+	var valor_plano = null;
+
+	var checkeds = new Array();
+	$("input[name='autorizar']:checked").each(function ()
+	{
+	  valor_autorizar=1;
+	});
+
+	
+	for(var i = 0; i < plano.length; i++){
+	   if(plano[i].checked){
+	   		valor_plano = plano[i].value;
+		}
+		
+	}
+
+	alert(valor_autorizar);
+
+	if (valor_plano == null) {
+		alert('Escolha um dos planos');		
+		return false;
+	}
+
+	if (valor_autorizar == null) {
+		alert('Autorize o desconto do valor do plano');
+		document.getElementById("autorizar").focus();
+		return false;
+	}
+
+	return true;
+
 }

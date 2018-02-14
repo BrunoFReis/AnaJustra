@@ -44,7 +44,7 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p><?=$cliente->nomeplano?></p>
+                <p><strong><?=$cliente->nomeplano?></strong></p>
             </div>
         </div>
         <div class="row">
@@ -89,7 +89,7 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p><strong>Telefone:</strong> <?=$cliente->clitelefone?></p>
+                <p><strong>Telefone:</strong> <?=$cliente->clicelular?></p>
             </div>
         </div>
         <div class="row">
@@ -104,7 +104,7 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p><strong>Número:</strong> <?=$cliente->cliendnum?></p>
+                <p><strong>Número:</strong> <?=$cliente->cliendnumero?></p>
             </div>
         </div>
         <div class="row">

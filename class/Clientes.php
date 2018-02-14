@@ -16,6 +16,7 @@ Class Clientes {
 	public $clicep;
 	public $cliendnumero;
 	public $clitelefone;
+        public $clicelular;
 	public $cliemail;
         public $nomeplano;
         public $idplano;

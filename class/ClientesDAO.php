@@ -10,7 +10,7 @@ class ClientesDAO {
 
 	function insereCliente(Clientes $cliente, $dependentes){
 		$query = "
-			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clifinalizado)
+			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clicelular,clifinalizado)
 			VALUES (
 				'{$cliente->clinome}', 
 				 STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'), 
@@ -27,6 +27,7 @@ class ClientesDAO {
 				'{$cliente->clitelefone}', 
 				'{$cliente->cliemail}',
                                 '{$cliente->idplano}',
+                                '{$cliente->clicelular}',
                                     0
 				)";
 
@@ -192,7 +193,7 @@ class ClientesDAO {
                 WHERE
                     a.clicpf = '{$cpf_cliente}' and a.ativado = 1;
             ";
-            
+                    
             $resultado = mysqli_query($this->conexao, $query);
             $resultArray = mysqli_fetch_assoc($resultado);
 
@@ -210,6 +211,7 @@ class ClientesDAO {
             $cliente->clibairro = $resultArray['clibairro'];
             $cliente->cliuf = $resultArray['cliuf'];
             $cliente->clicidade = $resultArray['clicidade'];
+            $cliente->cliendnumero = $resultArray['cliendnumero'];
             $cliente->nomeplano = $resultArray['planome'];
             
             return $cliente;

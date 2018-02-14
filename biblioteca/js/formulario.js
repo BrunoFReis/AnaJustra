@@ -328,8 +328,6 @@ function validarFinal(){
 		
 	}
 
-	alert(valor_autorizar);
-
 	if (valor_plano == null) {
 		alert('Escolha um dos planos');		
 		return false;

@@ -120,7 +120,6 @@ class ClientesDAO {
                         a.clicep,
                         a.cliendnumero,
                         a.clitelefone,
-                        a.clicelular,
                         a.cliemail,
                         a.data,
                         b.planome
@@ -131,7 +130,7 @@ class ClientesDAO {
                     WHERE
                         a.ativado = 1 AND a.clifinalizado = 0
 		";
-
+                
 		$resultado = mysqli_query($this->conexao, $query);
 
 		while($clientes_array = mysqli_fetch_assoc($resultado)) {
@@ -151,8 +150,7 @@ class ClientesDAO {
 			$cliente->clicep = $clientes_array['clicep'];
 			$cliente->cliemail = $clientes_array['cliemail'];
 			$cliente->cliendnumero = $clientes_array['cliendnumero'];
-			$cliente->clitelefone = $clientes_array['clitelefone'];
-			$cliente->clicelular = $clientes_array['clicelular'];
+			$cliente->clitelefone = $clientes_array['clitelefone'];			
 			$cliente->data = $clientes_array['data'];
                         $cliente->nomeplano = $clientes_array['planome'];
                         
@@ -175,6 +173,7 @@ class ClientesDAO {
                     c.descricao as sexo,
                     a.clinomemae,
                     a.clitelefone,
+                    a.clicelular,
                     a.clicep,                    
                     a.cliendnumero,
                     a.cliendereco,
@@ -193,7 +192,7 @@ class ClientesDAO {
                 WHERE
                     a.clicpf = '{$cpf_cliente}' and a.ativado = 1;
             ";
-                    
+            
             $resultado = mysqli_query($this->conexao, $query);
             $resultArray = mysqli_fetch_assoc($resultado);
 
@@ -208,6 +207,7 @@ class ClientesDAO {
             $cliente->clitelefone = $resultArray['clitelefone'];
             $cliente->clicep = $resultArray['clicep'];
             $cliente->cliendereco = $resultArray['cliendereco'];
+            $cliente->clicelular = $resultArray['clicelular'];
             $cliente->clibairro = $resultArray['clibairro'];
             $cliente->cliuf = $resultArray['cliuf'];
             $cliente->clicidade = $resultArray['clicidade'];

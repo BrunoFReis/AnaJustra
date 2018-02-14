@@ -10,12 +10,12 @@ class ClientesDAO {
 
 	function insereCliente(Clientes $cliente, $dependentes){
 		$query = "
-			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail)
+			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clifinalizado)
 			VALUES (
 				'{$cliente->clinome}', 
 				 STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'), 
 				'{$cliente->clicpf}', 
-				{$cliente->cliestadocivil}, 
+				'{$cliente->cliestadocivil}', 
 				'{$cliente->clisexo}', 
 				'{$cliente->clinomemae}', 
 				'{$cliente->cliendereco}', 
@@ -25,7 +25,9 @@ class ClientesDAO {
 				'{$cliente->clicep}', 
 				'{$cliente->cliendnumero}', 
 				'{$cliente->clitelefone}', 
-				'{$cliente->cliemail}'
+				'{$cliente->cliemail}',
+                                '{$cliente->idplano}',
+                                    0
 				)";
 
 		$resultado = mysqli_query($this->conexao, $query);
@@ -74,26 +76,31 @@ class ClientesDAO {
 
 		$ListClientes = array();
 		$query = " 
-			SELECT
-				id,
-				clinome, 
-			    clinasc, 
-			    clicpf, 
-			    cliestadocivil, 
-			    clisexo, 
-			    clinomemae, 
-			    cliendereco, 
-			    clibairro, 
-			    clicidade, 
-			    cliuf, 
-			    clicep, 
-			    cliendnumero, 
-			    clitelefone,
-			    clicelular,
-			    cliemail,
-			    data
-			FROM clientes
-			WHERE ativado = 1;
+                    SELECT 
+                        a.id,
+                        a.clinome,
+                        a.clinasc,
+                        a.clicpf,
+                        a.cliestadocivil,
+                        a.clisexo,
+                        a.clinomemae,
+                        a.cliendereco,
+                        a.clibairro,
+                        a.clicidade,
+                        a.cliuf,
+                        a.clicep,
+                        a.cliendnumero,
+                        a.clitelefone,
+                        a.clicelular,
+                        a.cliemail,
+                        a.data,
+                        b.planome
+                    FROM
+                        clientes a
+                            INNER JOIN
+                        plano b ON a.cliplano = b.id
+                    WHERE
+                        a.ativado = 1 AND a.clifinalizado = 0
 		";
 
 		$resultado = mysqli_query($this->conexao, $query);
@@ -118,6 +125,8 @@ class ClientesDAO {
 			$cliente->clitelefone = $clientes_array['clitelefone'];
 			$cliente->clicelular = $clientes_array['clicelular'];
 			$cliente->data = $clientes_array['data'];
+                        $cliente->nomeplano = $clientes_array['planome'];
+                        
 			
 			array_push($ListClientes, $cliente);
 		}
@@ -128,26 +137,26 @@ class ClientesDAO {
 	function retornaClientePorID($id_clientes) {
 
 		$query = " 
-					SELECT 
-					    id_clientes,
-					    cod_cliente,
-					    imgsrc,
-					    clinome,
-					    clicpf,
-					    cliemail,
-					    clitelefone,
-					    clicelular,
-					    clisenha,
-					    DATE_FORMAT(clinascimento,'%d/%m/%Y') as clinascimento,
-					    clicep,
-					    cliddd,
-					    DATE_FORMAT(data_registro,'%d/%m') as data_registro_simples,
-					    DATE_FORMAT(data_registro,'%h:%m:%s - %d/%m/%Y') as data_registro,
-					    ativado
-					FROM
-					    Clientes
-					WHERE
-						id_clientes = {$id_clientes};
+                    SELECT 
+                        id_clientes,
+                        cod_cliente,
+                        imgsrc,
+                        clinome,
+                        clicpf,
+                        cliemail,
+                        clitelefone,
+                        clicelular,
+                        clisenha,
+                        DATE_FORMAT(clinascimento,'%d/%m/%Y') as clinascimento,
+                        clicep,
+                        cliddd,
+                        DATE_FORMAT(data_registro,'%d/%m') as data_registro_simples,
+                        DATE_FORMAT(data_registro,'%h:%m:%s - %d/%m/%Y') as data_registro,
+                        ativado
+                    FROM
+                        Clientes
+                    WHERE
+                            id_clientes = {$id_clientes};
 		";
 
 		$resultado = mysqli_query($this->conexao, $query);

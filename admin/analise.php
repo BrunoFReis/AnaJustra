@@ -50,7 +50,7 @@
                         <tr>
                             <td><?=$cliente->clinome?></td>
                             <td align="center"><?=$cliente->clicpf?></td>
-                            <td align="center">Dental 200</td>                
+                            <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  
                             <td align="center"><button class="btn btn-success">Confirmar</button></td> 
                             <td align="center"><button class="btn btn-danger">Excluir</button></td>

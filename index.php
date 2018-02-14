@@ -51,7 +51,7 @@
                 </div>
             </div>
                 <form id="frmCadastro" method="POST" action="/amildental/views/cliente-banco.php?acao=cadastrar">
-                    <div id="titular" style="display:none">
+                    <div id="titular" style="display:block">
                         <div class="row"> 
                             <div class="col-md-6">
                                 <h4 class="IconPessoa">Dados Pessoais</h4>
@@ -198,7 +198,7 @@
                         </div>
                     </div>        
                     </div>
-                    <div id="dependente" style="display:block"> 
+                    <div id="dependente" style="display:none"> 
                     <div class="row">
                         <div class="col-md-6">
                             <div  class="form-group">
@@ -321,28 +321,28 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="plano" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
+                                         <input type="radio" id="plano" name="plano" value="1"> Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="plano" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
+                                         <input type="radio" id="plano" name="plano" value="2"> Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="plano" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
+                                         <input type="radio" id="plano" name="plano" value="3"> Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
                                     </div>
                                 </div>
                             </div>
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <input type="radio" name="plano" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
+                                         <input type="radio" id="plano" name="plano" value="4"> Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
                                          <hr>
                                     </div>
                                 </div>

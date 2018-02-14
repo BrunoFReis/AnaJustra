@@ -70,7 +70,35 @@ class ClientesDAO {
 		";
 
 		return mysqli_query($this->conexao, $query);
-	}	
+	}
+        
+        function ConfirmaCliente($id_cliente){
+
+		$query = "	
+                    UPDATE clientes
+			SET 
+                            clifinalizado = 1
+				WHERE
+                            id = '{$id_cliente}';
+		";
+
+		return mysqli_query($this->conexao, $query);
+	}
+        
+        function ExcluirCliente($id_cliente){
+
+		$query = "	
+                    UPDATE clientes
+			SET 
+                            ativado = 0
+				WHERE
+                            id = '{$id_cliente}';
+		";
+
+		return mysqli_query($this->conexao, $query);
+	}
+        
+        
 
 	function listaClientes() {
 

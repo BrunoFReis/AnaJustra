@@ -52,8 +52,8 @@
                             <td align="center"><?=$cliente->clicpf?></td>
                             <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  
-                            <td align="center"><button class="btn btn-success">Confirmar</button></td> 
-                            <td align="center"><button class="btn btn-danger">Excluir</button></td>
+                            <td align="center"><button class="btn btn-success" onclick="confirmarCliente(<?=$cliente->id?>)">Confirmar</button></td> 
+                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)" >Excluir</button></td>
                         </tr>
                     <?php
                       }
@@ -95,21 +95,44 @@
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script>
-$(document).ready(function() {
-    $('#example').dataTable( {
-        "language": {
-        "lengthMenu": "Exibir _MENU_ Registros por Página",
-        "info": "Mostrando _PAGE_ de _PAGES_ Páginas",
-        "zeroRecords": "Nenhum Registro Encontrado",        
-        "search": "Procurar:",
-         "paginate": {
-          "previous": "Anterior",
-          "next": "Próximo"
+    $(document).ready(function() {
+        $('#example').dataTable( {
+            "language": {
+            "lengthMenu": "Exibir _MENU_ Registros por Página",
+            "info": "Mostrando _PAGE_ de _PAGES_ Páginas",
+            "zeroRecords": "Nenhum Registro Encontrado",        
+            "search": "Procurar:",
+             "paginate": {
+              "previous": "Anterior",
+              "next": "Próximo"
+        }
+      }
+    } );    
+
+    } );
+
+    function confirmarCliente(id_cliente){
+
+        $.ajax({
+        method: "GET",
+        url: "../views/cliente-banco.php",
+        data: { analise: "confirmar", id_cliente: id_cliente }
+        })
+        .done(function() {
+            window.location.href = "analise.php";
+        });
     }
-  }
-} );    
+    
+    function excluirCliente(id_cliente){
 
-} );
-
+        $.ajax({
+        method: "GET",
+        url: "../views/cliente-banco.php",
+        data: { analise: "excluir", id_cliente: id_cliente }
+        })
+        .done(function() {
+            window.location.href = "analise.php";
+        });
+    }
  
 </script>

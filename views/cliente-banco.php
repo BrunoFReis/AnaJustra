@@ -30,7 +30,7 @@
 
 			$clientesDAO->insereCliente($cliente, convertArrayDependentes($_POST["dependentes"]));
 
-			header("Location: /amildental/concluido.php");
+			header("Location: /amildental/concluido.php?cli_cpf=$cliente->clicpf");
 			break;
 		}
 		case 'removedesejo':{

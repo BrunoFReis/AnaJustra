@@ -5,6 +5,12 @@
     //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");
 
     //$produtoDAO = new ProdutoDAO($conexao); 
+    $cli_cpf = $_GET["cli_cpf"];
+    
+    $clientesDAO = new ClientesDAO($conexao);
+    
+    $cliente = $clientesDAO->retornaClientePorCPF($cli_cpf);
+    
 ?>
 <main>
     <div class="container-fluid titulo">
@@ -13,12 +19,12 @@
     <div class="container" style="background-color: #E8E8E8">
         <div class="row">
             <div class="col-md-12" align="center" style="margin-top: 20px; color: #009AC2">
-                <h4>Recebemos sua solicitação de contratação.</h4>
+                <h3><strong>Recebemos sua solicitação de contratação.</strong></h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: 30px;">
-                <p>Prezado(a) #NOME#, parabéns!</p>
+                <p>Prezado(a) <strong><?=$cliente->clinome?></strong>, parabéns!</p>
             </div>            
         </div>
         <div class="row">
@@ -28,107 +34,97 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p>Para efetivar a contratação, imprima o <a href="#">ARQUIVO</a> e encaminhe assinado para o email: <a href="#">amildentalrj@anajustra.org.br</a></p>
+                <p>Para efetivar a contratação, imprima o <a href="#"><strong>ARQUIVO</strong></a> e encaminhe assinado para o email: <a href="#">amildentalrj@anajustra.org.br</a></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p style="color:#009AC2">Plano contratado</p>                
+                <p style="color:#009AC2"><strong>Plano contratado</strong></p>                
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>#PLANO#</p>
+                <p><?=$cliente->nomeplano?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p style="color:#009AC2">Informações do titular</p>                
+                <p style="color:#009AC2"><strong>Informações do titular</strong></p>                
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Nome: #NOME#</p>
+                <p><strong>Nome:</strong> <?=$cliente->clinome?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>CPF: #CPF#</p>
+                <p><strong>CPF:</strong> <?=$cliente->clicpf?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Data de nascimento:  #DATA_NASCIMENTO#</p>
+                <p><strong>Data de nascimento:</strong> <?=$cliente->clinasc?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Estado civil: #ESTADO_CIVIL#</p>
+                <p><strong>Estado civil:</strong> <?=$cliente->cliestadocivil?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Email: #EMAIL#</p>
+                <p><strong>Email:</strong> <?=$cliente->cliemail?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Sexo: #SEXO#</p>
+                <p><strong>Sexo:</strong> <?=$cliente->clisexo?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Nome da mãe: #NOME-MAE#</p>
+                <p><strong>Nome da mãe:</strong> <?=$cliente->clinomemae?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Telefone: #TELEFONE#</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12" style="margin-top: -15px;">
-                <p>Nome: #NOME#</p>
+                <p><strong>Telefone:</strong> <?=$cliente->clitelefone?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p style="color:#009AC2">Endereço de correspondência</p>                
+                <p style="color:#009AC2"><strong>Endereço de correspondência</strong></p>                
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>CEP: #CEP#</p>
+                <p><strong>CEP:</strong> <?=$cliente->clicep?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Número: #NUMERO#</p>
+                <p><strong>Número:</strong> <?=$cliente->cliendnum?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Logradouro: #LOGRADOURO#</p>
+                <p><strong>Logradouro:</strong> <?=$cliente->cliendereco?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Bairro: #BAIRRO#</p>
+                <p><strong>Bairro:</strong> <?=$cliente->clibairro?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>Complemento: #COMPLEMENTO#</p>
+                <p><strong>UF:</strong> <?=$cliente->cliuf?></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="margin-top: -15px;">
-                <p>UF: #UF#</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12" style="margin-top: -15px;">
-                <p>Cidade: #CIDADE#</p>
+                <p><strong>Cidade:</strong> <?=$cliente->clicidade?></p>
             </div>
         </div>
     </div>

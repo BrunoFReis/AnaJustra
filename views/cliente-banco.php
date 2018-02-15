@@ -25,7 +25,7 @@
 			$cliente->clitelefone = $_POST["clitelefone"];
 			$cliente->clicelular = $_POST["clicelular"];
 			$cliente->cliemail = $_POST["cliemail"];
-                        $cliente->idplano = $_POST["plano"];
+            $cliente->idplano = $_POST["plano"];
                         
 
 			$clientesDAO->insereCliente($cliente, convertArrayDependentes($_POST["dependentes"]));

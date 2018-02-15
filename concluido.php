@@ -2,7 +2,6 @@
     session_start();
     
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/cabecalho.php");
-    //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");
 
     //$produtoDAO = new ProdutoDAO($conexao); 
     $cli_cpf = $_GET["cli_cpf"];
@@ -129,7 +128,3 @@
         </div>
     </div>
 </main>
-<?php
-    require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/cabecalho.php");
-?>
-

@@ -24,7 +24,7 @@ class DependentesDAO {
 					'{$dep->sosdental}'
 				);
 		";
-		
+		echo $query;
 		return mysqli_query($this->conexao, $query);
 	}
 

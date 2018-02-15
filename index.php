@@ -267,7 +267,7 @@
                                         <select name="sosdental" id="sosdental" class="form-control sosdental" required>
                                             <option value="" selected="selected" disabled>SOS Dental</option>
                                                 <option value="1">Sim</option>
-                                                <option value="2">Não</option>
+                                                <option value="0">Não</option>
                                         </select>
                                     </div>                                   
                                 </div>

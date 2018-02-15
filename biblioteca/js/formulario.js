@@ -246,18 +246,17 @@ function AdicionarDependente(){
 		var dependente = {};
 		dependente.id = contador;
 		dependente.nome = $("#depnome").val();
-		dependente.clisexo = $("#depclisexo").val();
+		dependente.depsexo = $("#depsexo").val();
 		dependente.parentesco = $("#depparentesco").val();
-		dependente.cliestadocivil = $("#depcliestadocivil").val();
+		dependente.depestadocivil = $("#depestadocivil").val();
 		dependente.cpf = $("#depcpf").val();
 		dependente.nasc = $("#depnasc").val();
 		dependente.nomemae = $("#depnomemae").val();
-		dependente.sosdental = $('[name="sosdental"]').val();
+		dependente.sosdental = $('#sosdental').val();
 
 		listaDependentes.push(dependente);
 		
 		atualizaListaDep();
-		$("#depnome, #depclisexo, #depparesntesco, #depcliestadocivil, #depcpf, #depnasc, #depnomemae").val("");
 		resetar();
 	}
 }
@@ -286,13 +285,13 @@ function enviaForm(){
 		$.each(listaDependentes, function(i, dep){
 			var dependente = "";
 			dependente += "depnome:"+dep.nome;
-			dependente += ",depclisexo:"+dep.clisexo;
+			dependente += ",depsexo:"+dep.depsexo;
 			dependente += ",parentesco:"+dep.parentesco;
-			dependente += ",depcliestadocivil:"+dep.cliestadocivil;
+			dependente += ",depestadocivil:"+dep.depestadocivil;
 			dependente += ",depcpf:"+dep.cpf;
 			dependente += ",depnasc:"+dep.nasc;
 			dependente += ",depnomemae:"+dep.nomemae;
-			dependente += ",sosdental :"+dep.sosdental;
+			dependente += ",sosdental:"+dep.sosdental;
 
 			$('#frmCadastro').append('<input type="hidden" name="dependentes[]" value="'+dependente+'">');
 		});	
@@ -302,10 +301,7 @@ function enviaForm(){
 }
 
 function resetar(){
-	$('[name=depparentesco]').val( '' );
-	$('[name=depsexo]').val( '' );
-	$('[name=depestadocivil]').val( '' );
-	$('[name=sosdental	]').val( '' );
+	$("#depnome, #depclisexo, #depparentesco, #depestadocivil, #depcpf, #depnasc, #depnomemae, #depsexo, #sosdental").val("");
 }
 
 function validarFinal(){

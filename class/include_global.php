@@ -9,5 +9,3 @@
 
 	$ClassConexao = new conexao();
 	$conexao = $ClassConexao->conexao;
-
-	echo $_SERVER['DOCUMENT_ROOT'];

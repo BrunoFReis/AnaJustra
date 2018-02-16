@@ -2,10 +2,6 @@
     session_start();
     
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
-    //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");
-
-    //$produtoDAO = new ProdutoDAO($conexao); 
-
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
 ?>
 
@@ -18,37 +14,40 @@
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
               <h3>Propostas Finalizadas</h3>
+              <a href="gerarExcel.php" target="_blank">
+                <button class="btn btn-sm btn-success pull-right" style="margin: 7px;">Excel</button>
+              </a>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content" style="padding: 10px;">
                   <table id="example1" class="display" cellspacing="0" width="100%" >
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Plano</th>
-                <th>Data</th>              
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Plano</th>
-                <th>Data</th>                  
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <td>Bruno Nunes de Freitas</td>
-                <td align="center">03710117100</td>
-                <td align="center">Dental 200</td>                
-                <td align="center">12/02/2018</td>                  
-            </tr>           
-        </tbody>
-    </table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Plano</th>
+                            <th>Data</th>              
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Plano</th>
+                            <th>Data</th>                  
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>Bruno Nunes de Freitas</td>
+                            <td align="center">03710117100</td>
+                            <td align="center">Dental 200</td>                
+                            <td align="center">12/02/2018</td>                  
+                        </tr>           
+                    </tbody>
+                </table>
                 </div>
                 <!-- /widget-content --> 
               </div>

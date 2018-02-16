@@ -48,6 +48,66 @@ class ClientesDAO {
 		return $resultado;
 	}
 
+	function listaClientesExcel(){
+
+		$ListClientes = array();
+		$query = " 
+                    SELECT 
+                        a.id,
+                        a.clinome,
+                        a.clinasc,
+                        a.clicpf,
+                        a.cliestadocivil,
+                        a.clisexo,
+                        a.clinomemae,
+                        a.cliendereco,
+                        a.clibairro,
+                        a.clicidade,
+                        a.cliuf,
+                        a.clicep,
+                        a.cliendnumero,
+                        a.clitelefone,
+                        a.cliemail,
+                        a.data,
+                        b.planome
+                    FROM
+                        clientes a
+                        INNER JOIN plano b ON a.cliplano = b.id
+                    WHERE
+                        a.ativado = 1 
+                        AND a.clifinalizado = 1
+		";
+                
+		$resultado = mysqli_query($this->conexao, $query);
+
+		while($clientes_array = mysqli_fetch_assoc($resultado)) {
+
+			$cliente = new Clientes();
+			$cliente->id = $clientes_array['id'];
+			$cliente->clinome = $clientes_array['clinome'];
+			$cliente->clinasc = $clientes_array['clinasc'];
+			$cliente->clicpf = $clientes_array['clicpf'];
+			$cliente->cliestadocivil = $clientes_array['cliestadocivil'];
+			$cliente->clisexo = $clientes_array['clisexo'];
+			$cliente->clinomemae = $clientes_array['clinomemae'];
+			$cliente->cliendereco = $clientes_array['cliendereco'];
+			$cliente->clibairro = $clientes_array['clibairro'];
+			$cliente->clicidade = $clientes_array['clicidade'];
+			$cliente->cliuf = $clientes_array['cliuf'];
+			$cliente->clicep = $clientes_array['clicep'];
+			$cliente->cliemail = $clientes_array['cliemail'];
+			$cliente->cliendnumero = $clientes_array['cliendnumero'];
+			$cliente->clitelefone = $clientes_array['clitelefone'];			
+			$cliente->data = $clientes_array['data'];
+                        $cliente->nomeplano = $clientes_array['planome'];
+                        
+			
+			array_push($ListClientes, $cliente);
+		}
+
+		return $ListClientes;
+	}
+
     function ConfirmaCliente($id_cliente){
 		$query = "	
                 UPDATE clientes
@@ -144,8 +204,7 @@ class ClientesDAO {
 			$cliente->cliendnumero = $clientes_array['cliendnumero'];
 			$cliente->clitelefone = $clientes_array['clitelefone'];			
 			$cliente->data = $clientes_array['data'];
-                        $cliente->nomeplano = $clientes_array['planome'];
-                        
+            $cliente->nomeplano = $clientes_array['planome'];      
 			
 			array_push($ListClientes, $cliente);
 		}

@@ -6,8 +6,8 @@ Class Conexao {
 	
 	public $conexao;
 	public $hostname = "sql50.main-hosting.eu";
-	public $user = "u124677850_root";
-	public $pass = "10203040aa";
+    public $username = "u124677850_root";
+    public $password = "10203040aa";
 
 	function __construct()
 	{
@@ -20,7 +20,7 @@ Class Conexao {
 		if($conn && !mysqli_connect_errno()){
 			$this->conexao = $conn;
 		}else{
-			$this->conexao = $this->conectaBanco("mysql.hostinger.com.br", $this->user, $this->pass, "u124677850_anaju");
+			$this->conexao = $this->conectaBanco($this->hostname, $this->user, $this->pass, "u124677850_anaju");
 		}
 	}
 

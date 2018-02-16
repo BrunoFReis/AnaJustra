@@ -26,9 +26,9 @@ class ClientesDAO {
 				'{$cliente->cliendnumero}', 
 				'{$cliente->clitelefone}', 
 				'{$cliente->cliemail}',
-                                '{$cliente->idplano}',
-                                '{$cliente->clicelular}',
-                                    0
+                '{$cliente->idplano}',
+                '{$cliente->clicelular}',
+                 0
 				)";
 
 		$resultado = mysqli_query($this->conexao, $query);
@@ -47,6 +47,26 @@ class ClientesDAO {
 
 		return $resultado;
 	}
+
+    function ConfirmaCliente($id_cliente){
+		$query = "	
+                UPDATE clientes
+				SET clifinalizado = 1
+				WHERE id = '{$id_cliente}';
+		";
+
+		return mysqli_query($this->conexao, $query);
+	}
+        
+    function ExcluirCliente($id_cliente){
+		$query = "	
+                UPDATE clientes
+                SET ativado = 0
+				WHERE id = '{$id_cliente}';
+		";
+
+		return mysqli_query($this->conexao, $query);
+	}	
 
 	function atualizaCliente(Clientes $cliente, $files, $destino){
 
@@ -72,34 +92,6 @@ class ClientesDAO {
 
 		return mysqli_query($this->conexao, $query);
 	}
-        
-        function ConfirmaCliente($id_cliente){
-
-		$query = "	
-                    UPDATE clientes
-			SET 
-                            clifinalizado = 1
-				WHERE
-                            id = '{$id_cliente}';
-		";
-
-		return mysqli_query($this->conexao, $query);
-	}
-        
-        function ExcluirCliente($id_cliente){
-
-		$query = "	
-                    UPDATE clientes
-			SET 
-                            ativado = 0
-				WHERE
-                            id = '{$id_cliente}';
-		";
-
-		return mysqli_query($this->conexao, $query);
-	}
-        
-        
 
 	function listaClientes() {
 

@@ -27,5 +27,50 @@ class DependentesDAO {
 		echo $query;
 		return mysqli_query($this->conexao, $query);
 	}
+        
+        function listaDependenteporID($id_cliente) {
+
+		$ListDependente = array();
+		$query = " 
+                    SELECT 
+                        a.depnome,
+                        a.depcpf,
+                        DATE_FORMAT(a.depnasc,'%d/%m/%Y') as depnasc,
+                        d.descricao as estadoCivil,
+                        c.descricao as sexo,
+                        b.descricao as parentesco,
+                        a.depnomemae,
+                        a.sosdental
+                    FROM
+                        dependentes a 
+                    INNER JOIN
+                        parentesco b on a.parentesco = b.id
+                    INNER JOIN
+                        sexo c on a.depsexo = c.id
+                    INNER JOIN
+                        estadoCivil d on a.depestadocivil = d.id
+                    WHERE
+                        a.cliente = '{$id_cliente}' and a.ativado = 1;
+		";
+                
+                        $resultado = mysqli_query($this->conexao, $query);
+
+		while($dep_array = mysqli_fetch_assoc($resultado)) {
+
+			$dep = new Dependentes();
+			$dep->depnome = $dep_array['depnome'];
+                        $dep->parentesco = $dep_array['parentesco'];
+			$dep->depcpf = $dep_array['depcpf'];
+			$dep->depnasc = $dep_array['depnasc'];
+			$dep->depestadocivil = $dep_array['estadoCivil'];
+			$dep->depsexo = $dep_array['sexo'];
+			$dep->depnomemae = $dep_array['depnomemae'];
+			$dep->sosdental = $dep_array['sosdental'];
+			
+                        array_push($ListDependente, $dep);
+		}
+
+		return $ListDependente;
+	}
 
 }

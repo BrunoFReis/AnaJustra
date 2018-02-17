@@ -295,6 +295,7 @@ class ClientesDAO {
 
             $query = " 
                 SELECT 
+                    a.id,
                     a.clinome,
                     a.clicpf,
                     DATE_FORMAT(a.clinasc,'%d/%m/%Y') as clinasc,
@@ -327,6 +328,7 @@ class ClientesDAO {
             $resultArray = mysqli_fetch_assoc($resultado);
 
             $cliente = new Clientes();
+            $cliente->id = $resultArray['id'];
             $cliente->clinome = $resultArray['clinome'];
             $cliente->clicpf = $resultArray['clicpf'];
             $cliente->clinasc = $resultArray['clinasc'];
@@ -345,51 +347,67 @@ class ClientesDAO {
             $cliente->nomeplano = $resultArray['planome'];
             
             return $cliente;
-	}	
+	}
+        
+        function retornaClientePorID($id_cliente) {
 
-	function retornaClientePorChave($cod_cliente) {
+            $query = " 
+                SELECT 
+                    a.clinome,
+                    a.clicpf,
+                    DATE_FORMAT(a.clinasc,'%d/%m/%Y') as clinasc,
+                    d.descricao as estadoCivil,
+                    a.cliemail,
+                    c.descricao as sexo,
+                    a.clinomemae,
+                    a.clitelefone,
+                    a.clicelular,
+                    a.clicep,                    
+                    a.cliendnumero,
+                    a.cliendereco,
+                    a.clibairro,
+                    a.cliuf,
+                    a.clicidade,
+                    b.planome,
+                    a.cliplano
+                FROM
+                    clientes a 
+                INNER JOIN
+                    plano b on a.cliplano = b.id
+                INNER JOIN
+                    sexo c on a.clisexo = c.id
+                INNER JOIN
+                    estadoCivil d on a.cliestadocivil = d.id
+                WHERE
+                    a.id = '{$id_cliente}' and a.ativado = 1;
+            ";
+            
+            $resultado = mysqli_query($this->conexao, $query);
+            $resultArray = mysqli_fetch_assoc($resultado);
 
-		$query = " 
-					SELECT 
-					    id_clientes,
-					    cod_cliente,
-					    clinome,
-					    clicpf,
-					    cliemail,
-					    clitelefone,
-					    clicelular,
-					    clisenha,
-					    clinascimento,
-					    clicep,
-					    cliddd,
-					    data_registro,
-					    ativado
-					FROM
-					    Clientes
-					WHERE
-						substring(cod_cliente,1,6) = substring('{$cod_cliente}',1,6);
-		";
-
-		$resultado = mysqli_query($this->conexao, $query);
-		$resultArray = mysqli_fetch_assoc($resultado);
-
-		$cliente = new Clientes();
-		$cliente->id_clientes = $resultArray['id_clientes'];
-		$cliente->cod_cliente = $resultArray['cod_cliente'];
-		$cliente->cliNome = $resultArray['clinome'];
-		$cliente->cliCpf = $resultArray['clicpf'];
-		$cliente->cliEmail = $resultArray['cliemail'];
-		$cliente->cliTelefone = $resultArray['clitelefone'];
-		$cliente->cliCelular = $resultArray['clicelular'];
-		$cliente->cliSenha = $resultArray['clisenha'];
-		$cliente->cliNascimento = $resultArray['clinascimento'];
-		$cliente->data_registro = $resultArray['data_registro'];
-		$cliente->ativado =  $resultArray['ativado'];
-
-		return $cliente;
-	}	
-
-	function check_login($login, $senha){
+            $cliente = new Clientes();
+            $cliente->clinome = $resultArray['clinome'];
+            $cliente->clicpf = $resultArray['clicpf'];
+            $cliente->clinasc = $resultArray['clinasc'];
+            $cliente->cliestadocivil = $resultArray['estadoCivil'];
+            $cliente->cliemail = $resultArray['cliemail'];
+            $cliente->clisexo = $resultArray['sexo'];
+            $cliente->clinomemae = $resultArray['clinomemae'];
+            $cliente->clitelefone = $resultArray['clitelefone'];
+            $cliente->clicep = $resultArray['clicep'];
+            $cliente->cliendereco = $resultArray['cliendereco'];
+            $cliente->clicelular = $resultArray['clicelular'];
+            $cliente->clibairro = $resultArray['clibairro'];
+            $cliente->cliuf = $resultArray['cliuf'];
+            $cliente->clicidade = $resultArray['clicidade'];
+            $cliente->cliendnumero = $resultArray['cliendnumero'];
+            $cliente->nomeplano = $resultArray['planome'];
+            $cliente->idplano = $resultArray['cliplano'];
+            
+            return $cliente;
+	}
+        
+        function check_login($login, $senha){
 		$cliente = new Clientes();
 
 		$query = "

@@ -54,7 +54,7 @@ and open the template in the editor.
 
                         
                         else {?>      
-                            <td><strong>( <strong style="color:black">X</strong> ) INCLUSÃO TITULAR</strong></td>
+                            <td><strong style="color:#747578">( <strong style="color:black">X</strong> ) INCLUSÃO TITULAR</strong></td>
                     <td style="color:#747578"><strong>( ) INCLUSÃO TITULAR + DEPENDENTES/AGREGADOS</strong></td>
                         <?php } ?> 
                 </tr>
@@ -145,14 +145,11 @@ and open the template in the editor.
                           <tr>
                               <td><strong> CPF: </strong></td>
                               <td><strong> Data Nascimento: </strong></td>
-                              <td style="color: red"><strong> SOS Dental: </strong></td>
+                              <td><strong> SOS Dental: </strong></td>
                           </tr>
                           <tr>
                               <td colspan="3"><strong>Nome da Mãe: </strong></td>                    
                           </tr>
-                          <tr>
-                              <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
-                          </tr>        
                           
                     <?php } ?>
                     
@@ -230,7 +227,7 @@ and open the template in the editor.
                 <div class="col-md-1" align="center">                   
                 </div>                    
             </div>    
-            <table width="100%" style="margin-top: 40px;" class="tabela1">
+            <table width="100%" style="margin-top: 30px;" class="tabela1">
                 <tr>
                     <td align="center" style="color: #00C1DE"><strong>______________________________________________</strong></td>
                     <td align="center" style="color: #00C1DE"><strong>______________________________________________</strong></td>
@@ -240,13 +237,17 @@ and open the template in the editor.
                     <td align="center" style="color:#747578;"><strong>Assinatura do Beneficiário</strong></td>
                 </tr>                
             </table>
-            <table width="100%" style="margin-top: 40px; margin-right: 20px;">
+            <table width="100%" style="margin-top: 0px; margin-right: 20px;">
                 <tr>
                     <td></td>
                     <td></td>
-                    <td align="right"><img src="/amildental/biblioteca/img/logo.png" class="logoAmil"</td>
-                </tr>
-                            
+                    <td align="right"><img src="/amildental/biblioteca/img/logo-amil-dental-1.png" class="logoAmil"</td>
+                </tr>                            
+            </table>
+            <table width="100%" style="margin-top: 10px; background-color:#00C1DE;">
+                <tr>
+                    <td align="center" style="color:white;  font-size:8px; padding: 5px;">Amil - linha Amil Dental - CRO-SP 4722 | Resp. Téc. Maria A. F. A. Araújo - CRO-SP 35448. | Amil linha Amil Dental - CRO-RJ 960 | Resp. Téc. Patrícia I. C. de Almeida - CRO-RJ 20121</td>
+                </tr>                            
             </table>
         </div>
         

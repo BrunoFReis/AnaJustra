@@ -9,3 +9,11 @@
 
 	$ClassConexao = new conexao();
 	$conexao = $ClassConexao->conexao;
+
+	function selecionaMenu($session, $nome_menu){
+		if($session == $nome_menu){
+			return "active";
+		}else{
+			return "";
+		}
+	}

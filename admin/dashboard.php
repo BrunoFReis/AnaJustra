@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    $_SESSION["menu-admin"] = "dashboard";
     
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
     //require_once($_SERVER['DOCUMENT_ROOT']."/MilAmigos/views/banner-principal.php");

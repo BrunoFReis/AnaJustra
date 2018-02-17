@@ -53,6 +53,7 @@ class ClientesDAO {
 		$ListClientes = array();
 		$query = " 
                     SELECT
+                    	id,
 						num_contrato,						cod_tipo_operacao,
 						tipo_associado,						num_associado,
 						num_matric_empresa,						num_asssociado_tit,
@@ -94,6 +95,7 @@ class ClientesDAO {
 						cod_local_trabalho,						ind_subsidio,
 						cod_municipio_ibge
                     FROM vwRelatorioClientesExcel
+                    order by 1, cod_dependencia
 		";
                 
 		$resultado = mysqli_query($this->conexao, $query);

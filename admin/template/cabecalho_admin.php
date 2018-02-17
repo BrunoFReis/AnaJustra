@@ -1,6 +1,10 @@
 <?php
   require_once($_SERVER['DOCUMENT_ROOT']."/amildental/class/include_global.php");
+  
+  $configuracao = new Configuracao();
+  $configuracao->verificaSessao();
 
+  $nomeUsuario = $_SESSION["usunome"];
   //require_once("mostra-alerta.php");
 
   if($title_page == null || $title_page == ""){
@@ -44,10 +48,10 @@
         <ul class="nav pull-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="icon-user"></i> Usuário <b class="caret"></b>
+              <i class="icon-user"></i> <?=$nomeUsuario?> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">              
-              <li><a href="/amildental/admin">Sair</a></li>
+              <li><a href="/amildental/admin/login.php">Sair</a></li>
             </ul>
           </li>
         </ul>

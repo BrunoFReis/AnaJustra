@@ -19,9 +19,18 @@ and open the template in the editor.
 
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <?php 
+        
+            require_once($_SERVER['DOCUMENT_ROOT']."/amildental/class/include_global.php"); 
+            session_start();
+
+            $cli_id = $_GET["cli_id"];
+            
+            $clientesDAO = new ClientesDAO($conexao);
+            $dependentesDAO = new DependentesDAO($conexao);
+
+            $cliente = $clientesDAO->retornaClientePorID($cli_id);    
+?>
         <div class="container">            
             <table width="100%" class="tabela">
                 <tr>
@@ -30,101 +39,96 @@ and open the template in the editor.
                     </td>
                 </tr>
                 <tr>
-                    <td><strong> Nº da Matrícula: #MATRICULA#</strong></td>
-                    <td><strong> Unidade: #UNIDADE#</strong></td>
-                    <td><strong> Data Admissão: #DATAADMISSAO#</strong></td>
+                    <td><strong> Nº da Matrícula: </strong></td>
+                    <td><strong> Unidade: </strong></td>
+                    <td><strong> Data Admissão: </strong></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><strong> Nome Completo #NOMECOMPLETO#</strong></td>
+                    <td colspan="3"><strong> Nome Completo: <?=$cliente->clinome?></strong> </td>
                 </tr>
                 <tr>
-                    <td colspan="2"><strong> Estado Civil: #ESTADOCIVIL#</strong></td>
-                    <td><strong> Sexo #SEXO#</strong></td>
+                    <td colspan="2"><strong> Estado Civil: <?=$cliente->cliestadocivil?></strong></td>
+                    <td><strong> Sexo: <?=$cliente->clisexo?></strong></td>
                 </tr>
                 <tr>
-                    <td><strong> CPF: #CPF#</strong></td>
-                    <td><strong> Data Nascimento: #DATANASCIMENTO#</strong></td>
+                    <td><strong> CPF: <?=$cliente->clicpf?></strong></td>
+                    <td><strong> Data Nascimento: <?=$cliente->clinasc?></strong></td>
                     <td><strong> </strong></td>
                 </tr> 
                 <tr>
-                    <td colspan="3"><strong> Nome da Mãe: #NOMEDAMAE#</strong></td>
+                    <td colspan="3"><strong> Nome da Mãe: <?=$cliente->clinomemae?></strong></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><strong> Endereço Residencial: #ENDERECO#</strong></td>
-                    <td><strong> Nº: #NUMERO#</strong></td>                    
+                    <td colspan="2"><strong> Endereço Residencial: <?=$cliente->cliendereco?></strong></td>
+                    <td><strong> Nº: <?=$cliente->cliendnumero?></strong></td>                    
                 </tr> 
                 <tr>
-                    <td><strong> Bairro: #BAIRRO#</strong></td>
-                    <td><strong> Cidade: #CIDADE#</strong></td>
-                    <td><strong> UF: #UF#</strong></td>
+                    <td><strong> Bairro: <?=$cliente->clibairro?></strong></td>
+                    <td><strong> Cidade: <?=$cliente->clicidade?></strong></td>
+                    <td><strong> UF: <?=$cliente->cliuf?></strong></td>
                 </tr>
                 <tr>
-                    <td><strong> CEP: #CEP#</strong></td>
-                    <td><strong> Tel: #TELEFONE#</strong></td>
-                    <td><strong> E-mail: #EMAIL#</strong></td>
+                    <td><strong> CEP: <?=$cliente->clicep?></strong></td>
+                    <td><strong> Tel: <?=$cliente->clicelular?></strong></td>
+                    <td><strong> E-mail: <?=$cliente->cliemail?></strong></td>
                 </tr>
                 <tr>
                     <td  colspan="3" align="center" style="color: white; background-color: #0091BB;">
                         <strong>2 - INFORMAR DADOS DOS DEPENDENTES E AGREAGADOS</strong>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2"><strong>1)Nome Completo: #NOMEDP1#</strong></td>
-                    <td><strong>Sexo:</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>Parentesco:#PARENTESCODP1#</strong></td>
-                    <td><strong>Estado Civil: #ESTADOCIVILDP1#</strong></td>
-                </tr>
-                <tr>
-                    <td><strong> CPF: #CPFDP1#</strong></td>
-                    <td><strong> Data Nascimento: #DATANASCIMENTODP1#</strong></td>
-                    <td style="color: red"><strong> SOS Dental: #SOSDENTALDP1#</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><strong>Nome da Mãe: #SOSDENTALDP1#</strong></td>                    
-                </tr>
-                <tr>
-                    <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>2)Nome Completo: #NOMEDP2#</strong></td>
-                    <td><strong>Sexo:</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>Parentesco:#PARENTESCODP2#</strong></td>
-                    <td><strong>Estado Civil: #ESTADOCIVILDP2#</strong></td>
-                </tr>
-                <tr>
-                    <td><strong> CPF: #CPFDP2#</strong></td>
-                    <td><strong> Data Nascimento: #DATANASCIMENTODP2#</strong></td>
-                    <td style="color: red"><strong> SOS Dental: #SOSDENTALDP2#</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><strong>Nome da Mãe: #SOSDENTALDP2#</strong></td>                    
-                </tr>
-                <tr>
-                    <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>3)Nome Completo: #NOMEDP3#</strong></td>
-                    <td><strong>Sexo:</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>Parentesco:#PARENTESCODP3#</strong></td>
-                    <td><strong>Estado Civil: #ESTADOCIVILDP3#</strong></td>
-                </tr>
-                <tr>
-                    <td><strong> CPF: #CPFDP3#</strong></td>
-                    <td><strong> Data Nascimento: #DATANASCIMENTODP3#</strong></td>
-                    <td style="color: red"><strong> SOS Dental: #SOSDENTALDP3#</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><strong>Nome da Mãe: #SOSDENTALDP3#</strong></td>                    
-                </tr>
-                <tr>
-                    <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
-                </tr>
+                <?php
+                      $list = $dependentesDAO->listaDependenteporID($cli_id);
+                      $tamanho = sizeof($list);
+                              
+                    if($tamanho > 0){
+                        foreach ($list as $dep) {
+                      ?>
+                          <tr>
+                              <td colspan="2"><strong>Nome Completo: <?=$dep->depnome?></strong></td>
+                              <td><strong>Sexo: <?=$dep->depsexo?></strong></td>
+                          </tr>
+                          <tr>
+                              <td colspan="2"><strong>Parentesco: <?=$dep->parentesco?></strong></td>
+                              <td><strong>Estado Civil: <?=$dep->depestadocivil?></strong></td>
+                          </tr>
+                          <tr>
+                              <td><strong> CPF: <?=$dep->depcpf?></strong></td>
+                              <td><strong> Data Nascimento: <?=$dep->depnasc?></strong></td>
+                              <td style="color: red"><strong> SOS Dental: <?php if ($dep->sosdental == 0){ ?> Não <?php } else{ ?> Sim<?php } ?></strong></td>
+                          </tr>
+                          <tr>
+                              <td colspan="3"><strong>Nome da Mãe: <?=$dep->depnomemae?></strong></td>                    
+                          </tr>
+                          <tr>
+                              <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
+                          </tr>
+                      <?php
+                        }
+                    }
+                    else {?>                            
+                        <tr>
+                              <td colspan="2"><strong>Nome Completo: </strong></td>
+                              <td><strong>Sexo: </strong></td>
+                          </tr>
+                          <tr>
+                              <td colspan="2"><strong>Parentesco: </strong></td>
+                              <td><strong>Estado Civil: </strong></td>
+                          </tr>
+                          <tr>
+                              <td><strong> CPF: </strong></td>
+                              <td><strong> Data Nascimento: </strong></td>
+                              <td style="color: red"><strong> SOS Dental: </strong></td>
+                          </tr>
+                          <tr>
+                              <td colspan="3"><strong>Nome da Mãe: </strong></td>                    
+                          </tr>
+                          <tr>
+                              <td colspan="3" style="background-color: #D9D9D9; color: #D9D9D9">x</td>                    
+                          </tr>        
+                          
+                    <?php } ?>
+                    
             </table>
             <table width="100%" style="margin-top: 10px;" class="tabela"s>
                 <tr>
@@ -137,30 +141,50 @@ and open the template in the editor.
                     <td align="center"><strong>Dental 200</strong> </td>
                     <td><strong>Rol (ANS) + procedimentos extras + documentação ortodôntica básica</strong></td>
                     <td align="center"><strong>R$ 17,68</strong></td>
-                    <td>#PRODUTO1#</td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 1){ ?> X <?php } else{ ?><?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="center"><strong>Dental 300</strong></td>
                     <td><strong>Rol (ANS) + procedimentos extras + ortodontia</strong></td>
                     <td align="center"><strong>R$ 75,58</strong></td>
-                    <td>#PRODUTO2#</td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 2){ ?> X <?php } else{ ?><?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="center"><strong>Dental 500</strong></td>
                     <td><strong>Rol (ANS) + procedimentos extras + prótese de resina e porcelana</strong></td>
                     <td align="center"><strong>R$ 68,74</strong></td>
-                    <td>#PRODUTO3#</td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 3){ ?> X <?php } else{ ?><?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="center"><strong>Dental 700</strong></td>
                     <td><strong>Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional</strong></td>
                     <td align="center"><strong>R$ 108,14</strong></td>
-                    <td>#PRODUTO4#</td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 4){ ?> X <?php } else{ ?><?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="color: red"><strong>* DESEJA INCLUIR SOS DENTAL Para os dependentes/agregados - ATENDIMENTO DE URGÊNCIA DOMICILIAR?</strong></td>    
                     <td align="center" style="color: red"><strong>R$ 2,00</strong></td>
-                    <td>#SOSDENTAL#</td>
+                    
+                <?php
+                $list = $dependentesDAO->listaDependenteporID($cli_id);
+                $tamanho = sizeof($list);
+                              
+                    if($tamanho > 0){
+                        foreach ($list as $dep) {                            
+                            if ($dep->sosdental == 0){                                
+                                $sosdental = 0;
+                            } else{ 
+                                $sosdental=1;
+                                break;                                
+                            } 
+                        }?>
+                        
+                    <td align="center" style="color: red"><strong> <?php if ($sosdental == 0){ ?> <?php } else{ ?> X <?php } ?></strong></td>
+                    
+                    <?php }
+                    else {?>      
+                        <td align="center"> </td>
+                    <?php } ?>                    
                 </tr>
             </table>
             <table width="100%" style="margin-top:10px;">

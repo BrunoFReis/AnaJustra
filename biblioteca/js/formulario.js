@@ -338,3 +338,23 @@ function validarFinal(){
 	return true;
 
 }
+
+function ConfereCPF(){
+	var cpf = document.getElementById('clicpf').value;
+
+	if (cpf.length == 14 ){
+
+		$.ajax({
+		  method: "GET",
+		  url: "ConfereCPF.php",
+		  data: { 'cpf': cpf}
+		})
+		.done(function( msg ) {
+			if(msg==1){
+		    	alert('CPF já cadastrado, por favor insira outro CPF');
+				document.getElementById("clicpf").value = "";
+			}	
+		});
+	}
+
+}

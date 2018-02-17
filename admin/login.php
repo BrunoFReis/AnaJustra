@@ -70,12 +70,12 @@
 			
 			<div class="login-actions">
 				
-				<span class="login-checkbox">
-					<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
-					<label class="choice" for="Field">Manter conectado</label>
-				</span>
-									
-				<button class="button btn btn-success btn-large">Entrar</button>
+                            <span class="login-checkbox">
+                                    <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
+                                    <label class="choice" for="Field">Manter conectado</label>
+                            </span>
+
+                            <button class="button btn btn-success btn-large" onclick="loginUsuario()">Entrar</button>
 				
 			</div> <!-- .actions -->
 		</form>
@@ -86,15 +86,24 @@
 
 
 
-<div class="login-extra">
-	<a href="#">Esqueci a senha</a>
-</div> <!-- /login-extra -->
-
-
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
-
 <script src="js/signin.js"></script>
+
+    <script>
+
+        function loginUsuario(){
+
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+            
+            alert(login);
+            alert(senha);
+
+            window.location.href = "views/confereSenha.php?login="+login+"&senha="+senha+"";
+        }
+
+    </script>
 
 </body>
 

@@ -346,7 +346,7 @@ function ConfereCPF(){
 
 		$.ajax({
 		  method: "GET",
-		  url: "ConfereCPF.php",
+		  url: "views/ConfereCPF.php",
 		  data: { 'cpf': cpf}
 		})
 		.done(function( msg ) {

@@ -6,6 +6,7 @@
   if($title_page == null || $title_page == ""){
     $title_page = "Amil Dental";
   }
+  
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

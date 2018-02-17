@@ -68,7 +68,7 @@
                                             <input type="text" name="clinasc" id="clinasc" class="form-control data" placeholder="Data de Nascimento" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="clicpf" id="clicpf" class="form-control cpf" placeholder="CPF" required>
+                                            <input type="text" name="clicpf" id="clicpf" class="form-control cpf" onblur="ConfereCPF()" placeholder="CPF" required>
                                         </div>
                                     </div>
                                 </div>   

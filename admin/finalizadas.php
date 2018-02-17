@@ -4,6 +4,8 @@
     
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
+    
+    $clientesDAO = new ClientesDAO($conexao);
 ?>
 
 <div class="main">
@@ -41,12 +43,21 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td>Bruno Nunes de Freitas</td>
-                            <td align="center">03710117100</td>
-                            <td align="center">Dental 200</td>                
-                            <td align="center">12/02/2018</td>                  
-                        </tr>           
+                        <?php
+                        
+                        $list = $clientesDAO->listaClientesFinalizados();
+
+                        foreach ($list as $cliente) {
+                        ?>
+                            <tr>
+                                <td><?=$cliente->clinome?></td>
+                                <td align="center"><?=$cliente->clicpf?></td>
+                                <td align="center"><?=$cliente->nomeplano?></td>                
+                                <td align="center"><?=$cliente->data?></td>                                  
+                            </tr>
+                        <?php
+                          }
+                        ?>          
                     </tbody>
                 </table>
                 </div>

@@ -94,22 +94,6 @@
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/signin.js"></script>
-
-    <script>
-
-        function loginUsuario(){
-
-            var login = document.getElementById('login').value;
-            var senha = document.getElementById('senha').value;
-            
-            alert(login);
-            alert(senha);
-
-            window.location.href = "views/confereSenha.php?login="+login+"&senha="+senha+"";
-        }
-
-    </script>
-
 </body>
 
 </html>

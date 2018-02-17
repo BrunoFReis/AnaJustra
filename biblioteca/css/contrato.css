@@ -1,15 +1,16 @@
 .tabela{
-	 border: 1px solid black;
+	 border: 3px solid #00C1DE;
 	 font-size: 13px;
 }
 
 .tabela tr{
-	 border: 1px solid black;
+	 border: 3px solid #00C1DE;
 }
 
 .tabela td{
-	 border: 1px solid black;
+	 border: 3px solid #00C1DE;
 	 padding-left: 4px;
+	 color: #747578;
 }
 
 .tabela1{

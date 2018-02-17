@@ -1,5 +1,6 @@
 <?php 
-    session_start();    
+    session_start();
+    $_SESSION["menu-admin"] = "relatorios";
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
 

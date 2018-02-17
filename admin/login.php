@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   
@@ -48,7 +53,7 @@
 	
 	<div class="content clearfix">
 		
-		<form action="/amildental/admin/dashboard.php" method="post">
+		<form action="/amildental/admin/autentica.php" method="post">
 		
 			<h1>Entrar</h1>		
 			

@@ -111,10 +111,10 @@ class ClientesDAO {
 			$cDTO->num_matric_empresa = $rs['num_matric_empresa'];
 			$cDTO->num_asssociado_tit = $rs['num_asssociado_tit'];
 			$cDTO->num_matric_empresa_tit = $rs['num_matric_empresa_tit'];
-			$cDTO->num_cpf = $rs['num_cpf'];
+			$cDTO->num_cpf = removerMascaras($rs['num_cpf']);
 			$cDTO->num_pis = $rs['num_pis'];
 			$cDTO->nome_associado = $rs['nome_associado'];
-			$cDTO->data_nascimento = $rs['data_nascimento'];
+			$cDTO->data_nascimento = removerMascaras($rs['data_nascimento']);
 			$cDTO->ind_sexo = $rs['ind_sexo'];
 			$cDTO->ind_estado_civil = $rs['ind_estado_civil'];
 			$cDTO->data_casamento = $rs['data_casamento'];
@@ -131,7 +131,7 @@ class ClientesDAO {
 			$cDTO->nome_bairro = $rs['nome_bairro'];
 			$cDTO->nome_cidade = $rs['nome_cidade'];
 			$cDTO->sgl_uf = $rs['sgl_uf'];
-			$cDTO->num_cep = $rs['num_cep'];
+			$cDTO->num_cep = removerMascaras($rs['num_cep']);
 			$cDTO->num_ddd_telefone_1 = $rs['num_ddd_telefone_1'];
 			$cDTO->num_telefone_1 = $rs['num_telefone_1'];
 			$cDTO->ddd_celular_1 = $rs['ddd_celular_1'];
@@ -143,7 +143,7 @@ class ClientesDAO {
 			$cDTO->num_dv_agencia_dcc = $rs['num_dv_agencia_dcc'];
 			$cDTO->num_conta_corrente_reemb = $rs['num_conta_corrente_reemb'];
 			$cDTO->num_dv_cc_reemb = $rs['num_dv_cc_reemb'];
-			$cDTO->data_movimentacao = $rs['data_movimentacao'];
+			$cDTO->data_movimentacao = removerMascaras($rs['data_movimentacao']);
 			$cDTO->cod_motivo_exclusao = $rs['cod_motivo_exclusao'];
 			$cDTO->cod_empresa_nova = $rs['cod_empresa_nova'];
 			$cDTO->num_matric_empresa_novo = $rs['num_matric_empresa_novo'];

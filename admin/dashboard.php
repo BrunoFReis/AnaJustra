@@ -8,6 +8,9 @@
     //$produtoDAO = new ProdutoDAO($conexao); 
 
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
+
+    $relatoriosDAO = new RelatoriosDAO($conexao);
+    $relatorio = $relatoriosDAO->retornaQuantitativos();
 ?>
 
 <div class="main">
@@ -29,14 +32,14 @@
                   </h6>
                   <div id="big_stats" class="cf">
                     <div class="stat">
-                      <i class="icon-arrow-up"></i>
-                      <span class="value">0</span>
+                      <i class="icon-arrow-up" style="color: #19bc9c;"></i>
+                      <span class="value"><?=$relatorio->qtdClientes?></span>
                     </div>
                     <!-- .stat -->
                     
                     <div class="stat">
-                      <i class="icon-arrow-down"></i>
-                      <span class="value">0</span>
+                      <i class="icon-thumbs-up-alt"></i>
+                      <span class="value"><?=$relatorio->qtdFinalizados?></span>
                     </div>
                     <!-- .stat -->
                     
@@ -48,7 +51,7 @@
                     
                     <div class="stat">
                       <i class="icon-list-alt"></i>
-                      <span class="value">0%</span>
+                      <span class="value"><?=$relatorio->porcentagem?>%</span>
                     </div>
                     <!-- .stat --> 
                   </div>

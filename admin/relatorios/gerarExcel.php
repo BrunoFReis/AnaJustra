@@ -59,7 +59,7 @@ echo $html;
 				<td>NUM_DV_AGENCIA_DCC</td>
 				<td>NUM_CONTA_CORRENTE_REEMB</td>
 				<td>NUM_DV_CC_REEMB</td>
-				<td>DATA_MOVIMENTA√á√ÉO</td>
+				<td>DATA_MOVIMENTA«√O</td>
 				<td>COD_MOTIVO_EXCLUSAO</td>
 				<td>COD_EMPRESA_NOVA</td>
 				<td>NUM_MATRIC_EMPRESA_NOVO</td>
@@ -117,10 +117,10 @@ echo $html;
 				<td title="NUM_MATRIC_EMPRESA"><?=$cDTO->num_matric_empresa?></td>
 				<td title="NUM_ASSSOCIADO_TIT"><?=$cDTO->num_asssociado_tit?></td>
 				<td title="NUM_MATRIC_EMPRESA_TIT"><?=$cDTO->num_matric_empresa_tit?></td>
-				<td title="NUM_CPF"><?=$cliente->clinome?><?=$cDTO->num_cpf?></td>
+				<td title="NUM_CPF">&nbsp;<?=$cDTO->num_cpf?></td>
 				<td title="NUM_PIS"><?=$cDTO->num_pis?></td>
 				<td title="NOME_ASSOCIADO"><?=$cliente->clinome?><?=$cDTO->nome_associado?></td>
-				<td title="DATA_NASCIMENTO"><?=$cliente->clinasc?><?=$cDTO->data_nascimento?></td>
+				<td title="DATA_NASCIMENTO">&nbsp;<?=$cliente->clinasc?><?=$cDTO->data_nascimento?></td>
 				<td title="IND_SEXO"><?=$cDTO->ind_sexo?></td>
 				<td title="IND_ESTADO_CIVIL"><?=$cDTO->ind_estado_civil?></td>
 				<td title="DATA_CASAMENTO"><?=$cDTO->data_casamento?></td>
@@ -149,7 +149,7 @@ echo $html;
 				<td title="NUM_DV_AGENCIA_DCC"><?=$cDTO->num_dv_agencia_dcc?></td>
 				<td title="NUM_CONTA_CORRENTE_REEMB"><?=$cDTO->num_conta_corrente_reemb?></td>
 				<td title="NUM_DV_CC_REEMB"><?=$cDTO->num_dv_cc_reemb?></td>
-				<td title="DATA_MOVIMENTA√á√ÉO"><?=$cDTO->data_movimentacao?></td>
+				<td title="DATA_MOVIMENTA«√O">&nbsp;<?=$cDTO->data_movimentacao?></td>
 				<td title="COD_MOTIVO_EXCLUSAO"><?=$cDTO->cod_motivo_exclusao?></td>
 				<td title="COD_EMPRESA_NOVA"><?=$cDTO->cod_empresa_nova?></td>
 				<td title="NUM_MATRIC_EMPRESA_NOVO"><?=$cDTO->num_matric_empresa_novo?></td>

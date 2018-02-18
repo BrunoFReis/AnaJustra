@@ -10,7 +10,7 @@
 			$cliente = new Clientes();
 			$cliente->clinome = $_POST["clinome"];
 			$cliente->clinasc = $_POST["clinasc"];
-			$cliente->clicpf = $_POST["clicpf"];
+			$cliente->clicpf = removerMascaras($_POST["clicpf"]);
 			$cliente->cliestadocivil = $_POST["cliestadocivil"];
 			$cliente->clisexo = $_POST["clisexo"];
 			$cliente->clinomemae = $_POST["clinomemae"];
@@ -18,7 +18,7 @@
 			$cliente->clibairro = $_POST["clibairro"];
 			$cliente->clicidade = $_POST["clicidade"];
 			$cliente->cliuf = $_POST["cliuf"];
-			$cliente->clicep = $_POST["clicep"];
+			$cliente->clicep = removerMascaras($_POST["clicep"]);
 			$cliente->cliendnumero = $_POST["cliendnumero"];
 			$cliente->clitelefone = $_POST["clitelefone"];
 			$cliente->clicelular = $_POST["clicelular"];

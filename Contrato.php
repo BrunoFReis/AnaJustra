@@ -144,9 +144,8 @@ and open the template in the editor.
                           </tr>
                           <tr>
                               <td><strong> CPF: </strong></td>
-                              <td><strong> Data Nascimento: </strong></td>
-                              <td><strong> SOS Dental: </strong></td>
-                          </tr>
+                              <td colspan="2"><strong> Data Nascimento: </strong></td>
+                            </tr>
                           <tr>
                               <td colspan="3"><strong>Nome da Mãe: </strong></td>                    
                           </tr>

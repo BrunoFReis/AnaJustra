@@ -12,8 +12,8 @@
         <li class="dropdown <?=selecionaMenu($menu, "relatorios")?>">
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt"></i><span>Relatórios</span> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="analise.php">Em Análise</a></li>
-            <li><a href="finalizadas.php">Finalizados</a></li>            
+            <li><a href="/amildental/admin/relatorios/analise.php">Em Análise</a></li>
+            <li><a href="/amildental/admin/relatorios/finalizadas.php">Finalizados</a></li>            
           </ul>
         </li>
       </ul>

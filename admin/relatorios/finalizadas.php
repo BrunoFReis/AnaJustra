@@ -8,6 +8,11 @@
     $clientesDAO = new ClientesDAO($conexao);
 ?>
 
+<style type="text/css">
+  form {
+    margin: 0 0 0px;
+  }
+</style>
 <div class="main">
   <div class="main-inner">
     <div class="container">
@@ -17,15 +22,15 @@
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
               <h3>Propostas Finalizadas</h3>
-              <a href="gerarExcel.php" target="_blank">
-                <button class="btn btn-sm btn-success pull-right" style="margin: 7px;">Excel</button>
-              </a>
+                <button class="btn btn-sm btn-success pull-right" style="margin: 7px;" data-toggle="modal" data-target="#modalExcel">
+                  Excel
+                </button>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content" style="padding: 10px;">
-                  <table id="example1" class="display" cellspacing="0" width="100%" >
+                  <table class="display datatable" cellspacing="0" width="100%" >
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -88,29 +93,67 @@
   <!-- /main-inner --> 
 </div>
 <!-- /main -->
+
+
+<!-- Modal -->
+<div id="modalExcel" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Gerar arquivo excel</h3>
+  </div>
+  <form class="form-horizontal" action="gerarExcel.php" method="POST">
+  <div class="modal-body">
+      <div>
+            <div class="control-group">                     
+              <label class="control-label" for="firstname">Data Início</label>
+              <div class="controls">
+                <input type="text" id="datainicio" name="datainicio" placeholder="Ex: 00/00/0000">
+              </div> <!-- /controls -->       
+            </div> <!-- /control-group -->
+            
+            <div class="control-group">                     
+              <label class="control-label" for="firstname">Data Fim</label>
+              <div class="controls">
+                <input type="text" id="datafim" name="datafim" placeholder="Ex: 00/00/0000">
+              </div> <!-- /controls -->       
+            </div> <!-- /control-group -->
+
+            <div class="control-group">                     
+              <label class="control-label" for="firstname">Número do Contrato</label>
+              <div class="controls">
+                <input type="text" id="numcontrato" name="numcontrato" placeholder="Ex: 009123123">
+              </div> <!-- /controls -->       
+            </div> <!-- /control-group -->              
+      </div>    
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+    <button type="submit" class="btn btn-primary">Gerar arquivo</button>
+  </div>
+  </form>
+</div>
+
 <?php
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/rodape_admin.php");
 ?>
-<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="/amildental/admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script>
-$(document).ready(function() {
-    $('#example1').dataTable( {
+$(function(){
+    
+    $('.datatable').dataTable({
         "language": {
-        "lengthMenu": "Exibir _MENU_ Registros por Página",
-        "info": "Mostrando _PAGE_ de _PAGES_ Páginas",
-        "zeroRecords": "Nenhum Registro Encontrado",        
-        "search": "Procurar:",
-         "paginate": {
-          "previous": "Anterior",
-          "next": "Próximo"
-      
-    }
-  }
-} );    
+          "lengthMenu": "Exibir _MENU_ Registros por Página",
+          "info": "Mostrando _PAGE_ de _PAGES_ Páginas",
+          "zeroRecords": "Nenhum Registro Encontrado",        
+          "search": "Procurar:",
+          "paginate": {
+            "previous": "Anterior",
+            "next": "Próximo"
+          }
+        }
+    });
 
-} );
-
- 
+    $("#datainicio, #datafim").datepicker();
+});
 </script>

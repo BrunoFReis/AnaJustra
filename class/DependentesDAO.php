@@ -28,8 +28,7 @@ class DependentesDAO {
 		return mysqli_query($this->conexao, $query);
 	}
         
-        function listaDependenteporID($id_cliente) {
-
+    function listaDependenteporID($id_cliente) {
 		$ListDependente = array();
 		$query = " 
                     SELECT 
@@ -56,10 +55,9 @@ class DependentesDAO {
                         $resultado = mysqli_query($this->conexao, $query);
 
 		while($dep_array = mysqli_fetch_assoc($resultado)) {
-
 			$dep = new Dependentes();
 			$dep->depnome = $dep_array['depnome'];
-                        $dep->parentesco = $dep_array['parentesco'];
+            $dep->parentesco = $dep_array['parentesco'];
 			$dep->depcpf = $dep_array['depcpf'];
 			$dep->depnasc = $dep_array['depnasc'];
 			$dep->depestadocivil = $dep_array['estadoCivil'];
@@ -67,10 +65,19 @@ class DependentesDAO {
 			$dep->depnomemae = $dep_array['depnomemae'];
 			$dep->sosdental = $dep_array['sosdental'];
 			
-                        array_push($ListDependente, $dep);
+            array_push($ListDependente, $dep);
 		}
 
 		return $ListDependente;
+	}
+
+	function removeDependentePorCliente($idCliente){
+		$query = "	
+                UPDATE dependentes
+                SET ativado = 0
+				WHERE cliente = '{$idCliente}';
+		";
+		return mysqli_query($this->conexao, $query);
 	}
 
 }

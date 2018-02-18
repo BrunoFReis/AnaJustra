@@ -4,8 +4,7 @@
 	$clientesDAO = new ClientesDAO($conexao);
 
 	$acao = $_GET["acao"];
-    $analise = $_GET["analise"];
-        
+
     switch ($acao) {
 		case 'cadastrar':{
 			$cliente = new Clientes();
@@ -38,26 +37,21 @@
 				echo "1";
 			}
 			break;
-		}			
-		default:{
-			break;
 		}
-	}
-        
-    switch ($analise){
-        case 'confirmar':{
+		case 'confirmar':{
             $id_cliente = $_GET["id_cliente"];
             $clientesDAO->ConfirmaCliente($id_cliente);
             break;
         }
         case 'excluir':{
+        	$id_cliente = $_GET["id_cliente"];
             $clientesDAO->ExcluirCliente($id_cliente);
             break;
-        }
-        default:{
+        }		
+		default:{
 			break;
-        }                
-    }
+		}
+	}
 
 	function convertArrayDependentes($post){
 

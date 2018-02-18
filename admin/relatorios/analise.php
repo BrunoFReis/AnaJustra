@@ -21,7 +21,7 @@
             <div class="widget-content">
               <div class="widget big-stats-container">
                 <div class="widget-content" style="padding: 10px;">
-                  <table id="example" class="display" cellspacing="0" width="100%" >
+                  <table class="display datatable" cellspacing="0" width="100%" >
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -44,7 +44,7 @@
                     </tfoot>
                     <tbody>
                     <?php
-                      $list = $clientesDAO->listaClientes();
+                      $list = $clientesDAO->listaClientesAnalise();
 
                       foreach ($list as $cliente) {
                     ?>
@@ -54,7 +54,7 @@
                             <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  
                             <td align="center"><button class="btn btn-success" onclick="confirmarCliente(<?=$cliente->id?>)">Confirmar</button></td> 
-                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)" >Excluir</button></td>
+                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)">x</button></td>
                         </tr>
                     <?php
                       }
@@ -92,32 +92,29 @@
 <?php
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/rodape_admin.php");
 ?>
-<script src="js/jquery-1.12.4.js" type="text/javascript"></script>
-<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="/amildental/admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {
-        $('#example').dataTable( {
-            "language": {
+      $('.datatable').dataTable({
+          "language": {
             "lengthMenu": "Exibir _MENU_ Registros por Página",
             "info": "Mostrando _PAGE_ de _PAGES_ Páginas",
             "zeroRecords": "Nenhum Registro Encontrado",        
             "search": "Procurar:",
-             "paginate": {
+            "paginate": {
               "previous": "Anterior",
               "next": "Próximo"
-        }
-      }
-    } );    
-
-    } );
+            }
+          }
+      }); 
+    });
 
     function confirmarCliente(id_cliente){
-
         $.ajax({
         method: "GET",
-        url: "../views/cliente-banco.php",
-        data: { analise: "confirmar", id_cliente: id_cliente }
+        url: "/amildental/views/cliente-banco.php",
+        data: { acao: "confirmar", id_cliente: id_cliente }
         })
         .done(function() {
             window.location.href = "analise.php";
@@ -125,15 +122,16 @@
     }
     
     function excluirCliente(id_cliente){
-
-        $.ajax({
-        method: "GET",
-        url: "../views/cliente-banco.php",
-        data: { analise: "excluir", id_cliente: id_cliente }
-        })
-        .done(function() {
-            window.location.href = "analise.php";
-        });
+        if(confirm("Deseja mesmo excluir o cliente?")){
+          $.ajax({
+            method: "GET",
+            url: "/amildental/views/cliente-banco.php",
+            data: { acao: "excluir", id_cliente: id_cliente }
+          })
+          .done(function() {
+              window.location.href = "analise.php";
+          });
+        }
     }
  
 </script>

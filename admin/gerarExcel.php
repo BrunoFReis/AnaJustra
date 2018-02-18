@@ -2,10 +2,9 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/amildental/class/include_global.php");
 $clientesDAO = new ClientesDAO($conexao);
 
-
 $arquivo = 'planilha.xls';
 
-// Configurações header para forçar o download
+// Configura?es header para for?r o download
 header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header ("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
 header ("Cache-Control: no-cache, must-revalidate");
@@ -60,7 +59,7 @@ echo $html;
 				<td>NUM_DV_AGENCIA_DCC</td>
 				<td>NUM_CONTA_CORRENTE_REEMB</td>
 				<td>NUM_DV_CC_REEMB</td>
-				<td>DATA_MOVIMENTAÇÃO</td>
+				<td>DATA_MOVIMENTAÃ‡ÃƒO</td>
 				<td>COD_MOTIVO_EXCLUSAO</td>
 				<td>COD_EMPRESA_NOVA</td>
 				<td>NUM_MATRIC_EMPRESA_NOVO</td>
@@ -104,7 +103,11 @@ echo $html;
         </thead>
         <tbody>
         <?php
-        	foreach ($clientesDAO->listaClientesExcel() as $cDTO) {
+        	$datainicio = $_POST["datainicio"];
+        	$datafim = $_POST["datafim"];
+        	$numcontrato = $_POST["numcontrato"];
+
+        	foreach ($clientesDAO->listaClientesExcel($datainicio, $datafim, $numcontrato) as $cDTO) {
         ?>
             <tr>
 				<td title="NUM_CONTRATO/CNPJ"><?=$cDTO->num_contrato?></td>
@@ -128,11 +131,11 @@ echo $html;
 				<td title="NOME_CARGO"><?=$cDTO->nome_cargo?></td>
 				<td title="NOM_LOTACAO"><?=$cDTO->nom_lotacao?></td>
 				<td title="NOM_LOCAL_TRABALHO"><?=$cDTO->nom_local_trabalho?></td>
-				<td title="NOM_LOGRADOURO"><?=$cDTO->nom_logradouro?></td>
+				<td title="NOM_LOGRADOURO"><?=removeAcentuacao($cDTO->nom_logradouro)?></td>
 				<td title="NUM_ENDERECO"><?=$cDTO->num_endereco?></td>
 				<td title="TXT_COMPLEMENTO"><?=$cDTO->txt_complemento?></td>
-				<td title="NOME_BAIRRO"><?=$cDTO->nome_bairro?></td>
-				<td title="NOME_CIDADE"><?=$cDTO->nome_cidade?></td>
+				<td title="NOME_BAIRRO"><?=removeAcentuacao($cDTO->nome_bairro)?></td>
+				<td title="NOME_CIDADE"><?=removeAcentuacao($cDTO->nome_cidade)?></td>
 				<td title="SGL_UF"><?=$cDTO->sgl_uf?></td>
 				<td title="NUM_CEP"><?=$cDTO->num_cep?></td>
 				<td title="NUM_DDD_TELEFONE_1"><?=$cDTO->num_ddd_telefone_1?></td>
@@ -146,7 +149,7 @@ echo $html;
 				<td title="NUM_DV_AGENCIA_DCC"><?=$cDTO->num_dv_agencia_dcc?></td>
 				<td title="NUM_CONTA_CORRENTE_REEMB"><?=$cDTO->num_conta_corrente_reemb?></td>
 				<td title="NUM_DV_CC_REEMB"><?=$cDTO->num_dv_cc_reemb?></td>
-				<td title="DATA_MOVIMENTAÇÃO"><?=$cDTO->data_movimentacao?></td>
+				<td title="DATA_MOVIMENTAÃ‡ÃƒO"><?=$cDTO->data_movimentacao?></td>
 				<td title="COD_MOTIVO_EXCLUSAO"><?=$cDTO->cod_motivo_exclusao?></td>
 				<td title="COD_EMPRESA_NOVA"><?=$cDTO->cod_empresa_nova?></td>
 				<td title="NUM_MATRIC_EMPRESA_NOVO"><?=$cDTO->num_matric_empresa_novo?></td>
@@ -182,7 +185,7 @@ echo $html;
 				<td title="COD_OPCIONAL_10"><?=$cDTO->cod_opcional_10?></td>
 				<td title="DT_INICIAL_OPCIONAL_10"><?=$cDTO->dt_inicial_opcional_10?></td>
 				<td title="DT_FINAL_OPCIONAL_10"><?=$cDTO->dt_final_opcional_10?></td>
-				<td title="COD_LOTACAO  "><?=$cDTO->cod_lotacao?></td>
+				<td title="COD_LOTACAO"><?=$cDTO->cod_lotacao?></td>
 				<td title="COD_LOCAL_TRABALHO  "><?=$cDTO->cod_local_trabalho?></td>
 				<td title="IND_SUBSIDIO "><?=$cDTO->ind_subsidio?></td>
 				<td title="COD_MUNICIPIO_IBGE"><?=$cDTO->cod_municipio_ibge?></td>                 

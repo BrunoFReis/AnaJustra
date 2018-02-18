@@ -97,13 +97,13 @@
                     <span class="shortcut-label">Comments</span>
                   </a> -->
 
-                  <a href="javascript:;" class="shortcut">
+                  <a href="/amildental/admin/relatorios/clientes.php" class="shortcut">
                     <i class="shortcut-icon icon-user"></i>
                     <span class="shortcut-label">Clientes</span>
                   </a>
-                  <a href="javascript:;" class="shortcut">
+                  <a href="/amildental/admin/relatorios/finalizadas.php" class="shortcut">
                     <i class="shortcut-icon icon-signal"></i>
-                    <span class="shortcut-label">Relatórios</span>
+                    <span class="shortcut-label">Finalizados</span>
                   </a>
                   <a href="javascript:;" class="shortcut">
                     <i class="shortcut-icon icon-file"></i>

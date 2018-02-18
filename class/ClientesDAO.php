@@ -48,13 +48,13 @@ class ClientesDAO {
 		return $resultado;
 	}
 
-	function listaClientesExcel(){
+	function listaClientesExcel($datainicio, $datafim, $numcontrato){
 
 		$ListClientes = array();
 		$query = " 
                     SELECT
                     	id,
-						num_contrato,						cod_tipo_operacao,
+						'{$numcontrato}' as num_contrato,						cod_tipo_operacao,
 						tipo_associado,						num_associado,
 						num_matric_empresa,						num_asssociado_tit,
 						num_matric_empresa_tit,						num_cpf,
@@ -95,6 +95,7 @@ class ClientesDAO {
 						cod_local_trabalho,						ind_subsidio,
 						cod_municipio_ibge
                     FROM vwRelatorioClientesExcel
+                	WHERE DATE_FORMAT(data,'%d/%m/%Y') between '{$datainicio}' and '{$datafim}'
                     order by 1, cod_dependencia
 		";
                 
@@ -199,12 +200,14 @@ class ClientesDAO {
 		return mysqli_query($this->conexao, $query);
 	}
         
-    function ExcluirCliente($id_cliente){
+    function ExcluirCliente($id){
 		$query = "	
                 UPDATE clientes
                 SET ativado = 0
-				WHERE id = '{$id_cliente}';
+				WHERE id = '{$id}';
 		";
+		$dependenteDAO = new DependentesDAO($this->conexao);
+		$dependenteDAO->removeDependentePorCliente($id);
 
 		return mysqli_query($this->conexao, $query);
 	}	
@@ -234,7 +237,7 @@ class ClientesDAO {
 		return mysqli_query($this->conexao, $query);
 	}
 
-	function listaClientes() {
+	function listaClientesAnalise() {
 
 		$ListClientes = array();
 		$query = " 
@@ -292,8 +295,65 @@ class ClientesDAO {
 
 		return $ListClientes;
 	}
-        function listaClientesFinalizados() {
 
+	function listaClientes() {
+		$ListClientes = array();
+		$query = " 
+                    SELECT 
+                        a.id,
+                        a.clinome,
+                        a.clinasc,
+                        a.clicpf,
+                        a.cliestadocivil,
+                        a.clisexo,
+                        a.clinomemae,
+                        a.cliendereco,
+                        a.clibairro,
+                        a.clicidade,
+                        a.cliuf,
+                        a.clicep,
+                        a.cliendnumero,
+                        a.clitelefone,
+                        a.cliemail,
+                        DATE_FORMAT(a.data,'%d/%m/%Y') as data,
+                        b.planome
+                    FROM
+                        clientes a
+                            INNER JOIN plano b ON a.cliplano = b.id
+                    WHERE
+                        a.ativado = 1
+		";
+                
+		$resultado = mysqli_query($this->conexao, $query);
+
+		while($clientes_array = mysqli_fetch_assoc($resultado)) {
+
+			$cliente = new Clientes();
+			$cliente->id = $clientes_array['id'];
+			$cliente->clinome = $clientes_array['clinome'];
+			$cliente->clinasc = $clientes_array['clinasc'];
+			$cliente->clicpf = $clientes_array['clicpf'];
+			$cliente->cliestadocivil = $clientes_array['cliestadocivil'];
+			$cliente->clisexo = $clientes_array['clisexo'];
+			$cliente->clinomemae = $clientes_array['clinomemae'];
+			$cliente->cliendereco = $clientes_array['cliendereco'];
+			$cliente->clibairro = $clientes_array['clibairro'];
+			$cliente->clicidade = $clientes_array['clicidade'];
+			$cliente->cliuf = $clientes_array['cliuf'];
+			$cliente->clicep = $clientes_array['clicep'];
+			$cliente->cliemail = $clientes_array['cliemail'];
+			$cliente->cliendnumero = $clientes_array['cliendnumero'];
+			$cliente->clitelefone = $clientes_array['clitelefone'];			
+			$cliente->data = $clientes_array['data'];
+            $cliente->nomeplano = $clientes_array['planome'];      
+			
+			array_push($ListClientes, $cliente);
+		}
+
+		return $ListClientes;
+	}	
+
+    function listaClientesFinalizados() {
 		$ListClientes = array();
 		$query = " 
                     SELECT 
@@ -351,7 +411,7 @@ class ClientesDAO {
 		return $ListClientes;
 	}
         
-        function listaClientesporCPF($cpf) {
+    function listaClientesporCPF($cpf) {
 
 		$ListClientes = array();
 		$query = " 
@@ -468,8 +528,7 @@ class ClientesDAO {
             return $cliente;
 	}
         
-        function retornaClientePorID($id_cliente) {
-
+    function retornaClientePorID($id_cliente) {
             $query = " 
                 SELECT 
                     a.clinome,
@@ -523,101 +582,7 @@ class ClientesDAO {
             $cliente->nomeplano = $resultArray['planome'];
             $cliente->idplano = $resultArray['cliplano'];
             
-            return $cliente;
-	}
-        
-        function check_login($login, $senha){
-		$cliente = new Clientes();
-
-		$query = "
-			SELECT 
-			    id_clientes,
-			    clinome
-			FROM Clientes 
-			where 
-				ativado = 1
-			    and (cliemail = '{$login}' or clicpf = '$login')
-			    and clisenha = '{$senha}';			
-		";
-
-		$resultado = mysqli_query($this->conexao, $query);
-		$resultArray = mysqli_fetch_assoc($resultado);
-
-		if($resultArray){
-			$cliente->id_clientes = $resultArray['id_clientes'];	
-			$cliente->cliNome = $resultArray['clinome'];	
-		}
-		
-		return $cliente;		
-	}
-
-	function insereClienteIndicacaoRegistro(ClienteIndicacaoRegistro $clienteIndicacao){
-		$query = "	insert into Clientes_Indicacao_Registro 
-						(id_clientes, indNome, indTelefone, indEmail)
-					values 
-						(
-							'{$clienteIndicacao->id_clientes}', 
-							'{$clienteIndicacao->indNome}', 
-							'{$clienteIndicacao->indTelefone}', 
-							'{$clienteIndicacao->indEmail}' 
-						) ";
-
-		return mysqli_query($this->conexao, $query);
-	}
-
-	function retornaClienteLogado(){
-		session_start();
-
-		$id_clientes = $_SESSION["id_clientes"];
-		$cliente = $this->retornaClientePorID($id_clientes);
-
-		return $cliente;
-	}
-
-	function desativaClientePorID($id_clientes){
-		$query = "
-				UPDATE Clientes
-				SET ativado = 0
-				WHERE id_clientes = {$id_clientes}
-				AND ativado = 1 ;
-		";
-
-		return mysqli_query($this->conexao, $query);
-	}
-
-	function listaDesejosCliente(){
-		$ListDesejos = array();
-		
-		$cliente = $this->retornaClienteLogado();
-
-		$query = "
-				SELECT
-					id_desejos,
-				    p.id_produto,
-				    p.prodtitulo,
-				    DATE_FORMAT(cd.data_registro,'%d/%m') as data_registro_simples,
-				    DATE_FORMAT(cd.data_registro,'%h:%m:%s - %d/%m/%Y') as data_registro
-				FROM Clientes_Desejo cd
-					INNER JOIN Produtos p ON p.id_produto = cd.id_produto AND p.ativado = 1
-				WHERE
-					cd.id_clientes = {$cliente->id_clientes};
-		";
-
-		$resultado = mysqli_query($this->conexao, $query);
-
-		while($desejos_array = mysqli_fetch_assoc($resultado)) {
-
-			$produto = new Produto();
-			$produto->id_produto = $desejos_array['id_produto'];
-			$produto->prodtitulo = $desejos_array['prodtitulo'];
-			$produto->data_registro_simples = $desejos_array['data_registro_simples'];
-			$produto->data_registro = $desejos_array['data_registro'];
-			
-			array_push($ListDesejos, $produto);
-		}
-
-		return $ListDesejos;
-
+        return $cliente;
 	}
 
 }

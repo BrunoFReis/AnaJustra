@@ -32,13 +32,13 @@
                   </h6>
                   <div id="big_stats" class="cf">
                     <div class="stat">
-                      <i class="icon-arrow-up" style="color: #19bc9c;"></i>
+                      <i class="shortcut-icon icon-user" style="color: #19bc9c;"></i>
                       <span class="value"><?=$relatorio->qtdClientes?></span>
                     </div>
                     <!-- .stat -->
                     
                     <div class="stat">
-                      <i class="icon-thumbs-up-alt"></i>
+                      <i class="icon-thumbs-up-alt" style="color: #30a2b5;"></i>
                       <span class="value"><?=$relatorio->qtdFinalizados?></span>
                     </div>
                     <!-- .stat -->
@@ -51,7 +51,7 @@
                     
                     <div class="stat">
                       <i class="icon-list-alt"></i>
-                      <span class="value"><?=$relatorio->porcentagem?>%</span>
+                      <span class="value" style="font-size: 40px;"><?=$relatorio->porcentagem?>%</span>
                     </div>
                     <!-- .stat --> 
                   </div>
@@ -104,13 +104,13 @@
                     <i class="shortcut-icon icon-user"></i>
                     <span class="shortcut-label">Clientes</span>
                   </a>
+                  <a href="/amildental/admin/relatorios/dependentes.php" class="shortcut">
+                    <i class="shortcut-icon icon-group"></i>
+                    <span class="shortcut-label">Dependentes</span>
+                  </a>                  
                   <a href="/amildental/admin/relatorios/finalizadas.php" class="shortcut">
-                    <i class="shortcut-icon icon-signal"></i>
+                    <i class="shortcut-icon icon-thumbs-up-alt"></i>
                     <span class="shortcut-label">Finalizados</span>
-                  </a>
-                  <a href="javascript:;" class="shortcut">
-                    <i class="shortcut-icon icon-file"></i>
-                    <span class="shortcut-label">Notes</span>
                   </a>
                   <a href="javascript:;" class="shortcut">
                     <i class="shortcut-icon icon-tag"></i>

@@ -4,7 +4,7 @@
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/cabecalho_admin.php");
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/admin/template/menu-superior.php");
 
-    $clientesDAO = new ClientesDAO($conexao);
+    $dependentesDAO = new DependentesDAO($conexao);
 ?>
 
 <div class="main">
@@ -15,7 +15,7 @@
 
           <div class="widget widget-nopad">
             <div class="widget-header"> <i class="icon-list-alt"></i>
-              <h3>Clientes Cadastrados</h3>
+              <h3>Dependentes Cadastrados</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
@@ -26,8 +26,8 @@
                         <tr>
                             <th>#</th>
                             <th class="text-left">Nome</th>
+                            <th class="text-left">Cliente</th>
                             <th>CPF</th>
-                            <th>Plano</th>
                             <th>Data</th>
                             <th>Ação</th>
                         </tr>
@@ -36,25 +36,25 @@
                         <tr>
                             <th>#</th>
                             <th class="text-left">Nome</th>
+                            <th class="text-left">Cliente</th>
                             <th>CPF</th>
-                            <th>Plano</th>
                             <th>Data</th>  
                             <th>Ação</th>
                         </tr>
                     </tfoot>
                     <tbody>
                     <?php
-                      $list = $clientesDAO->listaClientes();
+                      $list = $dependentesDAO->listaDependentes();
 
-                      foreach ($list as $cliente) {
+                      foreach ($list as $dep) {
                     ?>
                         <tr>
-                            <td><?=$cliente->id?></td>
-                            <td><?=$cliente->clinome?></td>
-                            <td align="center"><?=$cliente->clicpf?></td>
-                            <td align="center"><?=$cliente->nomeplano?></td>                
-                            <td align="center"><?=$cliente->data?></td>  
-                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)" >X</button></td>
+                            <td align="center"><?=$dep->id?></td>
+                            <td><?=$dep->depnome?></td>
+                            <td><?=$dep->clinome?></td>
+                            <td align="center"><?=$dep->depcpf?></td>
+                            <td align="center"><?=$dep->data?></td>  
+                            <td align="center"><button class="btn btn-danger" onclick="excluirDependente(<?=$dep->id?>)" >X</button></td>
                         </tr>
                     <?php
                       }
@@ -97,15 +97,15 @@
       });
     });
     
-    function excluirCliente(id_cliente){
-        if(confirm("Deseja mesmo excluir o cliente?")){
+    function excluirDependente(id){
+        if(confirm("Deseja mesmo excluir o dependente?")){
           $.ajax({
             method: "GET",
-            url: "/amildental/views/cliente-banco.php",
-            data: { acao: "excluir", id_cliente: id_cliente }
+            url: "/amildental/views/dependente-banco.php",
+            data: { acao: "excluir", idDependente: id }
           })
           .done(function(data) {
-              window.location.href = "clientes.php";
+              window.location.href = "dependentes.php";
           });
         }
     }

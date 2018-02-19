@@ -5,6 +5,7 @@ Class Dependentes {
 	public $id;
 	public $cliente;
 	public $depnome;
+	public $clinome;
 	public $depsexo;
 	public $parentesco;
 	public $depestadocivil;

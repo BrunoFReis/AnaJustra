@@ -27,6 +27,52 @@ class DependentesDAO {
 		echo $query;
 		return mysqli_query($this->conexao, $query);
 	}
+
+    function listaDependentes() {
+		$ListDependente = array();
+		$query = " 
+                    SELECT
+                    	a.id,
+                        a.depnome,
+                        e.clinome,
+                        a.depcpf,
+                        DATE_FORMAT(a.depnasc,'%d/%m/%Y') as depnasc,
+                        d.descricao as estadoCivil,
+                        c.descricao as sexo,
+                        b.descricao as parentesco,
+                        a.depnomemae,
+                        a.sosdental,
+                        DATE_FORMAT(a.data,'%d/%m/%Y - %h:%m:%s') as data
+                    FROM dependentes a 
+                    INNER JOIN clientes e on e.id = a.cliente and e.ativado = 1
+                    INNER JOIN parentesco b on a.parentesco = b.id
+                    INNER JOIN sexo c on a.depsexo = c.id
+                    INNER JOIN estadoCivil d on a.depestadocivil = d.id
+                    WHERE
+                    	a.ativado = 1;
+		";
+
+        $resultado = mysqli_query($this->conexao, $query);
+
+		while($dep_array = mysqli_fetch_assoc($resultado)) {
+			$dep = new Dependentes();
+			$dep->id = $dep_array['id'];
+			$dep->depnome = $dep_array['depnome'];
+			$dep->clinome = $dep_array['clinome'];
+            $dep->parentesco = $dep_array['parentesco'];
+			$dep->depcpf = $dep_array['depcpf'];
+			$dep->depnasc = $dep_array['depnasc'];
+			$dep->depestadocivil = $dep_array['estadoCivil'];
+			$dep->depsexo = $dep_array['sexo'];
+			$dep->depnomemae = $dep_array['depnomemae'];
+			$dep->sosdental = $dep_array['sosdental'];
+			$dep->data = $dep_array['data'];
+			
+            array_push($ListDependente, $dep);
+		}
+
+		return $ListDependente;
+	}
         
     function listaDependenteporID($id_cliente) {
 		$ListDependente = array();
@@ -79,5 +125,14 @@ class DependentesDAO {
 		";
 		return mysqli_query($this->conexao, $query);
 	}
+
+	function removeDependentePorID($id){
+		$query = "	
+                UPDATE dependentes
+                SET ativado = 0
+				WHERE id = '{$id}';
+		";
+		return mysqli_query($this->conexao, $query);
+	}	
 
 }

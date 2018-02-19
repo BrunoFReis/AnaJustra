@@ -21,7 +21,7 @@ class DependentesDAO {
 					'{$dep->depcpf}',
 					 STR_TO_DATE('{$dep->depnasc}','%d/%m/%Y'),
 					'{$dep->depnomemae}',
-					'{$dep->sosdental}'.
+					'{$dep->sosdental}',
 					STR_TO_DATE('".date("d/m/Y H:i:s")."','%d/%m/%Y %H:%i:%s')
 				);
 		";
@@ -32,25 +32,25 @@ class DependentesDAO {
     function listaDependentes() {
 		$ListDependente = array();
 		$query = " 
-                    SELECT
-                    	a.id,
-                        a.depnome,
-                        e.clinome,
-                        a.depcpf,
-                        DATE_FORMAT(a.depnasc,'%d/%m/%Y') as depnasc,
-                        d.descricao as estadoCivil,
-                        c.descricao as sexo,
-                        b.descricao as parentesco,
-                        a.depnomemae,
-                        a.sosdental,
-                        DATE_FORMAT(a.data,'%d/%m/%Y - %h:%m:%s') as data
-                    FROM dependentes a 
-                    INNER JOIN clientes e on e.id = a.cliente and e.ativado = 1
-                    INNER JOIN parentesco b on a.parentesco = b.id
-                    INNER JOIN sexo c on a.depsexo = c.id
-                    INNER JOIN estadoCivil d on a.depestadocivil = d.id
-                    WHERE
-                    	a.ativado = 1;
+            SELECT
+            	a.id,
+                a.depnome,
+                e.clinome,
+                a.depcpf,
+                DATE_FORMAT(a.depnasc,'%d/%m/%Y') as depnasc,
+                d.descricao as estadoCivil,
+                c.descricao as sexo,
+                b.descricao as parentesco,
+                a.depnomemae,
+                a.sosdental,
+                DATE_FORMAT(a.data,'%d/%m/%Y - %h:%i:%s') as data
+            FROM dependentes a 
+            INNER JOIN clientes e on e.id = a.cliente and e.ativado = 1
+            INNER JOIN parentesco b on a.parentesco = b.id
+            INNER JOIN sexo c on a.depsexo = c.id
+            INNER JOIN estadoCivil d on a.depestadocivil = d.id
+            WHERE
+            	a.ativado = 1;
 		";
 
         $resultado = mysqli_query($this->conexao, $query);

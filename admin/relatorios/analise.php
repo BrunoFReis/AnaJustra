@@ -25,6 +25,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>Qtd. Dependentes</th>
                             <th>CPF</th>
                             <th>Plano</th>
                             <th>Data</th>
@@ -36,6 +37,7 @@
                     <tfoot>
                         <tr>
                             <th>Nome</th>
+                            <th>Qtd. Dependentes</th>
                             <th>CPF</th>
                             <th>Plano</th>
                             <th>Data</th>  
@@ -52,6 +54,7 @@
                     ?>
                         <tr>
                             <td><?=$cliente->clinome?></td>
+                            <td align="center"><?=$cliente->qtdDependentes?></td>
                             <td align="center"><?=$cliente->clicpf?></td>
                             <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  

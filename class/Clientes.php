@@ -20,6 +20,7 @@ Class Clientes {
     public $cliemail;
     public $nomeplano;
     public $idplano;
+    public $qtdDependentes;
 
     public $data;
     public $ativado;

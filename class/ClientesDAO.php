@@ -234,11 +234,11 @@ class ClientesDAO {
                         a.clitelefone,
                         a.cliemail,
                         DATE_FORMAT(a.data,'%d/%m/%Y') as data,
-                        b.planome
+                        b.planome,
+                        (select count(*) from dependentes where cliente = a.id and ativado = 1) as qtdDependentes
                     FROM
                         clientes a
-                            INNER JOIN
-                        plano b ON a.cliplano = b.id
+                        INNER JOIN plano b ON a.cliplano = b.id
                     WHERE
                         a.ativado = 1 AND a.clifinalizado = 0
 		";
@@ -264,7 +264,8 @@ class ClientesDAO {
 			$cliente->cliendnumero = $clientes_array['cliendnumero'];
 			$cliente->clitelefone = $clientes_array['clitelefone'];			
 			$cliente->data = $clientes_array['data'];
-            $cliente->nomeplano = $clientes_array['planome'];      
+            $cliente->nomeplano = $clientes_array['planome'];  
+            $cliente->qtdDependentes = $clientes_array['qtdDependentes'];  
 			
 			array_push($ListClientes, $cliente);
 		}
@@ -292,7 +293,8 @@ class ClientesDAO {
                         a.clitelefone,
                         a.cliemail,
                         DATE_FORMAT(a.data,'%d/%m/%Y') as data,
-                        b.planome
+                        b.planome,
+                        (select count(*) from dependentes where cliente = a.id and ativado = 1) as qtdDependentes
                     FROM
                         clientes a
                             INNER JOIN plano b ON a.cliplano = b.id
@@ -322,6 +324,7 @@ class ClientesDAO {
 			$cliente->clitelefone = $clientes_array['clitelefone'];			
 			$cliente->data = $clientes_array['data'];
             $cliente->nomeplano = $clientes_array['planome'];      
+            $cliente->qtdDependentes = $clientes_array['qtdDependentes'];  
 			
 			array_push($ListClientes, $cliente);
 		}
@@ -349,7 +352,8 @@ class ClientesDAO {
                         a.clitelefone,
                         a.cliemail,
                         DATE_FORMAT(a.data,'%d/%m/%Y') as data,
-                        b.planome
+                        b.planome,
+                        (select count(*) from dependentes where cliente = a.id and ativado = 1) as qtdDependentes
                     FROM
                         clientes a
                             INNER JOIN
@@ -379,7 +383,8 @@ class ClientesDAO {
 			$cliente->cliendnumero = $clientes_array['cliendnumero'];
 			$cliente->clitelefone = $clientes_array['clitelefone'];			
 			$cliente->data = $clientes_array['data'];
-            $cliente->nomeplano = $clientes_array['planome'];      
+            $cliente->nomeplano = $clientes_array['planome'];   
+            $cliente->qtdDependentes = $clientes_array['qtdDependentes'];     
 			
 			array_push($ListClientes, $cliente);
 		}

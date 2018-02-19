@@ -44,12 +44,6 @@
                     <!-- .stat -->
                     
                     <div class="stat">
-                      <i class="icon-envelope"></i>
-                      <span class="value">0</span>
-                    </div>
-                    <!-- .stat -->
-                    
-                    <div class="stat">
                       <i class="icon-list-alt"></i>
                       <span class="value" style="font-size: 40px;"><?=$relatorio->porcentagem?>%</span>
                     </div>
@@ -108,10 +102,15 @@
                     <i class="shortcut-icon icon-group"></i>
                     <span class="shortcut-label">Dependentes</span>
                   </a>                  
+                  <a href="/amildental/admin/relatorios/analise.php" class="shortcut">
+                    <i class="shortcut-icon icon-time"></i>
+                    <span class="shortcut-label">Em Análise</span>
+                  </a>                                    
                   <a href="/amildental/admin/relatorios/finalizadas.php" class="shortcut">
                     <i class="shortcut-icon icon-thumbs-up-alt"></i>
                     <span class="shortcut-label">Finalizados</span>
                   </a>
+
                 </div>
               <!-- /shortcuts --> 
             </div>

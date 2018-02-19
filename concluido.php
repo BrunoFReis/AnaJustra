@@ -33,7 +33,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p>Para efetivar a contratação, imprima o <a href="contrato.php?cli_id=<?=$cliente->id?>"><strong>ARQUIVO</strong></a> e encaminhe assinado para o email: <a href="#">amildentalrj@anajustra.org.br</a></p>
+                <p>Para efetivar a contratação, imprima o <a href="contrato.php?cli_id=<?=$cliente->id?>" target="_blank"><strong>ARQUIVO</strong></a> e encaminhe assinado para o email: <a href="#">amildentalrj@anajustra.org.br</a></p>
             </div>
         </div>
         <div class="row">

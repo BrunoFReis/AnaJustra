@@ -43,7 +43,7 @@ class DependentesDAO {
                 b.descricao as parentesco,
                 a.depnomemae,
                 a.sosdental,
-                DATE_FORMAT(a.data,'%d/%m/%Y - %h:%i:%s') as data
+                DATE_FORMAT(a.data,'%d/%m/%Y - %H:%i:%s') as data
             FROM dependentes a 
             INNER JOIN clientes e on e.id = a.cliente and e.ativado = 1
             INNER JOIN parentesco b on a.parentesco = b.id

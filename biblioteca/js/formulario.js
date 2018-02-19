@@ -344,6 +344,10 @@ function ConfereCPF(){
 
 	if (cpf.length == 14 ){
 
+		cpf = cpf.replace(".", "");
+		cpf = cpf.replace(".", "");
+		cpf = cpf.replace("-", "");
+
 		$.ajax({
 		  method: "GET",
 		  url: "views/ConfereCPF.php",

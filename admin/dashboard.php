@@ -112,10 +112,6 @@
                     <i class="shortcut-icon icon-thumbs-up-alt"></i>
                     <span class="shortcut-label">Finalizados</span>
                   </a>
-                  <a href="javascript:;" class="shortcut">
-                    <i class="shortcut-icon icon-tag"></i>
-                    <span class="shortcut-label">Tags</span>
-                  </a>
                 </div>
               <!-- /shortcuts --> 
             </div>

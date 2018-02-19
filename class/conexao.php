@@ -2,6 +2,8 @@
 /**
 * Classe de Conexão
 */
+date_default_timezone_set("America/Sao_Paulo");
+
 Class Conexao {
 	
 	public $conexao;

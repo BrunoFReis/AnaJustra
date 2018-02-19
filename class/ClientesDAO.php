@@ -10,7 +10,7 @@ class ClientesDAO {
 
 	function insereCliente(Clientes $cliente, $dependentes){
 		$query = "
-			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clicelular,clifinalizado)
+			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clicelular,clifinalizado,data)
 			VALUES (
 				'{$cliente->clinome}', 
 				 STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'), 
@@ -28,7 +28,8 @@ class ClientesDAO {
 				'{$cliente->cliemail}',
                 '{$cliente->idplano}',
                 '{$cliente->clicelular}',
-                 0
+                 0,
+                 STR_TO_DATE('".date("d/m/Y H:i:s")."','%d/%m/%Y %H:%i:%s')
 				)";
 
 		$resultado = mysqli_query($this->conexao, $query);
@@ -211,31 +212,6 @@ class ClientesDAO {
 
 		return mysqli_query($this->conexao, $query);
 	}	
-
-	function atualizaCliente(Clientes $cliente, $files, $destino){
-
-		$upload = new Upload();
-		$imgsrc = $upload->imagem($files, $destino);
-		$cliente->imgsrc = $imgsrc;
-
-		$query = "	UPDATE Clientes
-					SET 
-						clinome = '{$cliente->cliNome}', 
-						clicpf = '{$cliente->cliCpf}', 
-						cliemail = '{$cliente->cliEmail}', 
-						clitelefone = '{$cliente->cliTelefone}', 
-						clicelular = '{$cliente->cliCelular}', 
-				";
-		if($imgsrc != "0" && $imgsrc != ""){
-			$query .= " imgsrc = '{$cliente->imgsrc}', ";
-		}
-		$query .=	"	clinascimento = STR_TO_DATE('{$cliente->cliNascimento}','%d/%m/%Y')
-					WHERE
-						id_clientes = '{$cliente->id_clientes}';
-		";
-
-		return mysqli_query($this->conexao, $query);
-	}
 
 	function listaClientesAnalise() {
 

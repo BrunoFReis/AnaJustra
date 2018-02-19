@@ -226,11 +226,7 @@ and open the template in the editor.
                 <div class="col-md-1" align="center">                   
                 </div>                    
             </div>    
-            <?php if($tamanho>1){ ?>
-            <table width="100%" style="margin-top: 30px; page-break-before: always;" class="tabela1">
-            <?php } else {?>
             <table width="100%" style="margin-top: 30px;" class="tabela1">
-            <?php } ?>
                 <tr>
                     <td align="center" style="color: #00C1DE"><strong>______________________________________________</strong></td>
                     <td align="center" style="color: #00C1DE"><strong>______________________________________________</strong></td>

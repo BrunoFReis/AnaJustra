@@ -23,7 +23,7 @@
             <div class="widget-header"> <i class="icon-list-alt"></i>
               <h3>Propostas Finalizadas</h3>
                 <button class="btn btn-sm btn-success pull-right" style="margin: 7px;" data-toggle="modal" data-target="#modalExcel">
-                  Excel
+                 <i class="shortcut-icon icon-download-alt" style="color: white; margin: 0px 0px;"></i> Excel
                 </button>
             </div>
             <!-- /widget-header -->
@@ -107,21 +107,21 @@
             <div class="control-group">                     
               <label class="control-label" for="firstname">Data Início</label>
               <div class="controls">
-                <input type="text" id="datainicio" name="datainicio" placeholder="Ex: 00/00/0000">
+                <input type="text" id="datainicio" name="datainicio" placeholder="Ex: 00/00/0000" required>
               </div> <!-- /controls -->       
             </div> <!-- /control-group -->
             
             <div class="control-group">                     
               <label class="control-label" for="firstname">Data Fim</label>
               <div class="controls">
-                <input type="text" id="datafim" name="datafim" placeholder="Ex: 00/00/0000">
+                <input type="text" id="datafim" name="datafim" placeholder="Ex: 00/00/0000" required>
               </div> <!-- /controls -->       
             </div> <!-- /control-group -->
 
             <div class="control-group">                     
               <label class="control-label" for="firstname">Número do Contrato</label>
               <div class="controls">
-                <input type="text" id="numcontrato" name="numcontrato" placeholder="Ex: 009123123">
+                <input type="text" id="numcontrato" name="numcontrato" placeholder="Ex: 009123123" required>
               </div> <!-- /controls -->       
             </div> <!-- /control-group -->              
       </div>    

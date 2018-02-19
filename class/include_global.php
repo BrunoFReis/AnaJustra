@@ -1,4 +1,7 @@
-<?php 
+<?php
+	date_default_timezone_set("America/Sao_Paulo");
+	//echo date("d-m-Y H:i:s");
+
 	function carregaClasse($nomeDaClasse) {
 		require_once($_SERVER['DOCUMENT_ROOT']."/amildental/class/".$nomeDaClasse.".php");
 	}

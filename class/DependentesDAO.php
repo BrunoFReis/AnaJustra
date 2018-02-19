@@ -11,7 +11,7 @@ class DependentesDAO {
 	function insereDependente(Dependentes $dep){
 		$query = "
 				INSERT INTO dependentes
-					(cliente, depnome, depsexo, parentesco, depestadocivil, depcpf, depnasc, depnomemae, sosdental)
+					(cliente, depnome, depsexo, parentesco, depestadocivil, depcpf, depnasc, depnomemae, sosdental, data)
 				VALUES(
 					'{$dep->cliente}',
 					'{$dep->depnome}',
@@ -21,7 +21,8 @@ class DependentesDAO {
 					'{$dep->depcpf}',
 					 STR_TO_DATE('{$dep->depnasc}','%d/%m/%Y'),
 					'{$dep->depnomemae}',
-					'{$dep->sosdental}'
+					'{$dep->sosdental}'.
+					STR_TO_DATE('".date("d/m/Y H:i:s")."','%d/%m/%Y %H:%i:%s')
 				);
 		";
 		echo $query;

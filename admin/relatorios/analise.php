@@ -30,7 +30,6 @@
                             <th>Data</th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -39,7 +38,6 @@
                             <th>CPF</th>
                             <th>Plano</th>
                             <th>Data</th>  
-                            <th></th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -56,8 +54,7 @@
                             <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  
                             <td align="center"><button class="btn btn-success" onclick="confirmarCliente(<?=$cliente->id?>)">Confirmar</button></td> 
-                            <td align="center"><button class="btn btn-primary" onclick="propostaCliente(<?=$cliente->id?>)">Proposta</button></td>
-                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)">x</button></td>                            
+                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)">x</button></td>
                         </tr>
                     <?php
                       }
@@ -135,11 +132,6 @@
               window.location.href = "analise.php";
           });
         }
-    }
-    
-    function propostaCliente(id_cliente){
-        
-        window.open("../../Contrato.php?cli_id="+id_cliente+"");
     }
  
 </script>

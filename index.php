@@ -318,46 +318,57 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h4 class="IconPlano">Plano</h4>  
-                            <div  class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                         <input type="radio" id="plano" name="plano" value="1"> Dental 200 R - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
+                            <div  class="">
+                                <div class="">
+                                    <div class="col-md-12 form-check">
+                                        <input type="radio" id="plano1" name="plano" value="1" class="form-check-input">
+                                        <label for="plano1" class="form-check-label">
+                                            Dental 200 - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
+                                        </label>
                                     </div>
                                 </div>
                             </div>
-                            <div  class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                         <input type="radio" id="plano" name="plano" value="2"> Dental 300 R - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58
+                            <div  class="">
+                                <div class="">
+                                    <div class="col-md-12 form-check">
+                                        <input type="radio" id="plano2" name="plano" value="2" class="form-check-input">
+                                        <label for="plano2" class="form-check-label">Dental 300 - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58</label>
                                     </div>
                                 </div>
                             </div>
-                            <div  class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                         <input type="radio" id="plano" name="plano" value="3"> Dental 500 R - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
+                            <div  class="">
+                                <div class="">
+                                    <div class="col-md-12 form-check">
+                                        <input type="radio" id="plano3" name="plano" value="3" class="form-check-input">
+                                        <label for="plano3" class="form-check-label">
+                                            Dental 500 - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
+                                        </label>
                                     </div>
                                 </div>
                             </div>
-                            <div  class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                         <input type="radio" id="plano" name="plano" value="4"> Dental 700 R - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
+                            <div  class="">
+                                <div class="">
+                                    <div class="col-md-12 form-check">
+                                         <input type="radio" id="plano4" name="plano" value="4" class="form-check-input">
+                                         <label for="plano4" class="form-check-label">Dental 700 - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
                                          <hr>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="row">                                        
-                                    <div class="col-md-12">                                            
-                                        <input type="checkbox" id="autorizar" name="autorizar" value="1"> Declaro assumir o valor da taxa mensal correspondente a cada um dos inscritos. Autorizo assim, o desconto na mensalidade através da folha de pagamento.</label>
+                            <div class="">
+                                <div class="">                                        
+                                    <div class="col-md-12 form-check">                                            
+                                        <input type="checkbox" id="autorizar" name="autorizar" value="1" class="form-check-input">
+                                        <label for="autorizar" class="form-check-label">
+                                            Declaro assumir o valor da taxa mensal correspondente a cada um dos inscritos. Autorizo assim, o desconto na mensalidade através da folha de pagamento.
+                                        </label>
                                     </div>                                        
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="row botao">
+                    <div class="">
+                        <div class=" botao">
                             <div class="col-md-12" align="center">
                                 <button type="button" class="btn btn-primary" onclick="enviaForm()">Finalizar</button>
                             </div>                            

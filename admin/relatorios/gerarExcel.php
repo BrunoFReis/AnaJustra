@@ -2,7 +2,8 @@
 require_once($_SERVER['DOCUMENT_ROOT']."/amildental/class/include_global.php");
 $clientesDAO = new ClientesDAO($conexao);
 
-$arquivo = 'planilha.xls';
+$arquivo = 'listagemFinalizados'.date("dmY-Hi").'.xls';
+//date("d-m-Y H:i:s");
 
 // Configura?es header para for?r o download
 header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -149,7 +150,7 @@ echo $html;
 				<td title="NUM_DV_AGENCIA_DCC"><?=$cDTO->num_dv_agencia_dcc?></td>
 				<td title="NUM_CONTA_CORRENTE_REEMB"><?=$cDTO->num_conta_corrente_reemb?></td>
 				<td title="NUM_DV_CC_REEMB"><?=$cDTO->num_dv_cc_reemb?></td>
-				<td title="DATA_MOVIMENTAÇÃO">&nbsp;<?=$cDTO->data_movimentacao?></td>
+				<td title="DATA_MOVIMENTAÇÃO">&nbsp;<?=date("dmY")?></td>
 				<td title="COD_MOTIVO_EXCLUSAO"><?=$cDTO->cod_motivo_exclusao?></td>
 				<td title="COD_EMPRESA_NOVA"><?=$cDTO->cod_empresa_nova?></td>
 				<td title="NUM_MATRIC_EMPRESA_NOVO"><?=$cDTO->num_matric_empresa_novo?></td>

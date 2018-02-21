@@ -57,7 +57,7 @@
                             <td align="center"><?=$cliente->clicpf?></td>
                             <td align="center"><?=$cliente->nomeplano?></td>                
                             <td align="center"><?=$cliente->data?></td>  
-                            <td align="center"><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)" >X</button></td>
+                            <td align="center"><button class="btn btn-primary" style="margin-right: 5px;" onclick="EditarCliente(<?=$cliente->id?>)" >Editar</button><button class="btn btn-danger" onclick="excluirCliente(<?=$cliente->id?>)" >X</button></td>
                         </tr>
                     <?php
                       }
@@ -111,6 +111,10 @@
               window.location.href = "clientes.php";
           });
         }
+    }
+    
+    function EditarCliente(id_cliente){
+       window.open("editarCliente.php?id_cliente="+id_cliente+"");
     }
  
 </script>

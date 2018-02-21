@@ -4,7 +4,52 @@ $(document).ready(function(){
 	$(".celular").mask("(99)99999-9999");
 	$(".telefone").mask("(99)9999-9999");
 	$(".cep").mask("99999-999");
+	$('[data-toggle="tooltip"]').tooltip();
+
+	$("#clicep").keyup(function(){
+		var cep = $(this).val();
+
+		if(cep.length == 9){
+			cep = $(this).val().replace(/\D/g, '');	//remover mascara
+
+    		var validacep = /^[0-9]{8}$/;	//Expressão regular para validar o CEP.
+
+	        if(validacep.test(cep)) {	//Valida o formato do CEP.
+
+	            //Preenche os campos com "..." enquanto consulta webservice.
+	            $("#cliendereco, #clibairro, #clicidade").val("...");
+
+	            //Consulta o webservice viacep.com.br/
+	            $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+	                if (!("erro" in dados)) {
+	                    //Atualiza os campos com os valores da consulta.
+	                    $("#cliendereco").val(dados.logradouro);
+	                    $("#clibairro").val(dados.bairro);
+	                    $("#clicidade").val(dados.localidade);
+	                    $("#cliuf").val(dados.uf);
+	                    console.log(dados);
+	                } //end if.
+	                else {
+	                    //CEP pesquisado não foi encontrado.
+	                    limpaCep();
+	                    alert("CEP não encontrado.");
+	                }
+	            });
+	        } //end if.
+	        else {
+	            //cep é inválido.
+	            limpaCep();
+	            alert("Formato de CEP inválido.");
+	        }    		
+		}
+	});
+
 });
+
+function limpaCep(){
+	$("#cliendereco, #clibairro, #clicidade, #clicep").val("");
+}
 
 function SalvarPaginaTitular(){
 	if(validarTitular()){

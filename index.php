@@ -124,8 +124,13 @@
                                <h4 class="IconEndereco">Endereço</h4>          
                                <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <input type="text" name="clicep" id="clicep"  class="form-control cep" placeholder="CEP" required>
+                                        </div>
+                                        <div class="col-md-2" data-toggle="tooltip" data-placement="top" title="Não sabe seu CEP? Pesquise clicando aqui">
+                                            <a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank">
+                                                <img src="/amildental/biblioteca/img/correios-2.jpg" style="width: 35px;">
+                                            </a>
                                         </div>
                                         <div class="col-md-6">
                                             <select name="cliuf" class="form-control" id="cliuf" required>

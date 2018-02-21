@@ -23,9 +23,11 @@
         
         <!--Javascript-->
         <script type="text/javascript" src="/amildental/biblioteca/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="/amildental/biblioteca/js/popper.min.js"></script>
         <script type="text/javascript" src="/amildental/biblioteca/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/amildental/biblioteca/js/formulario.js"></script>
         <script type="text/javascript" src="/amildental/biblioteca/js/jquery.mask.js"></script>
+        
        
         <style>
             .btn-primary {

@@ -23,7 +23,7 @@
 			$cliente->clitelefone = $_POST["clitelefone"];
 			$cliente->clicelular = $_POST["clicelular"];
 			$cliente->cliemail = $_POST["cliemail"];
-	        $cliente->idplano = $_POST["plano"];      
+                        $cliente->idplano = $_POST["plano"];      
 
 			$clientesDAO->insereCliente($cliente, convertArrayDependentes($_POST["dependentes"]));
 
@@ -47,7 +47,33 @@
         	$id_cliente = $_GET["id_cliente"];
             $clientesDAO->ExcluirCliente($id_cliente);
             break;
-        }		
+        }
+        
+        case 'editar':{
+            
+            $cliente = new Clientes();
+            $cliente->id = $_POST["id"];
+            $cliente->clinome = $_POST["clinome"];
+            $cliente->clinasc = $_POST["clinasc"];
+            $cliente->clicpf = removerMascaras($_POST["clicpf"]);
+            $cliente->cliestadocivil = $_POST["cliestadocivil"];
+            $cliente->clisexo = $_POST["clisexo"];
+            $cliente->clinomemae = $_POST["clinomemae"];
+            $cliente->cliendereco = $_POST["cliendereco"].$_POST["cliendcomp"];
+            $cliente->clibairro = $_POST["clibairro"];
+            $cliente->clicidade = $_POST["clicidade"];
+            $cliente->cliuf = $_POST["cliuf"];
+            $cliente->clicep = removerMascaras($_POST["clicep"]);
+            $cliente->cliendnumero = $_POST["cliendnumero"];
+            $cliente->clitelefone = $_POST["clitelefone"];
+            $cliente->clicelular = $_POST["clicelular"];
+            $cliente->cliemail = $_POST["cliemail"];
+
+            $clientesDAO->EditarCliente($cliente);
+
+            header("Location: /amildental/admin/relatorios/clientes.php");
+            break;
+        }
 		default:{
 			break;
 		}

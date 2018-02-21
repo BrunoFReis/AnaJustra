@@ -48,6 +48,34 @@ class ClientesDAO {
 
 		return $resultado;
 	}
+        
+        function EditarCliente(Clientes $cliente){
+           
+            
+            $query = "
+            UPDATE clientes
+                    SET
+                    clinome = '{$cliente->clinome}',
+                    clinasc = STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'),
+                    clicpf = '{$cliente->clicpf}',
+                    cliestadocivil = '{$cliente->cliestadocivil}',
+                    clisexo = '{$cliente->clisexo}',
+                    clinomemae = '{$cliente->clinomemae}',
+                    cliendereco = '{$cliente->cliendereco}',
+                    clibairro = '{$cliente->clibairro}',
+                    clicidade = '{$cliente->clicidade}',
+                    cliuf = '{$cliente->cliuf}',
+                    clicep = '{$cliente->clicep}',
+                    cliendnumero = '{$cliente->cliendnumero}',
+                    clitelefone = '{$cliente->clitelefone}',
+                    clicelular = '{$cliente->clicelular}',
+                    cliemail = '{$cliente->cliemail}'
+                    WHERE id = '{$cliente->id}';
+                            ";
+                    
+            //echo $query;        
+            $resultado = mysqli_query($this->conexao, $query);
+        }
 
 	function listaClientesExcel($datainicio, $datafim, $numcontrato){
 
@@ -512,12 +540,13 @@ class ClientesDAO {
     function retornaClientePorID($id_cliente) {
             $query = " 
                 SELECT 
+                    a.id,
                     a.clinome,
                     a.clicpf,
                     DATE_FORMAT(a.clinasc,'%d/%m/%Y') as clinasc,
-                    d.descricao as estadoCivil,
+                    a.cliestadocivil,
                     a.cliemail,
-                    c.descricao as sexo,
+                    a.clisexo,
                     a.clinomemae,
                     a.clitelefone,
                     a.clicelular,
@@ -526,17 +555,9 @@ class ClientesDAO {
                     a.cliendereco,
                     a.clibairro,
                     a.cliuf,
-                    a.clicidade,
-                    b.planome,
-                    a.cliplano
+                    a.clicidade
                 FROM
                     clientes a 
-                INNER JOIN
-                    plano b on a.cliplano = b.id
-                INNER JOIN
-                    sexo c on a.clisexo = c.id
-                INNER JOIN
-                    estadoCivil d on a.cliestadocivil = d.id
                 WHERE
                     a.id = '{$id_cliente}' and a.ativado = 1;
             ";
@@ -545,12 +566,13 @@ class ClientesDAO {
             $resultArray = mysqli_fetch_assoc($resultado);
 
             $cliente = new Clientes();
+            $cliente->id = $resultArray['id'];
             $cliente->clinome = $resultArray['clinome'];
             $cliente->clicpf = $resultArray['clicpf'];
             $cliente->clinasc = $resultArray['clinasc'];
-            $cliente->cliestadocivil = $resultArray['estadoCivil'];
+            $cliente->cliestadocivil = $resultArray['cliestadocivil'];
             $cliente->cliemail = $resultArray['cliemail'];
-            $cliente->clisexo = $resultArray['sexo'];
+            $cliente->clisexo = $resultArray['clisexo'];
             $cliente->clinomemae = $resultArray['clinomemae'];
             $cliente->clitelefone = $resultArray['clitelefone'];
             $cliente->clicep = $resultArray['clicep'];
@@ -560,8 +582,6 @@ class ClientesDAO {
             $cliente->cliuf = $resultArray['cliuf'];
             $cliente->clicidade = $resultArray['clicidade'];
             $cliente->cliendnumero = $resultArray['cliendnumero'];
-            $cliente->nomeplano = $resultArray['planome'];
-            $cliente->idplano = $resultArray['cliplano'];
             
         return $cliente;
 	}

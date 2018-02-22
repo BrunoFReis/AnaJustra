@@ -10,7 +10,26 @@
         	$id = $_GET["idDependente"];
             $dependenteDAO->removeDependentePorID($id);
             break;
-        }		
+        }
+        
+        case 'editar':{
+        
+            $dep = new Dependentes();
+            $dep->id = $_POST["id"];
+            $dep->depnome = $_POST["depnome"];
+            $dep->depnasc = $_POST["depnasc"];
+            $dep->depcpf = removerMascaras($_POST["depcpf"]);
+            $dep->depestadocivil = $_POST["depestadocivil"];
+            $dep->depsexo = $_POST["depsexo"];
+            $dep->depnomemae = $_POST["depnomemae"];
+            $dep->parentesco = $_POST["parentesco"];
+            $dep->sosdental = $_POST["sosdental"];
+            
+            $dependenteDAO->EditarDependente($dep);
+            header("Location: /amildental/admin/relatorios/dependentes.php");
+            break;
+        }
+        
 		default:{
 			break;
 		}

@@ -244,7 +244,7 @@
                                             <option value="16">Cunhado (a)</option>
                                             <option value="17">Filho (a) Invalido (a)</option>
                                             <option value="18">Filho (a) Universitário (a)</option>                                                
-                                            </select>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
                                         <select name="depsexo" id="depsexo" class="form-control" required>

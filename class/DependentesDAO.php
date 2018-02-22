@@ -29,6 +29,26 @@ class DependentesDAO {
 		return mysqli_query($this->conexao, $query);
 	}
 
+    function EditarDependente(Dependentes $dep){
+           
+            $query = "
+            UPDATE dependentes
+                SET
+                depnome = '{$dep->depnome}',
+                depsexo = '{$dep->depsexo}',
+                parentesco = '{$dep->parentesco}',
+                depestadocivil = '{$dep->depestadocivil}',
+                depcpf = '{$dep->depcpf}',
+                depnasc = STR_TO_DATE('{$dep->depnasc}','%d/%m/%Y'),
+                depnomemae = '{$dep->depnomemae}',
+                sosdental = '{$dep->sosdental}'
+                WHERE id = '{$dep->id}';
+                            ";                    
+            echo $query;        
+            $resultado = mysqli_query($this->conexao, $query);
+        }
+        
+        
     function listaDependentes() {
 		$ListDependente = array();
 		$query = " 
@@ -102,15 +122,15 @@ class DependentesDAO {
                         $resultado = mysqli_query($this->conexao, $query);
 
 		while($dep_array = mysqli_fetch_assoc($resultado)) {
-			$dep = new Dependentes();
-			$dep->depnome = $dep_array['depnome'];
-            $dep->parentesco = $dep_array['parentesco'];
-			$dep->depcpf = $dep_array['depcpf'];
-			$dep->depnasc = $dep_array['depnasc'];
-			$dep->depestadocivil = $dep_array['estadoCivil'];
-			$dep->depsexo = $dep_array['sexo'];
-			$dep->depnomemae = $dep_array['depnomemae'];
-			$dep->sosdental = $dep_array['sosdental'];
+                    $dep = new Dependentes();
+                    $dep->depnome = $dep_array['depnome'];
+                    $dep->parentesco = $dep_array['parentesco'];
+                    $dep->depcpf = $dep_array['depcpf'];
+                    $dep->depnasc = $dep_array['depnasc'];
+                    $dep->depestadocivil = $dep_array['estadoCivil'];
+                    $dep->depsexo = $dep_array['sexo'];
+                    $dep->depnomemae = $dep_array['depnomemae'];
+                    $dep->sosdental = $dep_array['sosdental'];
 			
             array_push($ListDependente, $dep);
 		}
@@ -135,5 +155,40 @@ class DependentesDAO {
 		";
 		return mysqli_query($this->conexao, $query);
 	}	
+        
+        function DependenteporIDdependente($id_dependente) {
+		
+            $query = " 
+                    SELECT 
+                        a.id,
+                        a.depnome,
+                        a.depcpf,
+                        DATE_FORMAT(a.depnasc,'%d/%m/%Y') as depnasc,
+                        a.depestadoCivil,
+                        a.depsexo,
+                        a.parentesco,
+                        a.depnomemae,
+                        a.sosdental
+                    FROM
+                        dependentes a
+                    WHERE
+                        a.id = '{$id_dependente}' and a.ativado = 1;
+		";
+                $resultado = mysqli_query($this->conexao, $query);
+                $resultArray = mysqli_fetch_assoc($resultado);
+
+		    $dep = new Dependentes();
+                    $dep->id = $resultArray['id'];
+                    $dep->depnome = $resultArray['depnome'];
+                    $dep->parentesco = $resultArray['parentesco'];
+                    $dep->depcpf = $resultArray['depcpf'];
+                    $dep->depnasc = $resultArray['depnasc'];
+                    $dep->depestadocivil = $resultArray['depestadoCivil'];
+                    $dep->depsexo = $resultArray['depsexo'];
+                    $dep->depnomemae = $resultArray['depnomemae'];
+                    $dep->sosdental = $resultArray['sosdental'];
+			
+           	return $dep;
+	}
 
 }

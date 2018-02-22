@@ -212,7 +212,7 @@ function ValidarDependente(){
 	var dpnome = document.getElementById('depnome').value;
 	var dpcpf = document.getElementById('depcpf').value;
 	var dpnascimento = document.getElementById('depnasc').value;
-	var dpparentesco = document.getElementById('depparentesco').value;
+	var dpparentesco = document.getElementById('parentesco').value;
 	var dpclisexo = document.getElementById('depsexo').value;
 	var dpcivil = document.getElementById('depestadocivil').value;
 	var dpsos = document.getElementById('sosdental').value;
@@ -326,8 +326,16 @@ function removeDependente(id){
 
 function EditarForm(){
 
+	if(validarTitular()){
+
+		$('#formEditar').submit();
+	}
+}
+
+function EditarFormDependente(){
+
 	if(ValidarDependente()){
-		
+
 		$('#formEditar').submit();
 	}
 }

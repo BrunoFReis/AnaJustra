@@ -54,7 +54,7 @@
                             <td><?=$dep->clinome?></td>
                             <td align="center"><?=$dep->depcpf?></td>
                             <td align="center"><?=$dep->data?></td>  
-                            <td align="center"><button class="btn btn-danger" onclick="excluirDependente(<?=$dep->id?>)" >X</button></td>
+                            <td align="center"><button style="margin-right: 5px;" class="btn btn-primary" onclick="EditarDependente(<?=$dep->id?>)" >Editar</button><button class="btn btn-danger" onclick="excluirDependente(<?=$dep->id?>)" >X</button></td>
                         </tr>
                     <?php
                       }
@@ -108,6 +108,10 @@
               window.location.href = "dependentes.php";
           });
         }
+    }
+    
+     function EditarDependente(id_dependente){
+       window.open("editarDependente.php?id_dependente="+id_dependente+"");
     }
  
 </script>

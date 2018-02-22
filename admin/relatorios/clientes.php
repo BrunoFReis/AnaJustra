@@ -114,7 +114,7 @@
     }
     
     function EditarCliente(id_cliente){
-       window.open("editarCliente.php?id_cliente="+id_cliente+"");
+       window.location.href = "editarCliente.php?id_cliente="+id_cliente;
     }
  
 </script>

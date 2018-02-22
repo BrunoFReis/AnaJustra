@@ -111,7 +111,7 @@
     }
     
      function EditarDependente(id_dependente){
-       window.open("editarDependente.php?id_dependente="+id_dependente+"");
+       window.location.href = "editarDependente.php?id_dependente="+id_dependente;
     }
  
 </script>

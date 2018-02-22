@@ -10,6 +10,14 @@
     
     $dep = $dependentesDAO->DependenteporIDdependente($dep_id); 
 ?>
+<style type="text/css">
+  input, select{
+    width: 100%;
+  }
+  label{
+    font-weight: bold;
+  }
+</style>
 
 <div class="main">
   <div class="main-inner">
@@ -30,17 +38,21 @@
                             <div class="widget-content" style="padding: 10px;">
                                  <h4 class="IconPessoa">Dados Pessoais</h4>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span4" style="padding: 5px;">
+                                <label>Nome:</label>
                                 <input type="text" name="depnome" id="depnome" class="form-control" value="<?=$dep->depnome?>" required>   
                                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$dep->id?>" required>  
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span2" style="padding: 5px;">
+                                <label>Data Nascimento:</label>
                                 <input type="text" name="depnasc" id="depnasc" class="form-control data" value="<?=$dep->depnasc?>" required>   
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span3" style="padding: 5px;">
+                                <label>CPF:</label>
                                 <input type="text" name="depcpf" id="depcpf" class="form-control cpf" value="<?=$dep->depcpf?>" required>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">                                
+                             <div class="widget-content span3" style="padding: 5px;">
+                                <label>Estado Civil:</label>                                
                                     <select name="depestadocivil" id="depestadocivil" class="form-control" required>
                                     <option value="1" <?php if ($dep->depestadocivil == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Solteiro</option>
                                     <option value="2" <?php if ($dep->depestadocivil == 2) { ?> selected="selected" <?php } else { ?> <?php } ?> >Casado</option>
@@ -50,13 +62,15 @@
                                     <option value="6" <?php if ($dep->depestadocivil == 6) { ?> selected="selected" <?php } else { ?> <?php } ?> >Outros</option>
                                 </select>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span2" style="padding: 5px;">
+                                <label>Sexo:</label>
                                 <select name="depsexo" id="depsexo" class="form-control" required>
                                     <option value="1" <?php if ($dep->depsexo == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Masculino</option>
                                     <option value="2" <?php if ($dep->depsexo == 2) { ?> selected="selected" <?php } else { ?> <?php } ?> >Feminino</option>                                        
                                 </select>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span2" style="padding: 5px;">
+                                <label>Parentesco:</label>
                                 <select name="parentesco" id="parentesco" class="form-control" required>
                                     <option value="1" <?php if ($dep->parentesco == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Pai / Mãe</option>
                                     <option value="2" <?php if ($dep->parentesco == 2) { ?> selected="selected" <?php } else { ?> <?php } ?> >Conjuge</option>
@@ -76,18 +90,20 @@
                                     <option value="18" <?php if ($dep->parentesco == 18) { ?> selected="selected" <?php } else { ?> <?php } ?> >Filho (a) Universitário (a)</option>                                                
                                 </select>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span2" style="padding: 5px;">
+                                <label>SOS Dental:</label>
                                 <select name="sosdental" id="sosdental" class="form-control" required>
                                     <option value="1" <?php if ($dep->sosdental == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Sim</option>
                                     <option value="0" <?php if ($dep->sosdental == 0) { ?> selected="selected" <?php } else { ?> <?php } ?> >Não</option>                                        
                                 </select>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span9" style="padding: 5px;">
+                                <label>Nome da mãe:</label>
                                 <input type="text" name="depnomemae" id="depnomemae" class="form-control" value="<?=$dep->depnomemae?>" required>
                             </div>
                              
-                            <div class="widget-content" style="padding: 5px;">
-                                <button type="submit" class="btn btn-success" onclick="EditarForm()">Confirmar</button>                                    
+                            <div class="widget-content span10" style="padding: 5px;">
+                                <button type="submit" class="btn btn-success" onclick="EditarForm()">Confirmar</button> 
                             </div>
                             
                     </div>                        

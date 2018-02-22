@@ -9,6 +9,14 @@
     $clientesDAO = new ClientesDAO($conexao);
     $cliente = $clientesDAO->retornaClientePorID($cli_id); 
 ?>
+<style type="text/css">
+  input, select{
+    width: 100%;
+  }
+  label{
+    font-weight: bold;
+  }
+</style>
 
 <div class="main">
   <div class="main-inner">
@@ -29,17 +37,25 @@
                             <div class="widget-content" style="padding: 10px;">
                                  <h4 class="IconPessoa">Dados Pessoais</h4>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+
+                            <div class="widget-content span5" style="padding: 5px;">
+                                <label>Nome:</label>
                                 <input type="text" name="clinome" id="clinome" class="form-control" value="<?=$cliente->clinome?>" required>   
                                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$cliente->id?>" required>  
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
-                                <input type="text" name="clinasc" id="clinasc" class="form-control data" value="<?=$cliente->clinasc?>" required>   
+
+                             <div class="widget-content span5" style="padding: 5px;">
+                                <label>Data Nascimento:</label>
+                                <input type="text" name="clinasc" id="clinasc" class="form-control data" value="<?=$cliente->clinasc?>" required>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+
+                             <div class="widget-content span5" style="padding: 5px;">
+                                <label>CPF:</label>
                                 <input type="text" name="clicpf" id="clicpf" class="form-control cpf" value="<?=$cliente->clicpf?>" required>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">                                
+
+                             <div class="widget-content span5" style="padding: 5px;">
+                                <label>Estado Civil:</label>                            
                                 <select name="cliestadocivil" id="cliestadocivil" class="form-control" required>
                                     <option value="1" <?php if ($cliente->cliestadocivil == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Solteiro</option>
                                     <option value="2" <?php if ($cliente->cliestadocivil == 2) { ?> selected="selected" <?php } else { ?> <?php } ?> >Casado</option>
@@ -49,34 +65,41 @@
                                     <option value="6" <?php if ($cliente->cliestadocivil == 6) { ?> selected="selected" <?php } else { ?> <?php } ?> >Outros</option>
                                 </select>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span5" style="padding: 5px;">
+                                <label>Sexo:</label>
                                 <select name="clisexo" id="clisexo" class="form-control" required>
                                     <option value="1" <?php if ($cliente->clisexo == 1) { ?> selected="selected" <?php } else { ?> <?php } ?> >Masculino</option>
                                     <option value="2" <?php if ($cliente->clisexo == 2) { ?> selected="selected" <?php } else { ?> <?php } ?> >Feminino</option>                                        
                                 </select>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span5" style="padding: 5px;">
+                                <label>Nome da mãe:</label>
                                 <input type="text" name="clinomemae" id="clinomemae" class="form-control" value="<?=$cliente->clinomemae?>" required>
                             </div>
                              <div class="widget-content" style="padding: 10px;">
                                 <h4 class="IconContato">Contato</h4>  
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span4" style="padding: 5px;">
+                                <label>Email:</label>
+                                <input type="email" name="cliemail" id="cliemail" class="form-control" value="<?=$cliente->cliemail?>" required>
+                            </div>                            
+                             <div class="widget-content span3" style="padding: 5px;">
+                                <label>Tel. Celular:</label>
                                 <input type="text" name="clicelular" id="clicelular" class="form-control celular" value="<?=$cliente->clicelular?>" required>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span3" style="padding: 5px;">
+                                <label>Tel. Fixo:</label>
                                 <input type="text" name="clitelefone" id="clitelefone" class="form-control telefone" value="<?=$cliente->clitelefone?>" required>
-                            </div>
-                             <div class="widget-content" style="padding: 5px;">
-                                <input type="email" name="cliemail" id="cliemail" class="form-control" value="<?=$cliente->cliemail?>" required>
                             </div>
                              <div class="widget-content" style="padding: 10px;">
                                 <h4 class="IconEndereco">Endereço</h4>          
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span2" style="padding: 5px;">
+                                <label>CEP:</label>
                                 <input type="text" name="clicep" id="clicep"  class="form-control cep" value="<?=$cliente->clicep?>" required>
                             </div>
-                             <div class="widget-content" style="padding: 5px;">
+                             <div class="widget-content span1" style="padding: 5px;">
+                                <label>UF:</label>
                                 <select name="cliuf" class="form-control" id="cliuf" required>
                                     <option value="AC" <?php if ($cliente->cliuf == "AC") { ?> selected="selected" <?php } else { ?> <?php } ?>>AC</option>
                                     <option value="AL" <?php if ($cliente->cliuf == "AL") { ?> selected="selected" <?php } else { ?> <?php } ?>>AL</option>
@@ -107,19 +130,23 @@
                                     <option value="TO" <?php if ($cliente->cliuf == "TO") { ?> selected="selected" <?php } else { ?> <?php } ?>>TO</option>
                                 </select>
                             </div> 
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span4" style="padding: 5px;">
+                                <label>Cidade:</label>
                                 <input type="text" name="clicidade" id="clicidade" class="form-control" value="<?=$cliente->clicidade?>" required>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span3" style="padding: 5px;">
+                                <label>Bairro:</label>
                                 <input type="text" name="clibairro" id="clibairro" class="form-control" value="<?=$cliente->clibairro?>" required>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span8" style="padding: 5px;">
+                                <label>Endereço:</label>
                                 <input type="text" name="cliendereco" id="cliendereco" class="form-control" value="<?=$cliente->cliendereco?>" required>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span2" style="padding: 5px;">
+                                <label>Número:</label>
                                 <input type="text" name="cliendnumero" id="cliendnumero" class="form-control" value="<?=$cliente->cliendnumero?>" required>
                             </div>
-                            <div class="widget-content" style="padding: 5px;">
+                            <div class="widget-content span5" style="padding: 5px;">
                                 <button type="submit" class="btn btn-success" onclick="EditarForm()">Confirmar</button>                                    
                             </div>
                             

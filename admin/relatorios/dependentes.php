@@ -26,7 +26,7 @@
                         <tr>
                             <th>#</th>
                             <th class="text-left">Nome</th>
-                            <th class="text-left">Cliente</th>
+                            <th class="text-left">Titular</th>
                             <th>CPF</th>
                             <th>Data</th>
                             <th>Ação</th>
@@ -36,7 +36,7 @@
                         <tr>
                             <th>#</th>
                             <th class="text-left">Nome</th>
-                            <th class="text-left">Cliente</th>
+                            <th class="text-left">Titular</th>
                             <th>CPF</th>
                             <th>Data</th>  
                             <th>Ação</th>
@@ -106,7 +106,7 @@
           })
           .done(function(data) {
               window.location.href = "dependentes.php";
-          });
+          });s
         }
     }
     

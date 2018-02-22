@@ -18,7 +18,7 @@
             $dep->id = $_POST["id"];
             $dep->depnome = $_POST["depnome"];
             $dep->depnasc = $_POST["depnasc"];
-            $dep->depcpf = removerMascaras($_POST["depcpf"]);
+            $dep->depcpf = $_POST["depcpf"];
             $dep->depestadocivil = $_POST["depestadocivil"];
             $dep->depsexo = $_POST["depsexo"];
             $dep->depnomemae = $_POST["depnomemae"];

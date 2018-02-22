@@ -63,7 +63,7 @@ class DependentesDAO {
                 b.descricao as parentesco,
                 a.depnomemae,
                 a.sosdental,
-                DATE_FORMAT(a.data,'%d/%m/%Y - %H:%i:%s') as data
+                DATE_FORMAT(a.data,'%d/%m/%Y') as data
             FROM dependentes a 
             INNER JOIN clientes e on e.id = a.cliente and e.ativado = 1
             INNER JOIN parentesco b on a.parentesco = b.id
@@ -76,18 +76,18 @@ class DependentesDAO {
         $resultado = mysqli_query($this->conexao, $query);
 
 		while($dep_array = mysqli_fetch_assoc($resultado)) {
-			$dep = new Dependentes();
-			$dep->id = $dep_array['id'];
-			$dep->depnome = $dep_array['depnome'];
-			$dep->clinome = $dep_array['clinome'];
-            $dep->parentesco = $dep_array['parentesco'];
-			$dep->depcpf = $dep_array['depcpf'];
-			$dep->depnasc = $dep_array['depnasc'];
-			$dep->depestadocivil = $dep_array['estadoCivil'];
-			$dep->depsexo = $dep_array['sexo'];
-			$dep->depnomemae = $dep_array['depnomemae'];
-			$dep->sosdental = $dep_array['sosdental'];
-			$dep->data = $dep_array['data'];
+                $dep = new Dependentes();
+                $dep->id = $dep_array['id'];
+                $dep->depnome = $dep_array['depnome'];
+                $dep->clinome = $dep_array['clinome'];
+                $dep->parentesco = $dep_array['parentesco'];
+                $dep->depcpf = $dep_array['depcpf'];
+                $dep->depnasc = $dep_array['depnasc'];
+                $dep->depestadocivil = $dep_array['estadoCivil'];
+                $dep->depsexo = $dep_array['sexo'];
+                $dep->depnomemae = $dep_array['depnomemae'];
+                $dep->sosdental = $dep_array['sosdental'];
+                $dep->data = $dep_array['data'];
 			
             array_push($ListDependente, $dep);
 		}

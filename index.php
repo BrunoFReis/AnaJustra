@@ -326,7 +326,7 @@
                             <div  class="">
                                 <div class="">
                                     <div class="col-md-12 form-check">
-                                        <input type="radio" id="plano1" name="plano" value="1" class="form-check-input">
+                                        <input type="radio" id="plano1" name="plano" value="19157" class="form-check-input">
                                         <label for="plano1" class="form-check-label">
                                             Dental 200 R - Rol (ANS) + procedimentos extras + documentação ortodôntica básica - R$ 17,68
                                         </label>
@@ -336,7 +336,7 @@
                             <div  class="">
                                 <div class="">
                                     <div class="col-md-12 form-check">
-                                        <input type="radio" id="plano2" name="plano" value="2" class="form-check-input">
+                                        <input type="radio" id="plano2" name="plano" value="11198" class="form-check-input">
                                         <label for="plano2" class="form-check-label">Dental 300 R - Rol (ANS) + procedimentos extras + ortodontia - R$ 75,58</label>
                                     </div>
                                 </div>
@@ -344,7 +344,7 @@
                             <div  class="">
                                 <div class="">
                                     <div class="col-md-12 form-check">
-                                        <input type="radio" id="plano3" name="plano" value="3" class="form-check-input">
+                                        <input type="radio" id="plano3" name="plano" value="16176" class="form-check-input">
                                         <label for="plano3" class="form-check-label">
                                             Dental 500 R - Rol (ANS) + procedimentos extras + prótese de resina e porcelana - R$ 68,74
                                         </label>
@@ -354,7 +354,7 @@
                             <div  class="">
                                 <div class="">
                                     <div class="col-md-12 form-check">
-                                         <input type="radio" id="plano4" name="plano" value="4" class="form-check-input">
+                                         <input type="radio" id="plano4" name="plano" value="18123" class="form-check-input">
                                          <label for="plano4" class="form-check-label">Dental 700 R - Rol (ANS) + procedimentos extras + próteses de resina e porcelana + ortodontia + clareamento convencional - R$ 108,14
                                          <hr>
                                     </div>

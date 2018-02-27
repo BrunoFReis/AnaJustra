@@ -29,7 +29,7 @@ and open the template in the editor.
             $clientesDAO = new ClientesDAO($conexao);
             $dependentesDAO = new DependentesDAO($conexao);
 
-            $cliente = $clientesDAO->retornaClientePorID($cli_id);    
+            $cliente = $clientesDAO->retornaClientePorIDContrato($cli_id);    
 ?>
         <div class="container">  
             <table width="100%" style="margin-bottom: 10px; margin-top:10px;">
@@ -164,25 +164,25 @@ and open the template in the editor.
                     <td align="left"><strong>DENTAL 200 R</strong> </td>
                     <td>ROL (ANS) + PROCEDIMENTOS EXTRAS + DOCUMENTAÇÃO ORTODÔNTICA BÁSICA</td>
                     <td align="left"><strong>R$ 17,68</strong></td>
-                    <td align="center"><strong><?php if ($cliente->idplano == 1){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   )<?php } ?></strong></td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 19157){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   )<?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="left"><strong>DENTAL 300 R</strong></td>
                     <td>ROL (ANS) + PROCEDIMENTOS EXTRAS + ORTODONTIA</td>
                     <td align="left"><strong>R$ 75,58</strong></td>
-                    <td align="center"><strong><?php if ($cliente->idplano == 2){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 11198){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="left"><strong>DENTAL 500 R</strong></td>
                     <td>ROL (ANS) + PROCEDIMENTOS EXTRAS + PRÓTESE DE RESINA E PORCELANA</td>
                     <td align="left"><strong>R$ 68,74</strong></td>
-                    <td align="center"><strong><?php if ($cliente->idplano == 3){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 16176){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="left"><strong>DENTAL 700 R</strong></td>
                     <td>ROL (ANS) + PROCEDIMENTOS EXTRAS + PRÓTESES DE RESINA E PORCELANA + ORTODONTIA + CLAREAMENTO CONVENCIONAL</td>
                     <td align="left"><strong>R$ 108,14</strong></td>
-                    <td align="center"><strong><?php if ($cliente->idplano == 4){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
+                    <td align="center"><strong><?php if ($cliente->idplano == 18123){ ?> ( <strong style="color:black">X</strong> ) <?php } else{ ?> (   ) <?php } ?></strong></td>
                 </tr>
                 <tr>
                     <td align="left"><strong>SOS DENTAL</strong></td>

@@ -405,6 +405,7 @@
         }
         
        for (i; i<string.length;i++){
+           
             if((string[i].length <= 1) &&(tamanho.length>1)){
                x=1;
             }           

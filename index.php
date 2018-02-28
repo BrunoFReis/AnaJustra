@@ -58,7 +58,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="clinome" id="clinome" class="form-control" placeholder="Nome do Titular" required>
+                                            <input type="text" name="clinome" id="clinome" class="form-control" onblur="confereNome(this)" placeholder="Nome do Titular" required>
                                         </div>
                                     </div>
                                 </div>     
@@ -97,7 +97,7 @@
                                  <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="clinomemae" id="clinomemae" class="form-control" placeholder="Nome completo mãe" required>
+                                            <input type="text" name="clinomemae" id="clinomemae" onblur="confereNome(this)" class="form-control" placeholder="Nome completo mãe" required>
                                         </div>                                            
                                     </div>
                                 </div>  
@@ -209,7 +209,7 @@
                             <div  class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="depnome" id="depnome" class="form-control" placeholder="Nome Completo do Dependente" required>
+                                        <input type="text" name="depnome" id="depnome" class="form-control" onblur="confereNome(this)" placeholder="Nome Completo do Dependente" required>
                                     </div>
                                 </div>
                             </div>                        
@@ -280,7 +280,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="text" name="depnomemae" id="depnomemae" class="form-control" placeholder="Nome completo mãe" required>
+                                        <input type="text" name="depnomemae" id="depnomemae" class="form-control" onblur="confereNome(this)" placeholder="Nome completo mãe" required>
                                     </div>                                        
                                 </div>
                             </div>
@@ -389,3 +389,31 @@
     require_once($_SERVER['DOCUMENT_ROOT']."/amildental/template/rodape.php");
 ?>
 
+<script>
+    
+    function confereNome(obj){	
+        var nome = obj.value;
+        var id = obj.id;
+        var ponto = nome.split(".");
+        var string = nome.split(" ");
+        var tamanho = nome.split("");
+        var i = 0;
+        var x = 0
+        
+        if((ponto.length>1)&&(tamanho.length>1)){
+            x=1;
+        }
+        
+       for (i; i<string.length;i++){
+            if((string[i].length <= 1) &&(tamanho.length>1)){
+               x=1;
+            }           
+        } 
+        
+        if(x==1){
+            alert("O nome não pode ser Abreviado");
+            document.getElementById(id).value = "";
+        }
+    }
+     
+</script>

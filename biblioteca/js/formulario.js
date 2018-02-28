@@ -407,3 +407,18 @@ function ConfereCPF(){
 	}
 
 }
+
+function confereNome(){
+	var nome = document.getElementById('clinome').value;
+	var string = nome.split(/\s+/);
+
+	for (var i; i<string.length;i++){
+		console.log(string(i));
+
+		if(string.length <= 1){
+
+			alert("O nome do Titular não pode ser Abreviado");
+		}
+	}
+
+}

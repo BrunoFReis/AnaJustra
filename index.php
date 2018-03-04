@@ -192,7 +192,22 @@
                                             <input type="text" name="cliendcomp" id="cliendcomp" class="form-control" placeholder="Complemento" required>
                                         </div>
                                     </div>
-                                </div>                     
+                                </div>
+                                <h4 class="IconContato">Dados Empresa</h4>                       
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="clinummatricula" id="clinummatricula" class="form-control" placeholder="Número Matrícula" required>
+                                        </div>
+                                    </div>
+                                </div>                       
+                                <div class="form-group">
+                                    <div class="row">                                                                        
+                                        <div class="col-md-12">
+                                            <input type="text" name="clidataadmissao" id="clidataadmissao" class="form-control data" placeholder="Data Admissão" required>
+                                        </div>
+                                    </div>
+                                </div>                                           
                             </div>
                         </div>                        
                     <div class="form-group">
@@ -405,7 +420,6 @@
         }
         
        for (i; i<string.length;i++){
-           
             if((string[i].length <= 1) &&(tamanho.length>1)){
                x=1;
             }           

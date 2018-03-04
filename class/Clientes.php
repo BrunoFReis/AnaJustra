@@ -18,6 +18,8 @@ Class Clientes {
     public $clitelefone;
     public $clicelular;
     public $cliemail;
+    public $clinummatricula;
+    public $clidataadmissao;
     public $nomeplano;
     public $idplano;
     public $qtdDependentes;

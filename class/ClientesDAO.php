@@ -10,7 +10,7 @@ class ClientesDAO {
 
 	function insereCliente(Clientes $cliente, $dependentes){
 		$query = "
-			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail,cliplano,clicelular,clifinalizado,data)
+			INSERT INTO clientes (clinome, clinasc, clicpf, cliestadocivil, clisexo, clinomemae, cliendereco, clibairro, clicidade, cliuf, clicep, cliendnumero, clitelefone, cliemail, clinummatricula, clidataAdmissao, cliplano,clicelular,clifinalizado,data)
 			VALUES (
 				'{$cliente->clinome}', 
 				 STR_TO_DATE('{$cliente->clinasc}','%d/%m/%Y'), 
@@ -26,6 +26,8 @@ class ClientesDAO {
 				'{$cliente->cliendnumero}', 
 				'{$cliente->clitelefone}', 
 				'{$cliente->cliemail}',
+				'{$cliente->clinummatricula}',
+				'{$cliente->clidataadmissao}',
                 '{$cliente->idplano}',
                 '{$cliente->clicelular}',
                  0,
@@ -129,6 +131,7 @@ class ClientesDAO {
 		";
                 
 		$resultado = mysqli_query($this->conexao, $query);
+		echo mysqli_error($this->conexao);
 
 		while($rs = mysqli_fetch_assoc($resultado)) {
 
@@ -172,7 +175,7 @@ class ClientesDAO {
 			$cDTO->num_dv_agencia_dcc = $rs['num_dv_agencia_dcc'];
 			$cDTO->num_conta_corrente_reemb = $rs['num_conta_corrente_reemb'];
 			$cDTO->num_dv_cc_reemb = $rs['num_dv_cc_reemb'];
-			$cDTO->data_movimentacao = removerMascaras($rs['data_movimentacao']);
+			$cDTO->data_movimentacao = $rs['data_movimentacao'];
 			$cDTO->cod_motivo_exclusao = $rs['cod_motivo_exclusao'];
 			$cDTO->cod_empresa_nova = $rs['cod_empresa_nova'];
 			$cDTO->num_matric_empresa_novo = $rs['num_matric_empresa_novo'];

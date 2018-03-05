@@ -14,7 +14,7 @@
 			$cliente->cliestadocivil = $_POST["cliestadocivil"];
 			$cliente->clisexo = $_POST["clisexo"];
 			$cliente->clinomemae = $_POST["clinomemae"];
-			$cliente->cliendereco = $_POST["cliendereco"].$_POST["cliendcomp"];
+			$cliente->cliendereco = $_POST["cliendereco"]." ".$_POST["cliendcomp"];
 			$cliente->clibairro = $_POST["clibairro"];
 			$cliente->clicidade = $_POST["clicidade"];
 			$cliente->cliuf = $_POST["cliuf"];
@@ -25,7 +25,7 @@
 			$cliente->cliemail = $_POST["cliemail"];
 			$cliente->clinummatricula = $_POST["clinummatricula"];
 			$cliente->clidataadmissao = $_POST["clidataadmissao"];
-            $cliente->idplano = $_POST["plano"];
+                        $cliente->idplano = $_POST["plano"];
 
 			$clientesDAO->insereCliente($cliente, convertArrayDependentes($_POST["dependentes"]));
 

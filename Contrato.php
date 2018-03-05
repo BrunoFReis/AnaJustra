@@ -66,9 +66,9 @@ and open the template in the editor.
                     </td>
                 </tr>
                 <tr>
-                    <td><strong> Nº da Matrícula: </strong></td>
+                    <td><strong> Nº da Matrícula:</strong> <strong style="color:black"><?=$cliente->clinummatricula?></strong></td>
                     <td><strong> Unidade: </strong></td>
-                    <td><strong> Data Admissão: </strong></td>
+                    <td><strong> Data Admissão: </strong> <strong style="color:black"><?=$cliente->clidataadmissao?></strong></td>
                 </tr>
                 <tr>
                     <td colspan="3"><strong> Nome Completo:</strong> <strong style="color:black"><?=$cliente->clinome?></strong> </td>

@@ -193,7 +193,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="IconContato">Dados Empresa</h4>                       
+                                <h4 class="IconPessoa1">Dados Empresa</h4>                       
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-12">

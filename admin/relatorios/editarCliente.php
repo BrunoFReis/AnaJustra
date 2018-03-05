@@ -146,8 +146,23 @@
                                 <label>Número:</label>
                                 <input type="text" name="cliendnumero" id="cliendnumero" class="form-control" value="<?=$cliente->cliendnumero?>" required>
                             </div>
+                            <div class="widget-content" style="padding: 10px;">
+                                 <h4 class="IconPessoa">Dados Empresa</h4>
+                            </div>
                             <div class="widget-content span5" style="padding: 5px;">
-                                <button type="submit" class="btn btn-success" onclick="EditarForm()">Confirmar</button>                                    
+                                <label>Data Admissão:</label>
+                                <input type="text" name="clidataadmissao" id="clidataadmissao" class="form-control data" value="<?=$cliente->clidataadmissao?>" required>
+                            </div>
+                            <div class="widget-content span5" style="padding: 5px;">
+                                <label>Matrícula Empresa:</label>
+                                <input type="text" name="clinummatricula" id="clinummatricula" class="form-control" value="<?=$cliente->clinummatricula?>" required>
+                            </div>
+                            <div class="widget-content span4" style="padding: 5px;">
+                                
+                            </div>
+                        
+                            <div class="widget-content span5" style="padding-top: 15px; margin-left: 70px;">
+                                <button type="button" class="btn btn-success" onclick="EditarForm()">Confirmar</button>                                    
                             </div>
                             
                     </div>                        
@@ -172,6 +187,7 @@
 ?>
 <script src="/amildental/admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="/amildental/admin/js/edicao.js" type="text/javascript"></script>
+
 
 <script>
     $(document).ready(function() {
@@ -205,5 +221,14 @@
     function excluirCliente(id_cliente){
        window.open("editarCliente.php?id_cliente="+id_cliente+"");
     }
+    
+    $(document).ready(function(){
+        $(".data").mask("99/99/9999");
+	$(".cpf").mask("999.999.999-99");
+	$(".celular").mask("(99)99999-9999");
+	$(".telefone").mask("(99)9999-9999");
+	$(".cep").mask("99999-999");
+	$('[data-toggle="tooltip"]').tooltip();        
+     });
  
 </script>

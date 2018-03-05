@@ -72,7 +72,7 @@
 <script src="/amildental/admin/js/jquery-1.7.2.min.js"></script> 
 <script src="/amildental/admin/js/bootstrap.js"></script>
 <script src="/amildental/admin/js/jquery-ui.min.js"></script>
- 
+<script type="text/javascript" src="/amildental/biblioteca/js/jquery.mask.js"></script> 
 <script src="/amildental/admin/js/base.js"></script> 
 <script type="text/javascript">
     jQuery(function($){

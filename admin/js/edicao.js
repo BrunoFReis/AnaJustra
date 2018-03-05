@@ -82,11 +82,18 @@ function validarTitular(){
 	var bairro = document.getElementById('clibairro').value;
 	var logradouro = document.getElementById('cliendereco').value;
 	var numero =  document.getElementById('cliendnumero').value;
-	var complemento = document.getElementById('cliendcomp').value;
+	var data_admissao = document.getElementById('clidataadmissao').value;
+	var matricula = document.getElementById('clinummatricula').value;
 
 	if (nome == "") {
 		alert('Preencha o campo com seu nome');
 		document.getElementById("clinome").focus();
+		return false;
+	}
+
+	if (matricula == "") {
+		alert('Preencha o campo com a sua matrícula');
+		document.getElementById("clinummatricula").focus();
 		return false;
 	}
 
@@ -99,6 +106,18 @@ function validarTitular(){
 	if (data.length < 8) {
 		alert('Data Inválida');
 		document.getElementById("clinasc").focus();
+		return false;
+	}
+
+	if (data_admissao == "") {
+		alert('Preencha o campo com a sua data de Admissão');
+		document.getElementById("clidataadmissao").focus();
+		return false;
+	}	
+
+	if (data_admissao.length < 8) {
+		alert('Data Inválida');
+		document.getElementById("clidataadmissao").focus();
 		return false;
 	}
 
@@ -198,12 +217,7 @@ function validarTitular(){
 		return false;
 	}
 
-	if (complemento == "") {
-		alert('Preencha o campo com o complemento do seu endereço');
-		document.getElementById("cliendcomp").focus();
-		return false;
-	}
-
+	
 	return true;
 
 }

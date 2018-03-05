@@ -1,4 +1,4 @@
-.IconEndereco, .IconPessoais2, .IconPessoa, .IconContato, .IconDependente, .IconPlano, .IconCard {
+.IconEndereco, .IconPessoais2, .IconPessoa, .IconContato, .IconDependente, .IconPlano, .IconCard, .IconPessoa1 {
   background: url(../img/icon-endereco.png) no-repeat;
   padding-left: 30px;
   font-size: 16px;
@@ -12,6 +12,12 @@
 .IconPessoa{
 	background:url(../img/icon-user.png) no-repeat;
 	margin-top:0;	
+}
+
+.IconPessoa1{
+	background:url(../img/icon-user.png) no-repeat 0 18px;
+	padding-top: 28px;
+ 	height: 47px; 
 }
 
 .IconContato {

@@ -121,10 +121,10 @@
               </div> <!-- /controls -->       
             </div> <!-- /control-group -->
 
-            <div class="control-group">                     
+            <div class="control-group" style="display:none">                     
               <label class="control-label" for="firstname">Número do Contrato</label>
               <div class="controls">
-                <input type="text" id="numcontrato" name="numcontrato" placeholder="Ex: 009123123" required>
+                <input type="text" id="numcontrato" name="numcontrato" value="04435721000185" placeholder="Ex: 009123123" required>
               </div> <!-- /controls -->       
             </div> <!-- /control-group -->              
       </div>    

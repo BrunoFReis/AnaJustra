@@ -60,7 +60,7 @@ echo $html;
 				<td>NUM_DV_AGENCIA_DCC</td>
 				<td>NUM_CONTA_CORRENTE_REEMB</td>
 				<td>NUM_DV_CC_REEMB</td>
-				<td>DATA_MOVIMENTAÇÃO</td>
+				<td>DATA_MOVIMENTAï¿½ï¿½O</td>
 				<td>COD_MOTIVO_EXCLUSAO</td>
 				<td>COD_EMPRESA_NOVA</td>
 				<td>NUM_MATRIC_EMPRESA_NOVO</td>
@@ -111,13 +111,13 @@ echo $html;
         	foreach ($clientesDAO->listaClientesExcel($datainicio, $datafim, $numcontrato) as $cDTO) {
         ?>
             <tr>
-				<td title="NUM_CONTRATO/CNPJ"><?=$cDTO->num_contrato?></td>
+				<td title="NUM_CONTRATO/CNPJ">&nbsp;<?=$cDTO->num_contrato?></td>
 				<td title="COD_TIPO_OPERACAO"><?=$cDTO->cod_tipo_operacao?></td>
 				<td title="TIPO_ASSOCIADO"><?=$cDTO->tipo_associado?></td>
 				<td title="NUM_ASSOCIADO"><?=$cDTO->num_associado?></td>
-				<td title="NUM_MATRIC_EMPRESA"><?=$cDTO->num_matric_empresa?></td>
+				<td title="NUM_MATRIC_EMPRESA">&nbsp;<?=$cDTO->num_matric_empresa?></td>
 				<td title="NUM_ASSSOCIADO_TIT"><?=$cDTO->num_asssociado_tit?></td>
-				<td title="NUM_MATRIC_EMPRESA_TIT"><?=$cDTO->num_matric_empresa_tit?></td>
+				<td title="NUM_MATRIC_EMPRESA_TIT">&nbsp;<?=$cDTO->num_matric_empresa_tit?></td>
 				<td title="NUM_CPF">&nbsp;<?=$cDTO->num_cpf?></td>
 				<td title="NUM_PIS"><?=$cDTO->num_pis?></td>
 				<td title="NOME_ASSOCIADO"><?=$cliente->clinome?><?=$cDTO->nome_associado?></td>
@@ -128,7 +128,7 @@ echo $html;
 				<td title="COD_DEPENDENCIA"><?=$cDTO->cod_dependencia?></td>
 				<td title="COD_PLANO"><?=$cDTO->cod_plano?></td>
 				<td title="NOME_MAE"><?=$cDTO->nome_mae?></td>
-				<td title="DATA_ADMISSAO"><?=$cDTO->data_admissao?></td>
+				<td title="DATA_ADMISSAO">&nbsp;<?=$cDTO->data_admissao?></td>
 				<td title="NOME_CARGO"><?=$cDTO->nome_cargo?></td>
 				<td title="NOM_LOTACAO"><?=$cDTO->nom_lotacao?></td>
 				<td title="NOM_LOCAL_TRABALHO"><?=$cDTO->nom_local_trabalho?></td>
@@ -150,15 +150,15 @@ echo $html;
 				<td title="NUM_DV_AGENCIA_DCC"><?=$cDTO->num_dv_agencia_dcc?></td>
 				<td title="NUM_CONTA_CORRENTE_REEMB"><?=$cDTO->num_conta_corrente_reemb?></td>
 				<td title="NUM_DV_CC_REEMB"><?=$cDTO->num_dv_cc_reemb?></td>
-				<td title="DATA_MOVIMENTAÇÃO"></td>
+				<td title="DATA_MOVIMENTAï¿½ï¿½O"></td>
 				<td title="COD_MOTIVO_EXCLUSAO"><?=$cDTO->cod_motivo_exclusao?></td>
 				<td title="COD_EMPRESA_NOVA"><?=$cDTO->cod_empresa_nova?></td>
 				<td title="NUM_MATRIC_EMPRESA_NOVO"><?=$cDTO->num_matric_empresa_novo?></td>
 				<td title="IND_CONTRIBUTARIO"><?=$cDTO->ind_contributario?></td>
 				<td title="DATA_ADOCAO"><?=$cDTO->data_adocao?></td>
 				<td title="COD_OPCIONAL_1"><?=$cDTO->cod_opcional_1?></td>
-				<td title="DT_INICIAL_OPCIONAL_1"><?=$cDTO->dt_inicial_opcional_1?></td>
-				<td title="DT_FINAL_OPCIONAL_1"><?=$cDTO->dt_final_opcional_1?></td>
+				<td title="DT_INICIAL_OPCIONAL_1">&nbsp;<?=$cDTO->dt_inicial_opcional_1?></td>
+				<td title="DT_FINAL_OPCIONAL_1">&nbsp;<?=$cDTO->dt_final_opcional_1?></td>
 				<td title="COD_OPCIONAL_2"><?=$cDTO->cod_opcional_2?></td>
 				<td title="DT_INICIAL_OPCIONAL_2"><?=$cDTO->dt_inicial_opcional_2?></td>
 				<td title="DT_FINAL_OPCIONAL_2"><?=$cDTO->dt_final_opcional_2?></td>

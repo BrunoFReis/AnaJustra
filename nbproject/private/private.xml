@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/amildental/biblioteca/js/formulario.js</file>
             <file>file:/C:/xampp/htdocs/amildental/class/ClientesDAO.php</file>
             <file>file:/C:/xampp/htdocs/amildental/class/Clientes.php</file>
             <file>file:/C:/xampp/htdocs/amildental/index.php</file>
-            <file>file:/C:/xampp/htdocs/amildental/admin/analise.php</file>
             <file>file:/C:/xampp/htdocs/amildental/class/include_global.php</file>
-            <file>file:/C:/xampp/htdocs/amildental/concluido.php</file>
+            <file>file:/C:/xampp/htdocs/amildental/admin/relatorios/clientes.php</file>
             <file>file:/C:/xampp/htdocs/amildental/Contrato.php</file>
+            <file>file:/C:/xampp/htdocs/amildental/concluido.php</file>
+            <file>file:/C:/xampp/htdocs/amildental/template/rodape.php</file>
             <file>file:/C:/xampp/htdocs/amildental/views/cliente-banco.php</file>
         </group>
     </open-files>

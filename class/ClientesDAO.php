@@ -52,8 +52,7 @@ class ClientesDAO {
 	}
         
         function EditarCliente(Clientes $cliente){
-           
-            
+                       
             $query = "
             UPDATE clientes
                     SET
@@ -71,7 +70,9 @@ class ClientesDAO {
                     cliendnumero = '{$cliente->cliendnumero}',
                     clitelefone = '{$cliente->clitelefone}',
                     clicelular = '{$cliente->clicelular}',
-                    cliemail = '{$cliente->cliemail}'
+                    cliemail = '{$cliente->cliemail}',
+                    clinummatricula = '{$cliente->clinummatricula}',
+                    clidataAdmissao = '{$cliente->clidataadmissao}'
                     WHERE id = '{$cliente->id}';
                             ";
                     
@@ -153,7 +154,7 @@ class ClientesDAO {
 			$cDTO->cod_dependencia = $rs['cod_dependencia'];
 			$cDTO->cod_plano = $rs['cod_plano'];
 			$cDTO->nome_mae = $rs['nome_mae'];
-			$cDTO->data_admissao = $rs['data_admissao'];
+			$cDTO->data_admissao = removerMascaras($rs['data_admissao']);
 			$cDTO->nome_cargo = $rs['nome_cargo'];
 			$cDTO->nom_lotacao = $rs['nom_lotacao'];
 			$cDTO->nom_local_trabalho = $rs['nom_local_trabalho'];
@@ -560,6 +561,8 @@ class ClientesDAO {
                     a.clibairro,
                     a.cliuf,
                     a.clicidade,
+                    a.clinummatricula,
+                    a.clidataAdmissao,
                     b.planome,
                     a.cliplano
                 FROM
@@ -597,6 +600,8 @@ class ClientesDAO {
             $cliente->cliendnumero = $resultArray['cliendnumero'];
             $cliente->nomeplano = $resultArray['planome'];
             $cliente->idplano = $resultArray['cliplano'];
+            $cliente->clinummatricula = $resultArray['clinummatricula'];
+            $cliente->clidataadmissao = $resultArray['clidataAdmissao'];
             
             return $cliente;
 	}
@@ -619,7 +624,9 @@ class ClientesDAO {
                     a.cliendereco,
                     a.clibairro,
                     a.cliuf,
-                    a.clicidade
+                    a.clicidade,
+                    a.clinummatricula,
+                    a.clidataAdmissao
                 FROM
                     clientes a 
                 WHERE
@@ -646,6 +653,8 @@ class ClientesDAO {
             $cliente->cliuf = $resultArray['cliuf'];
             $cliente->clicidade = $resultArray['clicidade'];
             $cliente->cliendnumero = $resultArray['cliendnumero'];
+            $cliente->clinummatricula = $resultArray['clinummatricula'];
+            $cliente->clidataadmissao = $resultArray['clidataAdmissao'];
             
         return $cliente;
 	}

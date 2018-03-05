@@ -70,6 +70,8 @@
             $cliente->clitelefone = $_POST["clitelefone"];
             $cliente->clicelular = $_POST["clicelular"];
             $cliente->cliemail = $_POST["cliemail"];
+            $cliente->clinummatricula = $_POST["clinummatricula"];
+            $cliente->clidataadmissao = $_POST["clidataadmissao"];
 
             $clientesDAO->EditarCliente($cliente);
 
